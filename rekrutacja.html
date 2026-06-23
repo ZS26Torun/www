@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Informacje o rekrutacji do wszystkich oddziałów szkoły – Zespół Szkół Nr 26 w Toruniu.">
+  <meta name="theme-color" content="#C62828">
+  <title>Rekrutacja – ZS Nr 26 Toruń</title>
+  <link rel="icon" href="images/ui/logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+</head>
+<body class="antialiased text-gray-800">
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+    <!-- Nagłówek strony -->
+    <section class="py-16" style="background-color:#C62828">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
+        <i data-lucide="user-plus" class="w-12 h-12 mx-auto mb-4 opacity-80"></i>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-3">Rekrutacja 2026/2027</h1>
+        <p class="opacity-80 max-w-xl mx-auto">Informacje o rekrutacji do wszystkich oddziałów szkoły</p>
+      </div>
+    </section>
+
+    <!-- Treść – placeholder -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="bg-brand-50 border-2 border-dashed rounded-2xl p-12" style="border-color:#FFCDD2">
+          <i data-lucide="hammer" class="w-10 h-10 mx-auto mb-4" style="color:#C62828"></i>
+          <h2 class="text-xl font-bold text-gray-800 mb-2">Treść w przygotowaniu</h2>
+          <p class="text-gray-500 mb-6">Ta podstrona jest aktualnie uzupełniana. Wróć wkrótce lub przejdź na stronę główną.</p>
+          <a href="index.html" class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-2.5 rounded-full text-white shadow transition-all" style="background-color:#C62828">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>Strona główna
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="site-footer"></div>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
+</body>
+</html>

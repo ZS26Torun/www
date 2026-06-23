@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, klasy rewalidacyjno-wychowawcze, przysposabiająca do pracy, OWiT, SCWEW.">
+  <meta name="theme-color" content="#C62828">
+  <title>Zespół Szkół Nr 26 w Toruniu</title>
+  <link rel="icon" href="images/ui/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/ui/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind – czerwona paleta ZS26 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#FFF5F5',
+              100: '#FFEBEE',
+              200: '#FFCDD2',
+              300: '#EF9A9A',
+              400: '#EF5350',
+              500: '#E53935',
+              600: '#C62828',
+              700: '#B71C1C',
+              800: '#8B0000',
+              900: '#4A0000',
+            },
+            leaf: {
+              600: '#2B7333',
+              700: '#1E5C27',
+            }
+          },
+          fontFamily: {
+            sans: ['Lexend', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Dark mode – zapobieganie flashowi -->
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+
+  <style>
+    /* ── Stats card (tylko tu) ───────────────────────────────────── */
+    .stat-card { backdrop-filter: blur(4px); }
+
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO ────────────────────────────────────────────────── -->
+    <section id="hero" class="relative min-h-screen bg-brand-600 flex items-center overflow-hidden">
+
+      <!-- Siatka tła -->
+      <div class="absolute inset-0 opacity-[.07]" aria-hidden="true">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" stroke-width="1"/>
+          </pattern></defs>
+          <rect width="100%" height="100%" fill="url(#g)"/>
+        </svg>
+      </div>
+
+      <!-- Dekoracyjne kola (jak pierścień w logo) -->
+      <div class="hero-ring border-[70px] w-[580px] h-[580px] -right-36 top-1/2 -translate-y-1/2" aria-hidden="true"></div>
+      <div class="hero-ring border-[35px] w-[380px] h-[380px] -right-20 top-1/2 -translate-y-1/2 border-white/6" aria-hidden="true"></div>
+      <div class="hero-ring border-[100px] w-[280px] h-[280px] -left-20 -bottom-20 border-white/5" aria-hidden="true"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Tekst -->
+          <div class="text-white">
+            <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/20">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+              ul. Fałata 88/90, Toruń
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
+              Zespół Szkół<br>
+              <span class="text-brand-200">Nr&nbsp;26</span><br>
+              w Toruniu
+            </h1>
+            <p class="text-brand-100 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
+              Szkoła specjalna otwarta na każdego ucznia. Przedszkole, szkoła podstawowa, klasy rewalidacyjne i&nbsp;wiele więcej – zawsze blisko, zawsze z&nbsp;sercem.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="oferta.html"
+                class="inline-flex items-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-bold px-6 py-3.5 rounded-full shadow-lg transition-all text-sm">
+                <i data-lucide="book-open" class="w-4 h-4"></i>Nasza oferta
+              </a>
+              <a href="rekrutacja.html"
+                class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white font-bold px-6 py-3.5 rounded-full shadow-lg transition-all border border-brand-700 text-sm">
+                <i data-lucide="user-plus" class="w-4 h-4"></i>Rekrutacja 2026/27
+              </a>
+              <a href="#kontakt"
+                class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-full transition-all border border-white/25 text-sm">
+                <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
+              </a>
+            </div>
+          </div>
+
+          <!-- Logo -->
+          <div class="flex justify-center lg:justify-end">
+            <div class="relative">
+              <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-white/10 flex items-center justify-center ring-4 ring-white/20 shadow-2xl">
+                <img src="images/ui/logo.png"
+                  alt="Logo Zespołu Szkół Nr 26 w Toruniu – jabłoń w zielonym pierścieniu"
+                  class="w-56 sm:w-64 object-contain drop-shadow-2xl">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce" aria-hidden="true">
+        <i data-lucide="chevrons-down" class="w-7 h-7"></i>
+      </div>
+    </section>
+
+    <!-- ── SZYBKI DOSTĘP ─────────────────────────────────────────── -->
+    <section aria-labelledby="qa-heading" class="bg-white py-6 shadow-md relative z-10">
+      <h2 id="qa-heading" class="sr-only">Szybki dostęp</h2>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+
+          <a href="https://uonetplus.vulcan.net.pl/torun" target="_blank" rel="noopener noreferrer"
+            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors group text-center">
+            <span class="w-11 h-11 rounded-xl bg-brand-100 group-hover:bg-brand-200 flex items-center justify-center transition-colors">
+              <i data-lucide="book" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <span class="font-semibold text-sm text-gray-700 group-hover:text-brand-700 transition-colors">E-dziennik</span>
+            <span class="text-[11px] text-gray-400">Vulcan UONET+</span>
+          </a>
+
+          <a href="https://portal.office.com" target="_blank" rel="noopener noreferrer"
+            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group text-center">
+            <span class="w-11 h-11 rounded-xl bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center transition-colors">
+              <i data-lucide="layout-grid" class="w-5 h-5 text-blue-600"></i>
+            </span>
+            <span class="font-semibold text-sm text-gray-700 group-hover:text-blue-700 transition-colors">Office 365</span>
+            <span class="text-[11px] text-gray-400">Poczta i&nbsp;Teams</span>
+          </a>
+
+          <a href="rekrutacja.html"
+            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-green-200 hover:bg-green-50 transition-colors group text-center">
+            <span class="w-11 h-11 rounded-xl bg-green-100 group-hover:bg-green-200 flex items-center justify-center transition-colors">
+              <i data-lucide="user-plus" class="w-5 h-5 text-leaf-600"></i>
+            </span>
+            <span class="font-semibold text-sm text-gray-700 group-hover:text-leaf-700 transition-colors">Rekrutacja</span>
+            <span class="text-[11px] text-gray-400">Rok 2026/2027</span>
+          </a>
+
+          <a href="#kontakt"
+            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-orange-200 hover:bg-orange-50 transition-colors group text-center">
+            <span class="w-11 h-11 rounded-xl bg-orange-100 group-hover:bg-orange-200 flex items-center justify-center transition-colors">
+              <i data-lucide="phone" class="w-5 h-5 text-orange-600"></i>
+            </span>
+            <span class="font-semibold text-sm text-gray-700 group-hover:text-orange-700 transition-colors">Kontakt</span>
+            <span class="text-[11px] text-gray-400">Sekretariat</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AKTUALNOŚCI ───────────────────────────────────────────── -->
+    <section id="aktualnosci" aria-labelledby="news-heading" class="py-16 sm:py-20 bg-brand-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <h2 id="news-heading" class="text-2xl sm:text-3xl font-bold text-gray-900">Aktualności</h2>
+            <p class="text-gray-500 mt-1 text-sm">Co słychać w&nbsp;naszej szkole?</p>
+          </div>
+          <a href="aktualnosci.html"
+            class="flex items-center gap-1 text-brand-700 hover:text-brand-900 font-semibold text-sm transition-colors">
+            Wszystkie <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8 items-start">
+
+          <!-- Newsy natywne (3/5) -->
+          <div class="lg:col-span-3">
+            <div id="news-list" class="space-y-4">
+              <div class="text-gray-400 text-sm py-10 text-center">Ładowanie aktualności…</div>
+            </div>
+          </div>
+
+          <!-- Facebook feed (2/5) -->
+          <div class="lg:col-span-2">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i>Na Facebooku
+            </p>
+            <div id="fb-consent-wrapper">
+              <div class="fb-placeholder">
+                <span class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
+                  <i data-lucide="facebook" class="w-8 h-8 text-blue-600"></i>
+                </span>
+                <div>
+                  <p class="font-semibold text-gray-800 mb-1">Nasze aktualności na Facebooku</p>
+                  <p class="text-sm text-gray-500 max-w-xs leading-relaxed">Załadowanie wymaga zgody na ciasteczka zewnętrzne (Facebook&nbsp;Inc.).</p>
+                </div>
+                <button onclick="loadFbFeed()"
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-colors shadow-md">
+                  Załaduj aktualności z FB
+                </button>
+                <p class="text-[11px] text-gray-400">Po załadowaniu Facebook może ustawić własne pliki cookie.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OFERTA EDUKACYJNA ─────────────────────────────────────── -->
+    <section id="oferta" aria-labelledby="oferta-heading" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12 reveal">
+          <h2 id="oferta-heading" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Oferta edukacyjna</h2>
+          <p class="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+            Szeroki wachlarz oddziałów i&nbsp;programów wsparcia, dostosowanych do potrzeb każdego ucznia.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <a href="oferta.html#przedszkole"
+            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mb-4">
+              <i data-lucide="smile" class="w-6 h-6 text-yellow-600"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-brand-700 transition-colors">Przedszkole Specjalne</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Wczesna integracja sensoryczna, terapia i&nbsp;zabawa w&nbsp;bezpiecznym, przyjaznym środowisku.</p>
+            <span class="mt-4 text-brand-600 text-sm font-medium flex items-center gap-1">
+              Dowiedz się więcej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+          <a href="oferta.html#podstawowka"
+            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-brand-200 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mb-4">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-700"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-brand-700 transition-colors">Szkoła Podstawowa Specjalna</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Indywidualne programy nauczania, małe klasy, wsparcie specjalistów na każdym etapie.</p>
+            <span class="mt-4 text-brand-600 text-sm font-medium flex items-center gap-1">
+              Dowiedz się więcej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+          <a href="oferta.html#rewalidacja"
+            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-purple-200 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
+              <i data-lucide="heart-handshake" class="w-6 h-6 text-purple-600"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-brand-700 transition-colors">Klasy Rewalidacyjno-Wychowawcze</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Zajęcia dostosowane do uczniów z&nbsp;głębszą niepełnosprawnością intelektualną.</p>
+            <span class="mt-4 text-brand-600 text-sm font-medium flex items-center gap-1">
+              Dowiedz się więcej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+          <a href="oferta.html#przysposabiajaca"
+            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-green-200 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
+              <i data-lucide="briefcase" class="w-6 h-6 text-leaf-600"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-brand-700 transition-colors">Szkoła Przysposabiająca do Pracy</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Praktyczne przygotowanie do życia zawodowego i&nbsp;samodzielności w&nbsp;dorosłości.</p>
+            <span class="mt-4 text-brand-600 text-sm font-medium flex items-center gap-1">
+              Dowiedz się więcej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+          <a href="https://owit-torun.pl" target="_blank" rel="noopener noreferrer"
+            class="offer-card block p-6 rounded-2xl border border-leaf-600/20 hover:border-leaf-600/50 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
+              <i data-lucide="monitor-smartphone" class="w-6 h-6 text-leaf-600"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-leaf-700 transition-colors">OWiT Toruń</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Ośrodek Wsparcia i&nbsp;Testów – bezpłatne wypożyczenie sprzętu i&nbsp;technologii asystujących.</p>
+            <span class="mt-4 text-leaf-600 text-sm font-medium flex items-center gap-1">
+              Przejdź do owit-torun.pl <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+          <a href="oferta.html#scwew"
+            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-blue-200 bg-white shadow-sm group">
+            <span class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+              <i data-lucide="network" class="w-6 h-6 text-blue-600"></i>
+            </span>
+            <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-brand-700 transition-colors">SCWEW</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Specjalistyczne Centrum Wspierające Edukację Włączającą – wsparcie dla szkół ogólnodostępnych regionu.</p>
+            <span class="mt-4 text-brand-600 text-sm font-medium flex items-center gap-1">
+              Dowiedz się więcej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+
+        </div>
+
+        <div class="text-center mt-10 reveal">
+          <a href="oferta.html"
+            class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-3.5 rounded-full shadow-md transition-all text-sm">
+            <i data-lucide="book-open" class="w-5 h-5"></i>Pełna oferta szkoły
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── O SZKOLE – callout ──────────────────────────────────────── -->
+    <section aria-labelledby="about-heading" class="py-16 sm:py-20 bg-brand-600 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[.06]" aria-hidden="true">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="g2" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" stroke-width="1"/>
+          </pattern></defs>
+          <rect width="100%" height="100%" fill="url(#g2)"/>
+        </svg>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <h2 id="about-heading" class="text-2xl sm:text-3xl font-bold mb-5">Szkoła z&nbsp;pasją i&nbsp;tradycją</h2>
+            <p class="text-brand-100 leading-relaxed mb-4 text-sm sm:text-base">
+              Zespół Szkół Nr 26 w Toruniu to placówka z&nbsp;wieloletnią tradycją kształcenia specjalnego. Doświadczeni pedagodzy, terapeuci i&nbsp;specjaliści tworzą miejsce, w&nbsp;którym każdy uczeń może się rozwijać we własnym tempie.
+            </p>
+            <p class="text-brand-100 leading-relaxed mb-8 text-sm sm:text-base">
+              Dysponujemy nowocześnie wyposażonymi pracowniami terapeutycznymi, salami do integracji sensorycznej i&nbsp;przyjazną przestrzenią dla uczniów i&nbsp;ich rodzin.
+            </p>
+            <a href="o-szkole.html"
+              class="inline-flex items-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-bold px-6 py-3.5 rounded-full shadow-lg transition-all text-sm">
+              <i data-lucide="info" class="w-5 h-5"></i>Poznaj naszą szkołę
+            </a>
+          </div>
+          <div class="grid grid-cols-2 gap-4 reveal">
+            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
+              <p class="text-4xl font-bold mb-1">30+</p>
+              <p class="text-brand-200 text-sm">lat doświadczenia</p>
+            </div>
+            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
+              <p class="text-4xl font-bold mb-1">6</p>
+              <p class="text-brand-200 text-sm">typów oddziałów</p>
+            </div>
+            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
+              <p class="text-4xl font-bold mb-1">❤</p>
+              <p class="text-brand-200 text-sm">serce i zaangażowanie</p>
+            </div>
+            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
+              <p class="text-3xl font-bold mb-1">Toruń</p>
+              <p class="text-brand-200 text-sm">ul. Fałata 88/90</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── KONTAKT ─────────────────────────────────────────────────── -->
+    <section id="kontakt" aria-labelledby="contact-heading" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12 reveal">
+          <h2 id="contact-heading" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Kontakt</h2>
+          <p class="text-gray-500 text-sm">Sekretariat szkoły jest do Państwa dyspozycji od poniedziałku do piątku.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="space-y-6 reveal">
+            <div class="flex items-start gap-4">
+              <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6 text-brand-700"></i>
+              </span>
+              <div>
+                <p class="font-semibold text-gray-900 mb-0.5">Adres</p>
+                <p class="text-gray-600 text-sm">ul. Juliana Fałata 88/90<br>87-100 Toruń</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-6 h-6 text-brand-700"></i>
+              </span>
+              <div>
+                <p class="font-semibold text-gray-900 mb-0.5">Telefon sekretariatu</p>
+                <a href="tel:+48566485784" class="text-brand-600 hover:text-brand-800 font-semibold transition-colors">(56)&nbsp;648-57-84</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-6 h-6 text-brand-700"></i>
+              </span>
+              <div>
+                <p class="font-semibold text-gray-900 mb-0.5">E-mail</p>
+                <a href="mailto:sekretariat@szkola26.torun.pl" class="text-brand-600 hover:text-brand-800 font-semibold transition-colors break-all">sekretariat@szkola26.torun.pl</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-6 h-6 text-brand-700"></i>
+              </span>
+              <div>
+                <p class="font-semibold text-gray-900 mb-0.5">Godziny sekretariatu</p>
+                <p class="text-gray-600 text-sm">Poniedziałek – Piątek: 7:30–15:30</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa -->
+          <div class="reveal rounded-2xl overflow-hidden shadow-lg border border-gray-100" style="height:340px">
+            <iframe
+              title="Mapa lokalizacji Zespołu Szkół Nr 26 w Toruniu"
+              src="https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84&output=embed"
+              width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- A11y live region -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WIDGET UŁATWIEŃ DOSTĘPU
+  ════════════════════════════════════════════════════════════ -->
+  <div id="a11y-widget" class="fixed bottom-6 left-6 z-50 print:hidden">
+    <div id="a11y-panel"
+      class="hidden mb-3 bg-white rounded-2xl shadow-2xl border border-gray-100 w-72 overflow-hidden"
+      role="dialog" aria-modal="true" aria-label="Panel ułatwień dostępu" tabindex="-1">
+
+      <div class="px-4 pt-4 pb-2 border-b border-gray-100 flex items-center justify-between">
+        <p class="text-xs font-bold text-gray-600 uppercase tracking-wider">Ułatwienia dostępu</p>
+        <button onclick="toggleA11yPanel()" class="text-gray-400 hover:text-gray-700 p-1 rounded transition-colors" aria-label="Zamknij panel">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-2 space-y-0.5">
+        <!-- Wysoki kontrast -->
+        <button onclick="toggleHighContrast()" id="a11y-contrast"
+          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0"><i data-lucide="eye" class="w-5 h-5 text-yellow-400"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Wysoki kontrast</p><p class="text-[11px] text-gray-500">Żółty tekst na czarnym tle</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+
+        <!-- Rozmiar tekstu -->
+        <div class="flex items-center gap-3 px-3 py-2.5">
+          <span class="w-9 h-9 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="type" class="w-5 h-5 text-brand-700"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Rozmiar tekstu</p><p class="text-[11px] text-gray-500" id="font-size-label">Domyślny (16px)</p></div>
+          <div class="flex items-center gap-1 flex-shrink-0">
+            <button onclick="changeFontSize(-1)" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Zmniejsz tekst">−</button>
+            <button onclick="changeFontSize(1)"  class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Powiększ tekst">+</button>
+          </div>
+        </div>
+
+        <!-- Czcionka dla dysleksji -->
+        <button onclick="toggleDyslexicFont()" id="a11y-dyslexic"
+          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0"><i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Czcionka dla dysleksji</p><p class="text-[11px] text-gray-500">Lexend – ułatwia czytanie</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+
+        <!-- Odstęp -->
+        <button onclick="toggleSpacing()" id="a11y-spacing"
+          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0"><i data-lucide="align-justify" class="w-5 h-5 text-violet-600"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Zwiększony odstęp</p><p class="text-[11px] text-gray-500">Szersza interlinia i litery</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+
+        <!-- Stop motion -->
+        <button onclick="toggleStopAnimations()" id="a11y-motion"
+          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0"><i data-lucide="zap-off" class="w-5 h-5 text-orange-500"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Zatrzymaj animacje</p><p class="text-[11px] text-gray-500">Dla wrażliwości na ruch</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+
+        <!-- Tryb ciemny -->
+        <button onclick="toggleDarkMode()" id="a11y-dark-mode"
+          class="a11y-row w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-slate-200 flex items-center justify-center flex-shrink-0"><i data-lucide="moon" class="w-5 h-5 text-slate-700"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Tryb ciemny</p><p class="text-[11px] text-gray-500">Ciemne tło, mniej zmęczenia oczu</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+
+        <!-- Skala szarości -->
+        <button onclick="toggleGrayscale()" id="a11y-grayscale"
+          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+          <span class="w-9 h-9 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0"><i data-lucide="contrast" class="w-5 h-5 text-gray-600"></i></span>
+          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Skala szarości</p><p class="text-[11px] text-gray-500">Pomoc przy ślepocie barw</p></div>
+          <span class="a11y-badge off">WYŁ</span>
+        </button>
+      </div>
+
+      <div class="px-4 pb-4 pt-2 border-t border-gray-50">
+        <button onclick="resetA11y()" class="w-full text-xs text-gray-500 hover:text-red-500 transition-colors py-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="rotate-ccw" class="w-3 h-3"></i>Przywróć ustawienia domyślne
+        </button>
+      </div>
+    </div>
+
+    <button id="a11y-toggle-btn" onclick="toggleA11yPanel()"
+      class="flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-3 rounded-full shadow-xl transition-all font-semibold text-sm"
+      aria-expanded="false" aria-controls="a11y-panel" aria-label="Otwórz panel ułatwień dostępu">
+      <i data-lucide="accessibility" class="w-5 h-5"></i>
+      <span>Ułatwienia</span>
+      <span id="a11y-active-count" class="hidden w-5 h-5 bg-white text-brand-700 text-xs font-bold rounded-full items-center justify-center">0</span>
+    </button>
+  </div>
+
+  <!-- Wróć na górę -->
+  <button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg items-center justify-center transition-all"
+    aria-label="Wróć na górę strony">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <div id="site-footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════════════════════ -->
+  <script>
+    // ── Reveal ─────────────────────────────────────────────────────
+    (function () {
+      if (!window.IntersectionObserver) return;
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    })();
+
+    // ── Scroll progress + scroll-top button ──────────────────────
+    (function () {
+      const bar = document.getElementById('scroll-progress');
+      const btn = document.getElementById('scroll-top-btn');
+      window.addEventListener('scroll', () => {
+        const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+        if (bar) bar.style.width = pct + '%';
+        if (btn) {
+          const show = window.scrollY > 400;
+          btn.classList.toggle('hidden', !show);
+          btn.classList.toggle('flex', show);
+        }
+      }, { passive: true });
+    })();
+
+    // ── A11y core ───────────────────────────────────────────────────
+    let a11yOpen = false;
+    let currentFontSize = 16;
+
+    function toggleA11yPanel() {
+      a11yOpen = !a11yOpen;
+      const panel = document.getElementById('a11y-panel');
+      const btn   = document.getElementById('a11y-toggle-btn');
+      panel.classList.toggle('hidden', !a11yOpen);
+      btn.setAttribute('aria-expanded', a11yOpen);
+      if (a11yOpen) {
+        lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+        const first = panel.querySelector('button, [tabindex="0"]');
+        if (first) first.focus();
+      }
+    }
+    document.addEventListener('click', e => {
+      const w = document.getElementById('a11y-widget');
+      if (w && !w.contains(e.target) && a11yOpen) toggleA11yPanel();
+    });
+
+    function setA11yBadge(id, active) {
+      const btn = document.getElementById(id); if (!btn) return;
+      const badge = btn.querySelector('.a11y-badge');
+      if (badge) { badge.textContent = active ? 'WŁ' : 'WYŁ'; badge.classList.toggle('on', active); badge.classList.toggle('off', !active); }
+      btn.setAttribute('aria-pressed', active);
+    }
+    function updateA11yCount() {
+      const modes = ['high-contrast', 'a11y-dyslexic', 'a11y-spacing', 'a11y-stop-motion', 'a11y-grayscale'];
+      const n = modes.filter(m => document.body.classList.contains(m)).length + (currentFontSize !== 16 ? 1 : 0);
+      const el = document.getElementById('a11y-active-count');
+      if (el) { el.textContent = n; el.classList.toggle('hidden', n === 0); el.classList.toggle('flex', n > 0); }
+    }
+    function announce(msg) { const a = document.getElementById('a11y-announcer'); if (a) a.textContent = msg; }
+
+    function toggleHighContrast() {
+      document.body.classList.toggle('high-contrast');
+      const on = document.body.classList.contains('high-contrast');
+      setA11yBadge('a11y-contrast', on);
+      localStorage.setItem('zs26-contrast', on);
+      updateA11yCount();
+      announce(on ? 'Wysoki kontrast włączony' : 'Wysoki kontrast wyłączony');
+    }
+    function changeFontSize(step) {
+      currentFontSize = Math.min(28, Math.max(12, currentFontSize + step * 2));
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+      const label = document.getElementById('font-size-label');
+      if (label) label.textContent = currentFontSize === 16 ? 'Domyślny (16px)' : currentFontSize + 'px';
+      localStorage.setItem('zs26-font-size', currentFontSize);
+      updateA11yCount();
+      announce('Rozmiar tekstu: ' + currentFontSize + 'px');
+    }
+    function toggleDyslexicFont() {
+      document.body.classList.toggle('a11y-dyslexic');
+      const on = document.body.classList.contains('a11y-dyslexic');
+      setA11yBadge('a11y-dyslexic', on); localStorage.setItem('zs26-dyslexic', on); updateA11yCount();
+      announce(on ? 'Czcionka dla dysleksji włączona' : 'Czcionka dla dysleksji wyłączona');
+    }
+    function toggleSpacing() {
+      document.body.classList.toggle('a11y-spacing');
+      const on = document.body.classList.contains('a11y-spacing');
+      setA11yBadge('a11y-spacing', on); localStorage.setItem('zs26-spacing', on); updateA11yCount();
+      announce(on ? 'Zwiększony odstęp włączony' : 'Zwiększony odstęp wyłączony');
+    }
+    function toggleStopAnimations() {
+      document.body.classList.toggle('a11y-stop-motion');
+      const on = document.body.classList.contains('a11y-stop-motion');
+      if (on) document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      setA11yBadge('a11y-motion', on); localStorage.setItem('zs26-motion', on); updateA11yCount();
+      announce(on ? 'Animacje zatrzymane' : 'Animacje włączone');
+    }
+    function toggleDarkMode() {
+      const on = document.body.classList.toggle('dark-mode');
+      setA11yBadge('a11y-dark-mode', on);
+      localStorage.setItem('zs26-dark', on);
+      updateA11yCount();
+    }
+    function toggleGrayscale() {
+      document.body.classList.toggle('a11y-grayscale');
+      const on = document.body.classList.contains('a11y-grayscale');
+      setA11yBadge('a11y-grayscale', on); localStorage.setItem('zs26-grayscale', on); updateA11yCount();
+      announce(on ? 'Skala szarości włączona' : 'Skala szarości wyłączona');
+    }
+    function resetA11y() {
+      ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale','dark-mode'].forEach(c => document.body.classList.remove(c));
+      currentFontSize = 16; document.documentElement.style.fontSize = '16px';
+      ['a11y-contrast','a11y-dyslexic','a11y-spacing','a11y-motion','a11y-grayscale','a11y-dark-mode'].forEach(id => setA11yBadge(id, false));
+      const label = document.getElementById('font-size-label');
+      if (label) label.textContent = 'Domyślny (16px)';
+      ['zs26-contrast','zs26-dyslexic','zs26-spacing','zs26-motion','zs26-grayscale','zs26-font-size','zs26-dark'].forEach(k => localStorage.removeItem(k));
+      updateA11yCount();
+    }
+    (function restoreA11y() {
+      const map = {
+        'zs26-contrast':  () => { document.body.classList.add('high-contrast');    setA11yBadge('a11y-contrast',  true); },
+        'zs26-dyslexic':  () => { document.body.classList.add('a11y-dyslexic');    setA11yBadge('a11y-dyslexic',  true); },
+        'zs26-spacing':   () => { document.body.classList.add('a11y-spacing');     setA11yBadge('a11y-spacing',   true); },
+        'zs26-motion':    () => { document.body.classList.add('a11y-stop-motion'); setA11yBadge('a11y-motion',    true); },
+        'zs26-grayscale': () => { document.body.classList.add('a11y-grayscale');   setA11yBadge('a11y-grayscale', true); },
+        'zs26-dark':      () => { document.body.classList.add('dark-mode');        setA11yBadge('a11y-dark-mode', true); },
+      };
+      Object.entries(map).forEach(([k, fn]) => { if (localStorage.getItem(k) === 'true') fn(); });
+      const savedSize = localStorage.getItem('zs26-font-size');
+      if (savedSize) {
+        currentFontSize = parseInt(savedSize);
+        document.documentElement.style.fontSize = currentFontSize + 'px';
+        const label = document.getElementById('font-size-label');
+        if (label) label.textContent = currentFontSize === 16 ? 'Domyślny (16px)' : currentFontSize + 'px';
+      }
+      updateA11yCount();
+    })();
+
+    // ── Focus trap dla panelu a11y ───────────────────────────────
+    (function () {
+      const panel = document.getElementById('a11y-panel');
+      const btn   = document.getElementById('a11y-toggle-btn');
+      panel.addEventListener('keydown', function (e) {
+        if (!a11yOpen) return;
+        const focusable = Array.from(panel.querySelectorAll('button, [tabindex="0"]')).filter(el => !el.disabled);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.key === 'Escape') { e.preventDefault(); toggleA11yPanel(); btn.focus(); }
+        else if (e.key === 'Tab') {
+          if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+          else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+        }
+      });
+    })();
+
+    // ── News renderer ────────────────────────────────────────────
+    function renderNews() {
+      const list = document.getElementById('news-list');
+      if (!list || !window.NEWS_DATA) return;
+      const sorted = [...window.NEWS_DATA].sort((a, b) => {
+        if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+        return new Date(b.date) - new Date(a.date);
+      });
+      list.innerHTML = sorted.slice(0, 4).map(n => {
+        const dateStr = new Date(n.date).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+        const pinHtml = n.pinned ? `<i data-lucide="pin" class="w-3.5 h-3.5 text-brand-500 ml-1 inline-block" title="Przypięte"></i>` : '';
+        return `
+          <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-2 mb-2.5 flex-wrap">
+              <span class="badge-${n.category} text-xs font-semibold px-2.5 py-0.5 rounded-full">${n.category}</span>
+              ${pinHtml}
+              <time class="text-xs text-gray-400 ml-auto" datetime="${n.date}">${dateStr}</time>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-1.5">${n.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">${n.excerpt}</p>
+            <a href="aktualnosci.html#news-${n.id}" class="mt-3 text-brand-600 hover:text-brand-800 text-sm font-semibold flex items-center gap-1 transition-colors">
+              Czytaj dalej <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </article>`;
+      }).join('');
+      lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+    }
+
+    // ── Facebook feed (RODO-compliant) ───────────────────────────
+    function loadFbFeed() {
+      const wrapper = document.getElementById('fb-consent-wrapper');
+      if (!wrapper) return;
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v18.0';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      wrapper.innerHTML = `
+        <div id="fb-root"></div>
+        <div class="fb-page"
+          data-href="https://www.facebook.com/zs26.torun"
+          data-tabs="timeline"
+          data-width=""
+          data-height="500"
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+        </div>`;
+    }
+
+    // ── Sierotki PL ──────────────────────────────────────────────
+    (function () {
+      function fix(el) {
+        el.childNodes.forEach(n => {
+          if (n.nodeType === 3) {
+            n.nodeValue = n.nodeValue.replace(/ (i|w|z|a|o|u|że|do|na|od|po|za|ku|we|ze|bo|iż|to|co|ale|czy|lub|albo|oraz|też|lecz|więc|zaś|już|gdy) /g, ' $1 ');
+          } else if (n.nodeType === 1 && !/^(SCRIPT|STYLE|CODE|PRE)$/.test(n.tagName)) {
+            fix(n);
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', () => document.querySelectorAll('p, li, h2, h3').forEach(fix));
+    })();
+  </script>
+
+  <script src="data/news.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', renderNews);</script>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+</body>
+</html>
