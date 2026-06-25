@@ -1,6 +1,6 @@
 (function () {
   const html = `
-    <footer class="bg-brand-900 text-white pt-14 pb-8 px-4" role="contentinfo">
+    <footer class="bg-brand-600 text-white pt-14 pb-8 px-4" role="contentinfo">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-10 mb-10">
 
@@ -19,10 +19,10 @@
               Przedszkole, szkoła podstawowa, klasy rewalidacyjne, przysposabiająca do pracy, OWiT i&nbsp;SCWEW.
             </p>
             <div class="flex items-center gap-3 mt-5">
-              <a href="https://www.facebook.com/zs26.torun" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun" target="_blank" rel="noopener noreferrer"
                 class="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Facebook Zespołu Szkół Nr 26 (otwiera w nowej karcie)">
-                <i data-lucide="facebook" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
               </a>
             </div>
           </div>
@@ -56,7 +56,9 @@
               </li>
               <li class="flex items-start gap-3 text-red-300 text-sm">
                 <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400"></i>
-                <span>ul. Juliana Fałata 88/90<br>87-100 Toruń</span>
+                <a href="https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84"
+                  target="_blank" rel="noopener noreferrer"
+                  class="hover:text-white transition-colors">ul. Juliana Fałata 88/90<br>87-100 Toruń</a>
               </li>
               <li class="flex items-start gap-3 text-red-300 text-sm">
                 <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400"></i>

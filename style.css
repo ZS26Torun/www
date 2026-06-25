@@ -75,6 +75,65 @@ body { font-family: 'Lexend', ui-sans-serif, system-ui, sans-serif; }
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
+/* ── Hero entrance ───────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroFadeLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroScale {
+  from { opacity: 0; transform: scale(.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.hero-anim { opacity: 0; }
+.hero-anim.run { animation-fill-mode: both; animation-timing-function: cubic-bezier(.22,.68,0,1.2); }
+.hero-anim-up.run   { animation-name: heroFadeUp;   animation-duration: .7s; }
+.hero-anim-left.run { animation-name: heroFadeLeft; animation-duration: .6s; }
+.hero-anim-scale.run{ animation-name: heroScale;    animation-duration: .5s; }
+
+/* Opóźnienia kaskadowe */
+.anim-d0  { animation-delay:  0s;    }
+.anim-d1  { animation-delay: .12s;   }
+.anim-d2  { animation-delay: .24s;   }
+.anim-d3  { animation-delay: .38s;   }
+.anim-d4  { animation-delay: .52s;   }
+.anim-d5  { animation-delay: .66s;   }
+.anim-d6  { animation-delay: .80s;   }
+
+/* ── Stagger dla kart ────────────────────────────────────── */
+.stagger-item { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+.stagger-item.is-visible { opacity: 1; transform: none; }
+
+/* ── Licznik statystyk ───────────────────────────────────── */
+.stat-count { display: inline-block; }
+
+/* ── Parallax mural ──────────────────────────────────────── */
+.mural-parallax { will-change: transform; transition: transform .05s linear; }
+
+/* ── Floating logo ───────────────────────────────────────── */
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-6px); }
+}
+.logo-float { animation: floatLogo 4s ease-in-out infinite; }
+
+/* ── Pulse na przycisku głównym ──────────────────────────── */
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(198,40,40,.45); }
+  60%       { box-shadow: 0 0 0 10px rgba(198,40,40,0); }
+}
+.btn-pulse { animation: btnPulse 2.2s ease-out 1.5s 3; }
+
+/* ── Stop-motion override ────────────────────────────────── */
+body.a11y-stop-motion .hero-anim { opacity: 1 !important; animation: none !important; }
+body.a11y-stop-motion .stagger-item { opacity: 1 !important; transform: none !important; }
+body.a11y-stop-motion .logo-float  { animation: none !important; }
+body.a11y-stop-motion .btn-pulse   { animation: none !important; }
+body.a11y-stop-motion .mural-parallax { transform: none !important; }
+
 /* ── A11y widget ─────────────────────────────────────────── */
 .a11y-badge {
   font-size: .625rem; font-weight: 700;
@@ -90,8 +149,104 @@ body.high-contrast * { background: transparent !important; color: #FFD700 !impor
 body.high-contrast button { background: #000 !important; border: 1px solid #FFD700 !important; }
 body.high-contrast a { color: #FFD700 !important; text-decoration: underline !important; }
 
-body.dark-mode { background: #0F172A; color: #E2E8F0; }
-body.dark-mode #a11y-panel { background: #1E293B; border-color: #334155; }
+/* ════════════════════════════════════════════════════════════
+   TRYB CIEMNY – pełny zestaw
+   ════════════════════════════════════════════════════════════ */
+:root {
+  --dm-bg:       #0F172A;
+  --dm-surface:  #1E293B;
+  --dm-surface2: #263348;
+  --dm-border:   #334155;
+  --dm-text:     #F1F5F9;
+  --dm-muted:    #94A3B8;
+  --dm-subtle:   #64748B;
+}
+
+body.dark-mode { background: var(--dm-bg); color: var(--dm-text); }
+
+/* Tła sekcji */
+body.dark-mode section,
+body.dark-mode .bg-white  { background-color: var(--dm-bg) !important; }
+body.dark-mode .bg-gray-50 { background-color: var(--dm-surface) !important; }
+
+/* Navbar */
+body.dark-mode #site-header,
+body.dark-mode header { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+body.dark-mode #site-header a,
+body.dark-mode #site-header p,
+body.dark-mode #site-header span { color: var(--dm-text) !important; }
+
+/* Tekst ogólny */
+body.dark-mode .text-gray-900,
+body.dark-mode .text-gray-800 { color: var(--dm-text) !important; }
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-600 { color: var(--dm-muted) !important; }
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 { color: var(--dm-subtle) !important; }
+
+/* Obramowania */
+body.dark-mode .border-gray-100,
+body.dark-mode .border-gray-200 { border-color: var(--dm-border) !important; }
+
+/* Hero */
+body.dark-mode #hero { background: var(--dm-bg) !important; }
+body.dark-mode #hero h1 { color: var(--dm-text) !important; }
+body.dark-mode #hero .bg-gray-100 { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+body.dark-mode #hero .text-gray-600 { color: var(--dm-muted) !important; }
+body.dark-mode #hero .border-gray-200 { border-color: var(--dm-border) !important; }
+body.dark-mode #hero .bg-gray-100.hover\:bg-gray-200 { background: var(--dm-surface2) !important; }
+
+/* Mural gradient – niewidoczny w ciemnym trybie (zakrywa gradient biały) */
+body.dark-mode .hidden.lg\:block [style*="gradient(to right, white"] { display: none !important; }
+body.dark-mode .hidden.lg\:block [style*="gradient(to bottom, white"] { display: none !important; }
+body.dark-mode .hidden.lg\:block [style*="gradient(to top, white"]   { display: none !important; }
+
+/* Karty – szybki dostęp */
+body.dark-mode .qa-tile { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+body.dark-mode .qa-tile span.rounded-xl { background: var(--dm-surface2) !important; }
+
+/* Karty – oferta */
+body.dark-mode .offer-card { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; box-shadow: none !important; }
+body.dark-mode .offer-card .bg-yellow-100  { background: rgba(234,179,8,.15)  !important; }
+body.dark-mode .offer-card .bg-brand-100   { background: rgba(198,40,40,.15)  !important; }
+body.dark-mode .offer-card .bg-purple-100  { background: rgba(147,51,234,.15) !important; }
+body.dark-mode .offer-card .bg-green-100   { background: rgba(43,115,51,.15)  !important; }
+body.dark-mode .offer-card .bg-blue-100    { background: rgba(37,99,235,.15)  !important; }
+
+/* Aktualności */
+body.dark-mode #aktualnosci article { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+
+/* O szkole – karty statystyk */
+body.dark-mode .grid .bg-white.rounded-2xl { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+
+/* Przyjaciele – karty logotypów */
+body.dark-mode .przyjaciele-logo { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+body.dark-mode .przyjaciele-logo img { filter: grayscale(1) opacity(.5) invert(.05) !important; }
+body.dark-mode section[aria-labelledby="przyjaciele-heading"] { background: var(--dm-surface) !important; }
+
+/* Kontakt */
+body.dark-mode #kontakt .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
+
+/* A11y panel */
+body.dark-mode #a11y-panel { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+body.dark-mode #a11y-panel p,
+body.dark-mode #a11y-panel .text-gray-800,
+body.dark-mode #a11y-panel .text-gray-600 { color: var(--dm-muted) !important; }
+body.dark-mode #a11y-panel .hover\:bg-gray-50:hover { background: var(--dm-surface2) !important; }
+body.dark-mode #a11y-panel .border-gray-100,
+body.dark-mode #a11y-panel .border-t { border-color: var(--dm-border) !important; }
+body.dark-mode #a11y-panel button .text-gray-800 { color: var(--dm-text) !important; }
+
+/* Scroll progress + scroll-top */
+body.dark-mode #scroll-top-btn { background: #2B7333 !important; }
+
+/* FB karta */
+body.dark-mode .fb-card-link > div:last-child { background: var(--dm-surface) !important; }
+body.dark-mode .fb-card-link p[style*="color:#1c1e21"] { color: var(--dm-text) !important; }
+body.dark-mode .fb-card-link p[style*="color:#65676b"] { color: var(--dm-muted) !important; }
+
+/* Mapa iframe – przyciemnienie */
+body.dark-mode .rounded-2xl iframe { filter: invert(.85) hue-rotate(180deg); }
 
 body.a11y-grayscale > :not(#a11y-widget):not(#scroll-top-btn):not(#scroll-progress) { filter: grayscale(1); }
 body.a11y-spacing * { letter-spacing: .06em !important; line-height: 1.9 !important; word-spacing: .12em !important; }
@@ -105,15 +260,15 @@ body.a11y-stop-motion .animate-bounce { animation: none !important; }
 
 /* ── Widget pulse ─────────────────────────────────────────── */
 @keyframes widgetPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(198,40,40,.4); }
-  50%       { box-shadow: 0 0 0 8px rgba(198,40,40,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43,115,51,.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(43,115,51,0); }
 }
 #a11y-toggle-btn { animation: widgetPulse 1.5s ease 2.5s 3; }
 body.a11y-stop-motion #a11y-toggle-btn { animation: none; }
 
 /* ── News badges ─────────────────────────────────────────── */
 .badge-ogłoszenie { background: #FFEBEE; color: #C62828; }
-.badge-wydarzenie  { background: #E3F2FD; color: #1565C0; }
+.badge-wydarzenie  { background: #E8F5E9; color: #1E5C27; }
 .badge-rekrutacja  { background: #E8F5E9; color: #2B7333; }
 .badge-inne        { background: #F3E5F5; color: #6A1B9A; }
 
@@ -143,3 +298,66 @@ body.a11y-stop-motion #a11y-toggle-btn { animation: none; }
 
 /* ── Navbar transparent on hero ──────────────────────────── */
 #site-header.bg-transparent { background: transparent !important; }
+
+/* ── Scroll padding (kompensacja fixed navbar) ───────────── */
+html { scroll-padding-top: 4rem; }
+
+/* ── Przyjaciele Szkoły – marquee ────────────────────────── */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.przyjaciele-track-wrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.przyjaciele-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+.przyjaciele-track:hover { animation-play-state: paused; }
+
+.przyjaciele-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 56px;
+  padding: 0.4rem 0.75rem;
+  background: #fff;
+  border: 1px solid #F1F5F9;
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  transition: box-shadow .2s, border-color .2s;
+}
+.przyjaciele-logo:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.10);
+  border-color: #FFCDD2;
+}
+.przyjaciele-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) opacity(.7);
+  transition: filter .2s;
+}
+.przyjaciele-logo:hover img { filter: grayscale(0) opacity(1); }
+
+@media (min-width: 640px) {
+  .przyjaciele-track { gap: 2rem; }
+  .przyjaciele-logo  { width: 130px; height: 68px; padding: 0.5rem 1rem; }
+}
+
+@media (min-width: 1024px) {
+  .przyjaciele-track { gap: 2.5rem; }
+  .przyjaciele-logo  { width: 150px; height: 76px; }
+}
+
+body.a11y-stop-motion .przyjaciele-track { animation: none; }

@@ -9,7 +9,7 @@
   <link rel="icon" href="images/ui/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 
   <!-- Tailwind – czerwona paleta ZS26 -->
   <script>
@@ -67,72 +67,86 @@
   <main id="main-content">
 
     <!-- ── HERO ────────────────────────────────────────────────── -->
-    <section id="hero" class="relative min-h-screen bg-brand-600 flex items-center overflow-hidden">
+    <section id="hero" class="relative bg-white overflow-hidden">
 
-      <!-- Siatka tła -->
-      <div class="absolute inset-0 opacity-[.07]" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse">
-            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" stroke-width="1"/>
-          </pattern></defs>
-          <rect width="100%" height="100%" fill="url(#g)"/>
-        </svg>
+      <!-- ── Desktop: mural absolutnie po prawej ── -->
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-[55%] pointer-events-none" aria-hidden="true">
+        <img src="images/ui/mural.png" alt=""
+          class="w-full h-full object-cover object-center opacity-90 mural-parallax">
+        <div class="absolute inset-y-0 left-0 w-64"
+          style="background: linear-gradient(to right, white, transparent);"></div>
+        <div class="absolute inset-x-0 top-0 h-20"
+          style="background: linear-gradient(to bottom, white, transparent);"></div>
+        <div class="absolute inset-x-0 bottom-0 h-20"
+          style="background: linear-gradient(to top, white, transparent);"></div>
       </div>
 
-      <!-- Dekoracyjne kola (jak pierścień w logo) -->
-      <div class="hero-ring border-[70px] w-[580px] h-[580px] -right-36 top-1/2 -translate-y-1/2" aria-hidden="true"></div>
-      <div class="hero-ring border-[35px] w-[380px] h-[380px] -right-20 top-1/2 -translate-y-1/2 border-white/6" aria-hidden="true"></div>
-      <div class="hero-ring border-[100px] w-[280px] h-[280px] -left-20 -bottom-20 border-white/5" aria-hidden="true"></div>
+      <!-- ── Treść ── -->
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 lg:py-0 lg:min-h-screen lg:flex lg:items-center w-full">
+        <div class="lg:max-w-[52%]">
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-          <!-- Tekst -->
-          <div class="text-white">
-            <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/20">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <!-- Logo + chip adresu -->
+          <div class="flex items-center gap-4 mb-8 hero-anim hero-anim-left anim-d0">
+            <img src="images/ui/logo.png" alt="Logo ZS Nr 26"
+              class="w-14 h-14 sm:w-16 sm:h-16 object-contain flex-shrink-0 logo-float">
+            <div class="inline-flex items-center gap-2 bg-gray-100 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full border border-gray-200">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i>
               ul. Fałata 88/90, Toruń
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
-              Zespół Szkół<br>
-              <span class="text-brand-200">Nr&nbsp;26</span><br>
-              w Toruniu
-            </h1>
-            <p class="text-brand-100 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
-              Szkoła specjalna otwarta na każdego ucznia. Przedszkole, szkoła podstawowa, klasy rewalidacyjne i&nbsp;wiele więcej – zawsze blisko, zawsze z&nbsp;sercem.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <a href="oferta.html"
-                class="inline-flex items-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-bold px-6 py-3.5 rounded-full shadow-lg transition-all text-sm">
-                <i data-lucide="book-open" class="w-4 h-4"></i>Nasza oferta
-              </a>
-              <a href="rekrutacja.html"
-                class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white font-bold px-6 py-3.5 rounded-full shadow-lg transition-all border border-brand-700 text-sm">
-                <i data-lucide="user-plus" class="w-4 h-4"></i>Rekrutacja 2026/27
-              </a>
-              <a href="#kontakt"
-                class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-full transition-all border border-white/25 text-sm">
-                <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
-              </a>
-            </div>
           </div>
 
-          <!-- Logo -->
-          <div class="flex justify-center lg:justify-end">
-            <div class="relative">
-              <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-white/10 flex items-center justify-center ring-4 ring-white/20 shadow-2xl">
-                <img src="images/ui/logo.png"
-                  alt="Logo Zespołu Szkół Nr 26 w Toruniu – jabłoń w zielonym pierścieniu"
-                  class="w-56 sm:w-64 object-contain drop-shadow-2xl">
-              </div>
-            </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-gray-900 mb-5 hero-anim hero-anim-up anim-d1">
+            Zespół Szkół<br>
+            <span class="text-brand-600">Nr&nbsp;26</span><br>
+            w Toruniu
+          </h1>
+          <p class="text-gray-600 text-base sm:text-xl leading-relaxed mb-8 max-w-lg hero-anim hero-anim-up anim-d2">
+            Szkoła specjalna otwarta na każdego ucznia. Przedszkole, szkoła podstawowa, klasy rewalidacyjne i&nbsp;wiele więcej – zawsze blisko, zawsze z&nbsp;sercem.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-8 hero-anim hero-anim-up anim-d3">
+            <a href="oferta.html"
+              class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-5 py-3 rounded-full shadow-md transition-all text-sm btn-pulse">
+              <i data-lucide="book-open" class="w-4 h-4"></i>Nasza oferta
+            </a>
+            <a href="rekrutacja.html"
+              class="inline-flex items-center gap-2 border-2 border-brand-600 text-brand-700 hover:bg-brand-50 font-bold px-5 py-3 rounded-full transition-all text-sm">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>Rekrutacja
+            </a>
+            <a href="#kontakt"
+              class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-5 py-3 rounded-full transition-all text-sm">
+              <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
+            </a>
           </div>
 
+          <!-- Statystyki -->
+          <div class="flex gap-6 sm:gap-8 pt-6 border-t border-gray-200 hero-anim hero-anim-up anim-d4">
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-gray-900"><span class="stat-count" data-target="30" data-suffix="+">30+</span></p>
+              <p class="text-xs text-gray-500 mt-0.5">lat doświadczenia</p>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-gray-900"><span class="stat-count" data-target="6">6</span></p>
+              <p class="text-xs text-gray-500 mt-0.5">typów oddziałów</p>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-gray-900">Toruń</p>
+              <p class="text-xs text-gray-500 mt-0.5">ul. Fałata 88/90</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Scroll cue -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce" aria-hidden="true">
+      <!-- ── Mobile: mural pod tekstem ── -->
+      <div class="lg:hidden w-full relative" aria-hidden="true">
+        <img src="images/ui/mural.png" alt=""
+          class="w-full h-52 sm:h-72 object-cover object-top">
+        <div class="absolute inset-x-0 top-0 h-12"
+          style="background: linear-gradient(to bottom, white, transparent);"></div>
+      </div>
+
+      <!-- Scroll cue – tylko desktop -->
+      <div class="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce" aria-hidden="true">
         <i data-lucide="chevrons-down" class="w-7 h-7"></i>
       </div>
     </section>
@@ -144,7 +158,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
 
           <a href="https://uonetplus.vulcan.net.pl/torun" target="_blank" rel="noopener noreferrer"
-            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors group text-center">
+            class="qa-tile stagger-item flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors group text-center">
             <span class="w-11 h-11 rounded-xl bg-brand-100 group-hover:bg-brand-200 flex items-center justify-center transition-colors">
               <i data-lucide="book" class="w-5 h-5 text-brand-700"></i>
             </span>
@@ -153,7 +167,7 @@
           </a>
 
           <a href="https://portal.office.com" target="_blank" rel="noopener noreferrer"
-            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group text-center">
+            class="qa-tile stagger-item flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group text-center">
             <span class="w-11 h-11 rounded-xl bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center transition-colors">
               <i data-lucide="layout-grid" class="w-5 h-5 text-blue-600"></i>
             </span>
@@ -162,7 +176,7 @@
           </a>
 
           <a href="rekrutacja.html"
-            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-green-200 hover:bg-green-50 transition-colors group text-center">
+            class="qa-tile stagger-item flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-green-200 hover:bg-green-50 transition-colors group text-center">
             <span class="w-11 h-11 rounded-xl bg-green-100 group-hover:bg-green-200 flex items-center justify-center transition-colors">
               <i data-lucide="user-plus" class="w-5 h-5 text-leaf-600"></i>
             </span>
@@ -171,7 +185,7 @@
           </a>
 
           <a href="#kontakt"
-            class="qa-tile flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-orange-200 hover:bg-orange-50 transition-colors group text-center">
+            class="qa-tile stagger-item flex flex-col items-center gap-2 p-4 rounded-2xl border border-gray-100 hover:border-orange-200 hover:bg-orange-50 transition-colors group text-center">
             <span class="w-11 h-11 rounded-xl bg-orange-100 group-hover:bg-orange-200 flex items-center justify-center transition-colors">
               <i data-lucide="phone" class="w-5 h-5 text-orange-600"></i>
             </span>
@@ -184,7 +198,7 @@
     </section>
 
     <!-- ── AKTUALNOŚCI ───────────────────────────────────────────── -->
-    <section id="aktualnosci" aria-labelledby="news-heading" class="py-16 sm:py-20 bg-brand-50">
+    <section id="aktualnosci" aria-labelledby="news-heading" class="py-16 sm:py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="flex items-end justify-between mb-10">
@@ -212,22 +226,7 @@
             <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
               <i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i>Na Facebooku
             </p>
-            <div id="fb-consent-wrapper">
-              <div class="fb-placeholder">
-                <span class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
-                  <i data-lucide="facebook" class="w-8 h-8 text-blue-600"></i>
-                </span>
-                <div>
-                  <p class="font-semibold text-gray-800 mb-1">Nasze aktualności na Facebooku</p>
-                  <p class="text-sm text-gray-500 max-w-xs leading-relaxed">Załadowanie wymaga zgody na ciasteczka zewnętrzne (Facebook&nbsp;Inc.).</p>
-                </div>
-                <button onclick="loadFbFeed()"
-                  class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-colors shadow-md">
-                  Załaduj aktualności z FB
-                </button>
-                <p class="text-[11px] text-gray-400">Po załadowaniu Facebook może ustawić własne pliki cookie.</p>
-              </div>
-            </div>
+            <div id="fb-consent-wrapper"></div>
           </div>
 
         </div>
@@ -248,7 +247,7 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
           <a href="oferta.html#przedszkole"
-            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-gray-100 hover:border-yellow-200 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mb-4">
               <i data-lucide="smile" class="w-6 h-6 text-yellow-600"></i>
             </span>
@@ -260,7 +259,7 @@
           </a>
 
           <a href="oferta.html#podstawowka"
-            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-brand-200 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-gray-100 hover:border-brand-200 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mb-4">
               <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-700"></i>
             </span>
@@ -272,7 +271,7 @@
           </a>
 
           <a href="oferta.html#rewalidacja"
-            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-purple-200 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-gray-100 hover:border-purple-200 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
               <i data-lucide="heart-handshake" class="w-6 h-6 text-purple-600"></i>
             </span>
@@ -284,7 +283,7 @@
           </a>
 
           <a href="oferta.html#przysposabiajaca"
-            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-green-200 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-gray-100 hover:border-green-200 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
               <i data-lucide="briefcase" class="w-6 h-6 text-leaf-600"></i>
             </span>
@@ -296,7 +295,7 @@
           </a>
 
           <a href="https://owit-torun.pl" target="_blank" rel="noopener noreferrer"
-            class="offer-card block p-6 rounded-2xl border border-leaf-600/20 hover:border-leaf-600/50 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-leaf-600/20 hover:border-leaf-600/50 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
               <i data-lucide="monitor-smartphone" class="w-6 h-6 text-leaf-600"></i>
             </span>
@@ -308,7 +307,7 @@
           </a>
 
           <a href="oferta.html#scwew"
-            class="offer-card block p-6 rounded-2xl border border-gray-100 hover:border-blue-200 bg-white shadow-sm group">
+            class="offer-card stagger-item block p-6 rounded-2xl border border-gray-100 hover:border-blue-200 bg-white shadow-sm group">
             <span class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
               <i data-lucide="network" class="w-6 h-6 text-blue-600"></i>
             </span>
@@ -331,48 +330,85 @@
     </section>
 
     <!-- ── O SZKOLE – callout ──────────────────────────────────────── -->
-    <section aria-labelledby="about-heading" class="py-16 sm:py-20 bg-brand-600 text-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-[.06]" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs><pattern id="g2" width="48" height="48" patternUnits="userSpaceOnUse">
-            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" stroke-width="1"/>
-          </pattern></defs>
-          <rect width="100%" height="100%" fill="url(#g2)"/>
-        </svg>
-      </div>
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section aria-labelledby="about-heading" class="py-16 sm:py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="reveal">
-            <h2 id="about-heading" class="text-2xl sm:text-3xl font-bold mb-5">Szkoła z&nbsp;pasją i&nbsp;tradycją</h2>
-            <p class="text-brand-100 leading-relaxed mb-4 text-sm sm:text-base">
+            <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">O nas</span>
+            <h2 id="about-heading" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">Szkoła z&nbsp;pasją i&nbsp;tradycją</h2>
+            <p class="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base">
               Zespół Szkół Nr 26 w Toruniu to placówka z&nbsp;wieloletnią tradycją kształcenia specjalnego. Doświadczeni pedagodzy, terapeuci i&nbsp;specjaliści tworzą miejsce, w&nbsp;którym każdy uczeń może się rozwijać we własnym tempie.
             </p>
-            <p class="text-brand-100 leading-relaxed mb-8 text-sm sm:text-base">
+            <p class="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
               Dysponujemy nowocześnie wyposażonymi pracowniami terapeutycznymi, salami do integracji sensorycznej i&nbsp;przyjazną przestrzenią dla uczniów i&nbsp;ich rodzin.
             </p>
             <a href="o-szkole.html"
-              class="inline-flex items-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-bold px-6 py-3.5 rounded-full shadow-lg transition-all text-sm">
+              class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3.5 rounded-full shadow-md transition-all text-sm">
               <i data-lucide="info" class="w-5 h-5"></i>Poznaj naszą szkołę
             </a>
           </div>
           <div class="grid grid-cols-2 gap-4 reveal">
-            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
-              <p class="text-4xl font-bold mb-1">30+</p>
-              <p class="text-brand-200 text-sm">lat doświadczenia</p>
+            <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100">
+              <p class="text-4xl font-bold text-brand-600 mb-1">30+</p>
+              <p class="text-gray-500 text-sm">lat doświadczenia</p>
             </div>
-            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
-              <p class="text-4xl font-bold mb-1">6</p>
-              <p class="text-brand-200 text-sm">typów oddziałów</p>
+            <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100">
+              <p class="text-4xl font-bold text-brand-600 mb-1">6</p>
+              <p class="text-gray-500 text-sm">typów oddziałów</p>
             </div>
-            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
-              <p class="text-4xl font-bold mb-1">❤</p>
-              <p class="text-brand-200 text-sm">serce i zaangażowanie</p>
+            <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100">
+              <p class="text-4xl font-bold text-leaf-600 mb-1">❤</p>
+              <p class="text-gray-500 text-sm">serce i&nbsp;zaangażowanie</p>
             </div>
-            <div class="stat-card bg-white/10 rounded-2xl p-5 text-center border border-white/15">
-              <p class="text-3xl font-bold mb-1">Toruń</p>
-              <p class="text-brand-200 text-sm">ul. Fałata 88/90</p>
+            <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100">
+              <p class="text-2xl font-bold text-gray-800 mb-1">Toruń</p>
+              <p class="text-gray-500 text-sm">ul. Fałata 88/90</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRZYJACIELE SZKOŁY ───────────────────────────────────────── -->
+    <section aria-labelledby="przyjaciele-heading" class="py-12 sm:py-16 bg-gray-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 reveal">
+        <div class="text-center">
+          <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">Wsparcie</span>
+          <h2 id="przyjaciele-heading" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Przyjaciele Szkoły</h2>
+          <p class="text-gray-500 text-sm">Instytucje i&nbsp;firmy, które wspierają naszą działalność i&nbsp;uczniów.</p>
+        </div>
+      </div>
+
+      <div class="przyjaciele-track-wrapper" aria-label="Logotypy przyjaciół szkoły">
+        <div class="przyjaciele-track">
+          <!-- zestaw 1 -->
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/BS_logo.png"                        alt="BS" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/margo.png"                         alt="Margo" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/Medical_Clinik_Babiarz.jpg"        alt="Medical Clinik Babiarz" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/nomet.jpg"                         alt="Nomet" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/nadleśnictwo_dobrzejewice_logo_2.jpg" alt="Nadleśnictwo Dobrzejewice" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/DrClown.jpg"                       alt="Dr Clown" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/logo_prestige.jpg"                 alt="Prestige" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/logo.PNG"                          alt="Partner" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/sharp.jpg"                         alt="Sharp" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/DD_Logo.jpg"                       alt="DD" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/Przechwytywanie.PNG"               alt="Partner" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/propery.PNG"                       alt="Propery" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/Logo_21concept.png"                alt="21 Concept" loading="lazy"></div>
+          <!-- zestaw 2 – duplikat dla płynnej pętli -->
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/BS_logo.png"                        alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/margo.png"                         alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/Medical_Clinik_Babiarz.jpg"        alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/nomet.jpg"                         alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/nadleśnictwo_dobrzejewice_logo_2.jpg" alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/DrClown.jpg"                       alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/logo_prestige.jpg"                 alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/logo.PNG"                          alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/sharp.jpg"                         alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/DD_Logo.jpg"                       alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/Przechwytywanie.PNG"               alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/propery.PNG"                       alt="" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/Logo_21concept.png"                alt="" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -394,7 +430,9 @@
               </span>
               <div>
                 <p class="font-semibold text-gray-900 mb-0.5">Adres</p>
-                <p class="text-gray-600 text-sm">ul. Juliana Fałata 88/90<br>87-100 Toruń</p>
+                <a href="https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-brand-600 hover:text-brand-800 font-semibold transition-colors text-sm">ul. Juliana Fałata 88/90<br>87-100 Toruń</a>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -527,7 +565,9 @@
     </div>
 
     <button id="a11y-toggle-btn" onclick="toggleA11yPanel()"
-      class="flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-3 rounded-full shadow-xl transition-all font-semibold text-sm"
+      class="flex items-center gap-2 text-white px-4 py-3 rounded-full shadow-xl transition-all font-semibold text-sm"
+      style="background:#2B7333;"
+      onmouseover="this.style.background='#1E5C27'" onmouseout="this.style.background='#2B7333'"
       aria-expanded="false" aria-controls="a11y-panel" aria-label="Otwórz panel ułatwień dostępu">
       <i data-lucide="accessibility" class="w-5 h-5"></i>
       <span>Ułatwienia</span>
@@ -537,7 +577,8 @@
 
   <!-- Wróć na górę -->
   <button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg items-center justify-center transition-all"
+    class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 text-white rounded-full shadow-lg items-center justify-center transition-all"
+    style="background:#2B7333;"
     aria-label="Wróć na górę strony">
     <i data-lucide="arrow-up" class="w-5 h-5"></i>
   </button>
@@ -729,30 +770,51 @@
       lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
     }
 
-    // ── Facebook feed (RODO-compliant) ───────────────────────────
-    function loadFbFeed() {
+    // ── Facebook – karta profilu (niezawodna na każdej domenie) ──
+    (function () {
       const wrapper = document.getElementById('fb-consent-wrapper');
       if (!wrapper) return;
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v18.0';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      const FB_URL = 'https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun';
       wrapper.innerHTML = `
-        <div id="fb-root"></div>
-        <div class="fb-page"
-          data-href="https://www.facebook.com/zs26.torun"
-          data-tabs="timeline"
-          data-width=""
-          data-height="500"
-          data-small-header="true"
-          data-adapt-container-width="true"
-          data-hide-cover="false"
-          data-show-facepile="false">
-        </div>`;
-    }
+        <a href="${FB_URL}" target="_blank" rel="noopener noreferrer"
+          class="fb-card-link"
+          style="display:block;border-radius:1rem;overflow:hidden;border:1px solid #e4e6eb;text-decoration:none;transition:box-shadow .2s;"
+          onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+          onmouseout="this.style.boxShadow='none'">
+
+          <!-- Nagłówek w stylu Facebooka -->
+          <div style="background:#1877F2;padding:1.5rem 1.5rem 2.5rem;position:relative;">
+            <div style="display:flex;align-items:center;gap:.75rem;">
+              <img src="images/ui/logo.png" alt="Logo ZS Nr 26"
+                style="width:52px;height:52px;border-radius:50%;border:3px solid #fff;object-fit:contain;background:#fff;padding:4px;">
+              <div>
+                <p style="color:#fff;font-weight:700;font-size:1rem;margin:0;line-height:1.2;">Szkoła Podstawowa Specjalna Nr&nbsp;26</p>
+                <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.2rem 0 0;">Szkoła specjalna · Toruń</p>
+              </div>
+            </div>
+            <!-- Dekoracja fala -->
+            <svg viewBox="0 0 400 40" preserveAspectRatio="none"
+              style="position:absolute;bottom:-1px;left:0;width:100%;height:40px;" aria-hidden="true">
+              <path d="M0,20 C100,40 300,0 400,20 L400,40 L0,40 Z" fill="#f0f2f5"/>
+            </svg>
+          </div>
+
+          <!-- Treść -->
+          <div style="background:#f0f2f5;padding:1.25rem 1.5rem 1.5rem;">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true" style="flex-shrink:0"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              <p style="color:#1c1e21;font-weight:600;font-size:.9rem;margin:0;">Śledź nas na Facebooku</p>
+            </div>
+            <p style="color:#65676b;font-size:.85rem;margin:0 0 1.1rem;line-height:1.5;">
+              Aktualności, relacje z&nbsp;wydarzeń i&nbsp;ważne ogłoszenia – wszystko na bieżąco na naszym profilu.
+            </p>
+            <span style="display:inline-flex;align-items:center;gap:.5rem;background:#1877F2;color:#fff;font-weight:700;font-size:.85rem;padding:.65rem 1.4rem;border-radius:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Odwiedź nasz profil
+            </span>
+          </div>
+        </a>`;
+    })();
 
     // ── Sierotki PL ──────────────────────────────────────────────
     (function () {
@@ -769,9 +831,84 @@
     })();
   </script>
 
+  <!-- ── Animacje ──────────────────────────────────────────── -->
+  <script>
+  (function () {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── 1. Hero entrance ────────────────────────────────────
+    function runHero() {
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.hero-anim').forEach(el => el.style.opacity = 1);
+        return;
+      }
+      document.querySelectorAll('.hero-anim').forEach(el => el.classList.add('run'));
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runHero);
+    } else {
+      runHero();
+    }
+
+    // ── 2. Stagger dla kart (IntersectionObserver) ──────────
+    if (window.IntersectionObserver) {
+      const staggerObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.stagger-item'));
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('is-visible'), idx * 90);
+          staggerObs.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.stagger-item').forEach(el => staggerObs.observe(el));
+    } else {
+      document.querySelectorAll('.stagger-item').forEach(el => el.classList.add('is-visible'));
+    }
+
+    // ── 3. Licznik statystyk ─────────────────────────────────
+    if (window.IntersectionObserver && !prefersReducedMotion) {
+      const counterObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || '';
+          const dur = 1200;
+          const start = performance.now();
+          function tick(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(ease * target) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          counterObs.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('.stat-count[data-target]').forEach(el => counterObs.observe(el));
+    }
+
+    // ── 4. Parallax murale (tylko desktop, tylko scroll) ────
+    const mural = document.querySelector('.mural-parallax');
+    if (mural && !prefersReducedMotion) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          mural.style.transform = 'translateY(' + (scrollY * 0.18) + 'px)';
+          ticking = false;
+        });
+      }, { passive: true });
+    }
+  })();
+  </script>
+
   <script src="data/news.js"></script>
   <script>document.addEventListener('DOMContentLoaded', renderNews);</script>
   <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="components/footer.js?v=4"></script>
 </body>
 </html>

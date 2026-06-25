@@ -1,34 +1,35 @@
 (function () {
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  const isHome = page === 'index.html' || page === '';
 
   function desktopLink(href, label) {
     const active = href.split('/').pop() === page;
     return `<a href="${href}"
-      class="font-semibold text-sm transition-colors ${active ? 'text-brand-600' : 'hover:text-brand-600'}"
+      class="font-semibold text-sm transition-colors ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}"
       ${active ? 'aria-current="page"' : ''}>${label}</a>`;
   }
 
   function mobileLink(href, icon, label) {
     const active = href.split('/').pop() === page;
     return `<a href="${href}"
-      class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${active ? 'bg-red-50 text-brand-700' : 'text-gray-700 hover:bg-gray-50'}"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${active ? 'bg-brand-50 text-brand-700' : 'text-gray-700 hover:bg-gray-50'}"
       ${active ? 'aria-current="page"' : ''}>
       <i data-lucide="${icon}" class="w-5 h-5 flex-shrink-0"></i>${label}
     </a>`;
   }
 
   const navHTML = `
-    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
+    <header id="site-header" role="banner"
+      class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+      style="background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);color:#1f2937;box-shadow:0 1px 6px rgba(0,0,0,.07);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
 
         <!-- Logo + nazwa -->
         <a href="index.html" class="flex items-center gap-3 flex-shrink-0 min-w-0"
           aria-label="Strona główna – Zespół Szkół Nr 26 w Toruniu">
-          <img src="images/ui/logo.png" alt="" class="h-10 w-auto flex-shrink-0" aria-hidden="true">
+          <img src="images/ui/logo.png" alt="" class="h-9 w-auto flex-shrink-0" aria-hidden="true">
           <div class="hidden sm:block leading-tight">
-            <p class="font-bold text-sm nav-name">Zespół Szkół Nr 26</p>
-            <p class="text-xs opacity-60 nav-sub">w Toruniu</p>
+            <p class="font-bold text-sm text-gray-900">Zespół Szkół Nr 26</p>
+            <p class="text-xs text-gray-500">w Toruniu</p>
           </div>
         </a>
 
@@ -45,14 +46,14 @@
         <!-- Prawa strona: CTA + hamburger -->
         <div class="flex items-center gap-2 flex-shrink-0">
           <a href="index.html#kontakt"
-            class="hidden sm:inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-colors shadow-sm">
+            class="hidden sm:inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-all shadow-sm">
             <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
           </a>
           <button id="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu"
-            class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-lg hover:bg-black/5 transition-colors">
-            <span class="ham-line block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
-            <span class="ham-line block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
-            <span class="ham-line block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+            class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-lg hover:bg-gray-100 transition-colors">
+            <span class="ham-line block w-5 h-0.5 bg-gray-700 transition-all duration-300 origin-center"></span>
+            <span class="ham-line block w-5 h-0.5 bg-gray-700 transition-all duration-300 origin-center"></span>
+            <span class="ham-line block w-5 h-0.5 bg-gray-700 transition-all duration-300 origin-center"></span>
           </button>
         </div>
       </div>
@@ -81,33 +82,9 @@
         </nav>
       </div>
     </header>
-    <div style="height:64px" aria-hidden="true"></div>
   `;
 
   document.getElementById('navbar-placeholder').outerHTML = navHTML;
-
-  // Scroll: transparentny na hero strony głównej, biały na pozostałych
-  const header = document.getElementById('site-header');
-
-  function updateHeader() {
-    const pastHero = !isHome || window.scrollY > window.innerHeight - 80;
-    if (pastHero) {
-      header.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
-      header.classList.remove('bg-transparent');
-      header.style.color = '';
-    } else {
-      header.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
-      header.classList.add('bg-transparent');
-      header.style.color = 'white';
-    }
-  }
-
-  if (!isHome) {
-    header.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
-  } else {
-    updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
-  }
 
   // Hamburger
   const ham = document.getElementById('hamburger');
