@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Historia, patron, dokumenty i kadra Zespołu Szkół Nr 26 w Toruniu – Zespół Szkół Nr 26 w Toruniu.">
+  <meta name="description" content="Historia, patron, misja i kadra Zespołu Szkół Nr 26 w Toruniu – szkoły specjalnej z ponad 30-letnim doświadczeniem.">
   <meta name="theme-color" content="#C62828">
   <title>O szkole – ZS Nr 26 Toruń</title>
   <link rel="icon" href="images/ui/logo.png" type="image/png">
   <link rel="stylesheet" href="style.css?v=2">
-  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,35 +20,350 @@
   <div id="navbar-placeholder"></div>
 
   <main id="main-content">
+
     <!-- Nagłówek strony -->
-    <section class="py-16" style="background-color:#C62828">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-        <i data-lucide="info" class="w-12 h-12 mx-auto mb-4 opacity-80"></i>
-        <h1 class="text-3xl sm:text-4xl font-bold mb-3">O szkole</h1>
-        <p class="opacity-80 max-w-xl mx-auto">Historia, patron, dokumenty i kadra Zespołu Szkół Nr 26 w Toruniu</p>
+    <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">O nas</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">O szkole</h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">Historia, patron, misja i kadra Zespołu Szkół Nr 26 w Toruniu</p>
       </div>
     </section>
 
-    <!-- Treść – placeholder -->
-    <section class="py-16 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <div class="bg-brand-50 border-2 border-dashed rounded-2xl p-12" style="border-color:#FFCDD2">
-          <i data-lucide="hammer" class="w-10 h-10 mx-auto mb-4" style="color:#C62828"></i>
-          <h2 class="text-xl font-bold text-gray-800 mb-2">Treść w przygotowaniu</h2>
-          <p class="text-gray-500 mb-6">Ta podstrona jest aktualnie uzupełniana. Wróć wkrótce lub przejdź na stronę główną.</p>
-          <a href="index.html" class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-2.5 rounded-full text-white shadow transition-all" style="background-color:#C62828">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>Strona główna
+    <!-- Nawigacja kotwicowa -->
+    <nav class="sticky top-0 z-20 bg-white border-b border-gray-100 shadow-sm" aria-label="Sekcje strony">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ul class="flex gap-1 overflow-x-auto py-3 text-sm font-medium">
+          <li><a href="#historia" class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Historia</a></li>
+          <li><a href="#misja"    class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Misja</a></li>
+          <li><a href="#patron"   class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Patron</a></li>
+          <li><a href="#kadra"    class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Kadra</a></li>
+          <li><a href="#baza"     class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Baza</a></li>
+          <li><a href="#tradycje" class="px-4 py-1.5 rounded-full whitespace-nowrap transition-colors hover:bg-brand-100 text-brand-600">Tradycje</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Historia -->
+    <section id="historia" class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="history" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Historia szkoły</h2>
+        </div>
+        <div class="text-gray-600 space-y-4 text-base leading-relaxed">
+          <p>Zespół Szkół Nr 26 w Toruniu to placówka z ponad trzydziestoletnim doświadczeniem w edukacji i terapii dzieci z niepełnosprawnością intelektualną. Przez te wszystkie lata szkoła nieustannie rozwijała swoją ofertę i bazę dydaktyczną, odpowiadając na zmieniające się potrzeby uczniów i ich rodzin.</p>
+          <p>Szkoła mieści się przy ul. Fałata 88/90 w Toruniu i od początku swojego istnienia koncentruje się na zapewnieniu uczniom jak najlepszych warunków do rozwoju – zarówno edukacyjnego, jak i terapeutycznego.</p>
+          <p>Z biegiem lat placówka rozrosła się o kolejne formy wsparcia: wczesne wspomaganie rozwoju dziecka, oddziały przedszkolne, zajęcia rewalidacyjno-wychowawcze, szkołę przysposabiającą do pracy oraz program Rehabilitacja 25+. Szkoła stała się centrum kompleksowego wsparcia dla osób z niepełnosprawnościami – od najmłodszych lat aż po dorosłość.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misja -->
+    <section id="misja" class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="heart" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Misja i wartości</h2>
+        </div>
+
+        <blockquote class="bg-white rounded-2xl p-8 mb-10 shadow-sm border-l-4 border-brand-600">
+          <i data-lucide="quote" class="w-8 h-8 mb-3 text-brand-200"></i>
+          <p class="text-xl font-medium text-gray-800 leading-relaxed italic">
+            Przygotowanie uczniów na miarę ich indywidualnych możliwości do jak najbardziej samodzielnego i niezależnego życia w warunkach społecznych i rodzinnych.
+          </p>
+        </blockquote>
+
+        <p class="text-gray-600 mb-8 leading-relaxed">Szkołę wyróżnia ciepły, rodzinny klimat. Wierzymy, że każdy uczeń ma swój potencjał i zasługuje na indywidualne podejście, szacunek oraz możliwość rozwijania się we własnym tempie.</p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-5 flex gap-4 items-start shadow-sm border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="user-check" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Samodzielność</h3>
+              <p class="text-sm text-gray-500">Rozwijanie aktywności i samodzielności w codziennych czynnościach</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 flex gap-4 items-start shadow-sm border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="users" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Integracja społeczna</h3>
+              <p class="text-sm text-gray-500">Wdrażanie do życia społecznego z poszanowaniem indywidualności</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 flex gap-4 items-start shadow-sm border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="message-circle" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Komunikacja</h3>
+              <p class="text-sm text-gray-500">Budowanie umiejętności komunikacyjnych, werbalnych i niewerbalnych (AAC)</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 flex gap-4 items-start shadow-sm border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="briefcase" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Przygotowanie do dorosłości</h3>
+              <p class="text-sm text-gray-500">Nauka umiejętności życiowych i przygotowanie do zatrudnienia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patron -->
+    <section id="patron" class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="bookmark" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Patron szkoły</h2>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-8 flex flex-col sm:flex-row gap-8 items-start border border-gray-100">
+          <div class="w-20 h-20 rounded-2xl bg-brand-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="landmark" class="w-10 h-10 text-brand-700"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-1">Ks. Prof. Józef Tischner</h3>
+            <p class="text-sm text-gray-400 mb-4">12 marca 1931 – 28 czerwca 2000</p>
+            <div class="text-gray-600 space-y-3 text-sm leading-relaxed">
+              <p>Ks. Józef Tischner był wybitnym polskim filozofem, profesorem Papieskiej Akademii Teologicznej w Krakowie i jednym z najważniejszych myślicieli XX wieku. Specjalizował się w filozofii dialogu i etyce, kładąc szczególny nacisk na wartość osobistego spotkania z drugim człowiekiem.</p>
+              <p>Był kapelanem Solidarności – swoimi kazaniami i pismami wspierał ruch walczący o wolność i godność człowieka. Do jego najważniejszych dzieł należą: <em>Etyka Solidarności</em>, <em>Filozofia dramatu</em> oraz <em>Historia filozofii po góralsku</em>.</p>
+              <p>Szkoła przyjęła jego patronat, gdyż wartości, którymi kierował się Tischner – szacunek dla każdego człowieka, otwartość, dialog, empatia i wiara w potencjał każdej osoby – są bliskie codziennej pracy naszej placówki.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kadra -->
+    <section id="kadra" class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Wykwalifikowana kadra</h2>
+        </div>
+
+        <p class="text-gray-600 mb-8 leading-relaxed">Wszyscy nauczyciele ZS Nr 26 to oligofrenopedagodzy – specjaliści w pracy z osobami z niepełnosprawnością intelektualną. Kadra stale podnosi swoje kwalifikacje, uczestnicząc w szkoleniach i projektach edukacyjnych.</p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="mic" class="w-6 h-6 text-brand-700"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Logopedzi</h3>
+            <p class="text-sm text-gray-500 mt-1">3 gabinety logopedyczne</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="brain" class="w-6 h-6 text-blue-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Psycholodzy</h3>
+            <p class="text-sm text-gray-500 mt-1">Wsparcie psychologiczne uczniów</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="activity" class="w-6 h-6 text-leaf-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Terapeuci ruchu</h3>
+            <p class="text-sm text-gray-500 mt-1">Rehabilitacja ruchowa</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="eye" class="w-6 h-6 text-purple-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Tyflopedagodzy</h3>
+            <p class="text-sm text-gray-500 mt-1">Praca z dziećmi z dysfunkcją wzroku</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="ear" class="w-6 h-6 text-orange-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Surdopedagodzy</h3>
+            <p class="text-sm text-gray-500 mt-1">Praca z dziećmi z dysfunkcją słuchu</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="tablet" class="w-6 h-6 text-blue-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Specjaliści AAC</h3>
+            <p class="text-sm text-gray-500 mt-1">60 iPadów, Grid 3, Mówik, Boardmaker</p>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-white rounded-xl p-5 flex gap-4 items-center shadow-sm border border-gray-100">
+          <span class="w-11 h-11 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="horse" class="w-6 h-6 text-yellow-600"></i>
+          </span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Hipoterapia i integracja sensoryczna</h3>
+            <p class="text-sm text-gray-500 mt-0.5">Szkoła dysponuje specjalistami hipoterapii, terapeutami integracji sensorycznej i doradcami zawodowymi dla osób z niepełnosprawnościami.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Baza materialna -->
+    <section id="baza" class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="building-2" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Baza materialna</h2>
+        </div>
+
+        <p class="text-gray-600 mb-8 leading-relaxed">Placówka dysponuje bogatą bazą specjalistycznych pracowni i gabinetów, dostosowanych do potrzeb uczniów z różnymi rodzajami niepełnosprawności.</p>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="chef-hat" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">3 pracownie kuchenne</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="hammer" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Pracownia stolarska</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="scissors" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Pracownia tkacka</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="palette" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">2 pracownie plastyczne</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="sparkles" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Sala Doświadczania Świata (terapia polisensoryczna)</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="zap" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Sala Integracji Sensorycznej</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="waves" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Basen do hydroterapii</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="moon" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Ciemnia (terapia światłem)</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="home" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Mieszkanko przedszkolne</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="baby" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">Sala Wczesnego Wspomagania Rozwoju</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="mic-2" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">3 gabinety logopedyczne</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <i data-lucide="tablet-smartphone" class="w-5 h-5 flex-shrink-0 text-brand-600"></i>
+            <span class="text-gray-700 text-sm">60 iPadów z oprogramowaniem AAC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tradycje -->
+    <section id="tradycje" class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="star" class="w-6 h-6 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Tradycje szkolne</h2>
+        </div>
+
+        <p class="text-gray-600 mb-8 leading-relaxed">Życie szkolne ZS Nr 26 to nie tylko zajęcia i terapia – to również bogata tradycja wydarzeń, które integrują uczniów, nauczycieli i rodziców.</p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="trophy" class="w-6 h-6 text-yellow-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Dni Sukcesu</h3>
+            <p class="text-sm text-gray-500 mt-1">Celebracja osiągnięć każdego ucznia</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="theater" class="w-6 h-6 text-purple-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Przedstawienia teatralne</h3>
+            <p class="text-sm text-gray-500 mt-1">Coroczne spektakle przygotowywane przez uczniów</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="paintbrush" class="w-6 h-6 text-orange-500"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Wystawy plastyczne</h3>
+            <p class="text-sm text-gray-500 mt-1">Prezentacja prac artystycznych uczniów</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="gift" class="w-6 h-6 text-brand-700"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Kiermasze świąteczne</h3>
+            <p class="text-sm text-gray-500 mt-1">Bożonarodzeniowy i wielkanocny</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="sun" class="w-6 h-6 text-leaf-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Piknik rodzinny</h3>
+            <p class="text-sm text-gray-500 mt-1">Wspólne świętowanie z rodzinami uczniów</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="calendar" class="w-6 h-6 text-blue-600"></i>
+            </span>
+            <h3 class="font-semibold text-gray-900">Święta tematyczne</h3>
+            <p class="text-sm text-gray-500 mt-1">Boże Narodzenie, Wielkanoc i inne</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 bg-white border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Chcesz dowiedzieć się więcej?</h2>
+        <p class="text-gray-500 mb-6">Zapraszamy do kontaktu z sekretariatem lub bezpośredniej wizyty w szkole.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="tel:+48566485784" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3 rounded-full text-white shadow-md transition-all hover:bg-brand-700 bg-brand-600">
+            <i data-lucide="phone" class="w-4 h-4"></i>(56) 648-57-84
+          </a>
+          <a href="rekrutacja.html" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3 rounded-full border-2 border-brand-600 text-brand-700 transition-all hover:bg-brand-50">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>Rekrutacja
           </a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <div id="site-footer"></div>
 
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
+  <script src="components/a11y.js"></script>
   <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
 </body>
 </html>

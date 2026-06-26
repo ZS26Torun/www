@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Informacje o rekrutacji do wszystkich oddziałów szkoły – Zespół Szkół Nr 26 w Toruniu.">
+  <meta name="description" content="Rekrutacja do Zespołu Szkół Nr 26 w Toruniu – rekrutacja ciągła przez cały rok, formularze zgłoszeniowe do wszystkich oddziałów.">
   <meta name="theme-color" content="#C62828">
   <title>Rekrutacja – ZS Nr 26 Toruń</title>
   <link rel="icon" href="images/ui/logo.png" type="image/png">
   <link rel="stylesheet" href="style.css?v=2">
-  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,35 +20,208 @@
   <div id="navbar-placeholder"></div>
 
   <main id="main-content">
+
     <!-- Nagłówek strony -->
-    <section class="py-16" style="background-color:#C62828">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-        <i data-lucide="user-plus" class="w-12 h-12 mx-auto mb-4 opacity-80"></i>
-        <h1 class="text-3xl sm:text-4xl font-bold mb-3">Rekrutacja 2026/2027</h1>
-        <p class="opacity-80 max-w-xl mx-auto">Informacje o rekrutacji do wszystkich oddziałów szkoły</p>
+    <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Dołącz do nas</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Rekrutacja</h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">Zapraszamy przez cały rok – rekrutacja prowadzona jest w trybie ciągłym</p>
       </div>
     </section>
 
-    <!-- Treść – placeholder -->
-    <section class="py-16 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <div class="bg-brand-50 border-2 border-dashed rounded-2xl p-12" style="border-color:#FFCDD2">
-          <i data-lucide="hammer" class="w-10 h-10 mx-auto mb-4" style="color:#C62828"></i>
-          <h2 class="text-xl font-bold text-gray-800 mb-2">Treść w przygotowaniu</h2>
-          <p class="text-gray-500 mb-6">Ta podstrona jest aktualnie uzupełniana. Wróć wkrótce lub przejdź na stronę główną.</p>
-          <a href="index.html" class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-2.5 rounded-full text-white shadow transition-all" style="background-color:#C62828">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>Strona główna
-          </a>
+    <!-- Banner -->
+    <section class="py-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="rounded-2xl p-8 text-center bg-brand-50 border border-brand-200">
+          <span class="w-14 h-14 rounded-2xl bg-brand-100 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="calendar-check" class="w-7 h-7 text-brand-700"></i>
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">Rekrutacja przez cały rok!</h2>
+          <p class="text-gray-600 text-base leading-relaxed">Rekrutacja do naszej szkoły prowadzona jest <strong>w trybie ciągłym</strong> – trwa przez cały rok. Nie musisz czekać na żaden termin. Skontaktuj się z nami w dowolnym momencie.</p>
         </div>
       </div>
     </section>
+
+    <!-- Jak się zapisać -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Jak się zapisać?</h2>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-6 flex gap-4 items-start shadow-sm border border-gray-100">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-lg bg-brand-600">1</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Pobierz i wypełnij formularz</h3>
+              <p class="text-gray-500 text-sm">Wybierz właściwy wniosek z listy poniżej, wypełnij go czytelnie (ręcznie lub elektronicznie) i podpisz.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 flex gap-4 items-start shadow-sm border border-gray-100">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-lg bg-brand-600">2</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Dołącz orzeczenie</h3>
+              <p class="text-gray-500 text-sm">Do wniosku dołącz aktualne orzeczenie o potrzebie kształcenia specjalnego lub o potrzebie zajęć rewalidacyjno-wychowawczych, wydane przez poradnię psychologiczno-pedagogiczną.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 flex gap-4 items-start shadow-sm border border-gray-100">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-lg bg-brand-600">3</div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Złóż dokumenty w sekretariacie</h3>
+              <p class="text-gray-500 text-sm">Przynieś dokumenty osobiście do sekretariatu lub wyślij pocztą. Zapraszamy też na bezpłatną konsultację – odpowiemy na wszystkie pytania.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formularze -->
+    <section class="py-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Wnioski i formularze</h2>
+        <p class="text-center text-gray-400 mb-8 text-sm">Wybierz odpowiedni formularz dla danej formy wsparcia</p>
+
+        <div class="space-y-3">
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors accordion-btn" aria-expanded="false">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="baby" class="w-5 h-5 text-brand-700"></i></span>
+                <span class="font-semibold text-gray-900">Wczesne Wspomaganie Rozwoju Dziecka</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform accordion-icon flex-shrink-0"></i>
+            </button>
+            <div class="accordion-content hidden px-5 pb-5">
+              <ul class="space-y-2 pt-2">
+                <li><a href="pdf/wniosek-wwr.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o przyjęcie na zajęcia WWR</a></li>
+              </ul>
+              <p class="text-xs text-gray-400 mt-3">Dla dzieci od urodzenia do podjęcia nauki w szkole, posiadających opinię o potrzebie WWR</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors accordion-btn" aria-expanded="false">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><i data-lucide="apple" class="w-5 h-5 text-yellow-600"></i></span>
+                <span class="font-semibold text-gray-900">Oddziały Przedszkolne</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform accordion-icon flex-shrink-0"></i>
+            </button>
+            <div class="accordion-content hidden px-5 pb-5">
+              <ul class="space-y-2 pt-2">
+                <li><a href="pdf/wniosek-przedszkole.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o przyjęcie do oddziału przedszkolnego</a></li>
+                <li><a href="pdf/wniosek-przedszkolne-indywidualne.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o indywidualne przygotowanie przedszkolne</a></li>
+              </ul>
+              <p class="text-xs text-gray-400 mt-3">Wymagane orzeczenie o potrzebie kształcenia specjalnego</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors accordion-btn" aria-expanded="false">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5 text-purple-600"></i></span>
+                <span class="font-semibold text-gray-900">Zajęcia Rewalidacyjno-Wychowawcze</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform accordion-icon flex-shrink-0"></i>
+            </button>
+            <div class="accordion-content hidden px-5 pb-5">
+              <ul class="space-y-2 pt-2">
+                <li><a href="pdf/wniosek-zrw-indywidualne.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek – zajęcia indywidualne ZRW</a></li>
+                <li><a href="pdf/wniosek-zrw-grupowe.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek – zajęcia grupowe ZRW</a></li>
+              </ul>
+              <p class="text-xs text-gray-400 mt-3">Dla dzieci i młodzieży 3–25 lat z głęboką niepełnosprawnością intelektualną</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors accordion-btn" aria-expanded="false">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="school" class="w-5 h-5 text-brand-700"></i></span>
+                <span class="font-semibold text-gray-900">Szkoła Podstawowa Specjalna</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform accordion-icon flex-shrink-0"></i>
+            </button>
+            <div class="accordion-content hidden px-5 pb-5">
+              <ul class="space-y-2 pt-2">
+                <li><a href="pdf/wniosek-sp.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o przyjęcie do szkoły podstawowej</a></li>
+                <li><a href="pdf/wniosek-sp-indywidualne.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o indywidualne nauczanie – szkoła podstawowa</a></li>
+              </ul>
+              <p class="text-xs text-gray-400 mt-3">Wymagane orzeczenie o potrzebie kształcenia specjalnego</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors accordion-btn" aria-expanded="false">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><i data-lucide="briefcase" class="w-5 h-5 text-leaf-600"></i></span>
+                <span class="font-semibold text-gray-900">Szkoła Przysposabiająca do Pracy</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform accordion-icon flex-shrink-0"></i>
+            </button>
+            <div class="accordion-content hidden px-5 pb-5">
+              <ul class="space-y-2 pt-2">
+                <li><a href="pdf/wniosek-spp.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o przyjęcie do szkoły przysposabiającej do pracy</a></li>
+                <li><a href="pdf/wniosek-spp-indywidualne.pdf" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"><i data-lucide="download" class="w-4 h-4"></i>Wniosek o indywidualne nauczanie – szkoła przysposabiająca</a></li>
+              </ul>
+              <p class="text-xs text-gray-400 mt-3">Wymagane ukończenie szkoły podstawowej i orzeczenie o potrzebie kształcenia specjalnego</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-gray-400 mt-6">
+          Masz pytania dotyczące wyboru formularza?
+          <a href="tel:+48566485784" class="font-semibold text-brand-600 hover:underline ml-1">Zadzwoń do sekretariatu</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Kontakt w sprawie rekrutacji</h2>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="tel:+48566485784" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3"><i data-lucide="phone" class="w-6 h-6 text-brand-700"></i></span>
+            <h3 class="font-semibold text-gray-900 mb-1">Telefon</h3>
+            <p class="text-sm text-brand-600">(56) 648-57-84</p>
+            <p class="text-xs text-gray-400 mt-1">pon.–pt. 7:30–15:30</p>
+          </a>
+          <a href="mailto:sekretariat@szkola26.torun.pl" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3"><i data-lucide="mail" class="w-6 h-6 text-brand-700"></i></span>
+            <h3 class="font-semibold text-gray-900 mb-1">E-mail</h3>
+            <p class="text-xs break-all text-brand-600">sekretariat@szkola26.torun.pl</p>
+          </a>
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3"><i data-lucide="map-pin" class="w-6 h-6 text-brand-700"></i></span>
+            <h3 class="font-semibold text-gray-900 mb-1">Osobiście</h3>
+            <p class="text-sm text-gray-500">ul. Fałata 88/90<br>87-100 Toruń</p>
+          </div>
+        </div>
+
+        <div class="mt-5 bg-white rounded-xl p-5 flex gap-4 items-start shadow-sm border border-gray-100">
+          <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="info" class="w-5 h-5 text-brand-700"></i></span>
+          <p class="text-sm text-gray-600">Zapraszamy rodziców i nauczycieli do skorzystania z <strong>bezpłatnych punktów konsultacyjnych</strong> – odpowiemy na pytania dotyczące procesu rekrutacji, wymaganych dokumentów oraz doboru odpowiedniej formy wsparcia dla dziecka.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <div id="site-footer"></div>
 
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
-  <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
+  <script src="components/a11y.js"></script>
+  <script>
+    if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.accordion-icon');
+        const isOpen = !content.classList.contains('hidden');
+        content.classList.toggle('hidden', isOpen);
+        icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  </script>
 </body>
 </html>

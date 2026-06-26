@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Przedszkole, szkoła podstawowa, klasy rewalidacyjne i więcej – Zespół Szkół Nr 26 w Toruniu.">
+  <meta name="description" content="Oferta edukacyjna Zespołu Szkół Nr 26 w Toruniu – WWR, przedszkole, szkoła podstawowa, zajęcia rewalidacyjne, szkoła przysposabiająca do pracy, Rehabilitacja 25+.">
   <meta name="theme-color" content="#C62828">
   <title>Oferta edukacyjna – ZS Nr 26 Toruń</title>
   <link rel="icon" href="images/ui/logo.png" type="image/png">
   <link rel="stylesheet" href="style.css?v=2">
-  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,35 +20,199 @@
   <div id="navbar-placeholder"></div>
 
   <main id="main-content">
+
     <!-- Nagłówek strony -->
-    <section class="py-16" style="background-color:#C62828">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-        <i data-lucide="book-open" class="w-12 h-12 mx-auto mb-4 opacity-80"></i>
-        <h1 class="text-3xl sm:text-4xl font-bold mb-3">Oferta edukacyjna</h1>
-        <p class="opacity-80 max-w-xl mx-auto">Przedszkole, szkoła podstawowa, klasy rewalidacyjne i więcej</p>
+    <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Edukacja</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Oferta edukacyjna</h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">Kompleksowe wsparcie na każdym etapie życia – od wczesnego dzieciństwa po dorosłość</p>
       </div>
     </section>
 
-    <!-- Treść – placeholder -->
-    <section class="py-16 bg-white">
+    <!-- Intro -->
+    <section class="py-12 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <div class="bg-brand-50 border-2 border-dashed rounded-2xl p-12" style="border-color:#FFCDD2">
-          <i data-lucide="hammer" class="w-10 h-10 mx-auto mb-4" style="color:#C62828"></i>
-          <h2 class="text-xl font-bold text-gray-800 mb-2">Treść w przygotowaniu</h2>
-          <p class="text-gray-500 mb-6">Ta podstrona jest aktualnie uzupełniana. Wróć wkrótce lub przejdź na stronę główną.</p>
-          <a href="index.html" class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-2.5 rounded-full text-white shadow transition-all" style="background-color:#C62828">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>Strona główna
+        <p class="text-lg text-gray-600 leading-relaxed">Zespół Szkół Nr 26 w Toruniu oferuje szeroki zakres form wsparcia edukacyjnego i terapeutycznego dla dzieci, młodzieży i dorosłych z niepełnosprawnością intelektualną. Każdy program dostosowany jest do indywidualnych potrzeb i możliwości uczestnika.</p>
+      </div>
+    </section>
+
+    <!-- WWR -->
+    <section id="wwr" class="py-14 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="baby" class="w-8 h-8 text-brand-700"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Wczesne Wspomaganie Rozwoju Dziecka</h2>
+            <p class="text-sm font-semibold text-brand-600 mb-4">Dla dzieci od urodzenia do podjęcia nauki w szkole</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Wczesne wspomaganie rozwoju (WWR) to kompleksowe, wielospecjalistyczne wsparcie dla dzieci z niepełnosprawnością lub zagrożonych nieprawidłowym rozwojem. Celem jest stymulowanie psychoruchowego i społecznego rozwoju dziecka od najwcześniejszego etapu życia.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Diagnoza i ocena poziomu funkcjonowania dziecka</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Indywidualne i grupowe zajęcia terapeutyczne</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Wsparcie i poradnictwo dla rodziny</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Logopedia, integracja sensoryczna, rehabilitacja ruchowa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Przedszkole -->
+    <section id="przedszkole" class="py-14 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="apple" class="w-8 h-8 text-yellow-600"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Oddziały Przedszkolne</h2>
+            <p class="text-sm font-semibold text-brand-600 mb-4">„Czerwone jabłuszko" – dla dzieci w wieku 3–9 lat</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Nasze oddziały przedszkolne działają pod nazwą <strong>„Czerwone jabłuszko"</strong> – nawiązując do koloru jabłka z logo szkoły. To miejsce, w którym małe dzieci z niepełnosprawnością intelektualną mogą rozwijać się w bezpiecznym, przyjaznym środowisku, wśród troskliwej kadry specjalistów.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Zajęcia rewalidacyjne dostosowane do możliwości dziecka</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Logopedia, terapia SI, stymulacja polisensoryczna</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Wsparcie AAC – komunikatory i aplikacje dla dzieci niemówiących</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Ciepła, rodzinna atmosfera sprzyjająca rozwojowi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Szkoła Podstawowa -->
+    <section id="szkola-podstawowa" class="py-14 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="school" class="w-8 h-8 text-brand-700"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Szkoła Podstawowa Specjalna</h2>
+            <p class="text-sm font-semibold text-brand-600 mb-4">Dla uczniów w wieku 7–20 lat</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Szkoła Podstawowa Specjalna realizuje podstawę programową dostosowaną do możliwości uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym i znacznym. Głównym celem jest rozwijanie samodzielności i umiejętności niezbędnych w codziennym życiu.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Indywidualne programy edukacyjno-terapeutyczne (IPET)</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Nauka umiejętności życiowych i społecznych</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Zajęcia w specjalistycznych pracowniach (kuchnia, plastyka, stolarka)</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Terapia logopedyczna, SI, hydroterapia, hipoterapia</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>AAC – wspomaganie komunikacji dla uczniów niemówiących</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZRW -->
+    <section id="zrw" class="py-14 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="heart-handshake" class="w-8 h-8 text-purple-600"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Zajęcia Rewalidacyjno-Wychowawcze</h2>
+            <p class="text-sm font-semibold text-brand-600 mb-4">Dla dzieci i młodzieży z niepełnosprawnością intelektualną w stopniu głębokim (3–25 lat)</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Zajęcia rewalidacyjno-wychowawcze (ZRW) to forma wsparcia dla osób z głęboką niepełnosprawnością intelektualną. Prowadzone są w formie indywidualnej lub grupowej, z naciskiem na stymulację zmysłową i nawiązywanie kontaktu z otoczeniem.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Stymulacja polisensoryczna i Sala Doświadczania Świata</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Zajęcia indywidualne i grupowe</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Rehabilitacja ruchowa i hydroterapia</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Wsparcie rodziny i opiekunów</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPdP -->
+    <section id="spp" class="py-14 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="briefcase" class="w-8 h-8 text-leaf-600"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Szkoła Przysposabiająca do Pracy</h2>
+            <p class="text-sm font-semibold text-brand-600 mb-4">Im. ks. prof. Józefa Tischnera – dla uczniów po szkole podstawowej (do 24 roku życia)</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Szkoła przysposabiająca do pracy (SPdP) przygotowuje uczniów z niepełnosprawnością intelektualną do możliwie samodzielnego życia i aktywności zawodowej. Nacisk kładziony jest na praktyczne umiejętności i przysposobienie do pracy na otwartym lub chronionym rynku.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Praktyki zawodowe i przysposobienie do pracy</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Zajęcia w pracowniach: kulinarnej, stolarskiej, tkackiej, plastycznej</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Doradztwo zawodowe dla osób z niepełnosprawnościami</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Kształtowanie kompetencji społecznych i samodzielności</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rehabilitacja 25+ -->
+    <section id="rehab25" class="py-14 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="activity" class="w-8 h-8 text-leaf-600"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">Rehabilitacja 25+</h2>
+            <p class="text-sm font-semibold text-leaf-600 mb-4">Dla dorosłych osób z niepełnosprawnością po zakończeniu edukacji</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">Program Rehabilitacja 25+ kierowany jest do dorosłych osób z niepełnosprawnością intelektualną, które ukończyły edukację szkolną. Celem jest podtrzymanie i rozwijanie umiejętności, zapobieganie regresji oraz wspieranie aktywności społecznej.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Zajęcia terapeutyczne i rewalidacyjne dla dorosłych</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Aktywizacja społeczna i rozwijanie samodzielności</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Rehabilitacja ruchowa i terapia specjalistyczna</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OWiT -->
+    <section id="owit" class="py-14 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row gap-8 items-start">
+          <span class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+            <i data-lucide="search" class="w-8 h-8 text-blue-600"></i>
+          </span>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1">OWiT – Ośrodek Wsparcia i Testów</h2>
+            <p class="text-sm font-semibold text-leaf-600 mb-4">Wsparcie diagnostyczne i doradcze</p>
+            <p class="text-gray-600 mb-4 leading-relaxed">OWiT to ośrodek oferujący wsparcie diagnostyczne, doradcze i szkoleniowe dla dzieci, rodziców, pedagogów i specjalistów z obszaru całego regionu. Działalność OWiT dostępna jest pod adresem <a href="https://owit-torun.pl" target="_blank" rel="noopener" class="font-semibold text-leaf-600 hover:text-leaf-700 underline">owit-torun.pl</a>.</p>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Diagnoza i ocena funkcjonowania</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Szkolenia i warsztaty dla specjalistów</li>
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 text-leaf-600"></i>Poradnictwo dla rodziców i opiekunów</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 bg-white border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Zainteresowany którymś z programów?</h2>
+        <p class="text-gray-500 mb-6">Rekrutacja do naszej szkoły prowadzona jest przez cały rok. Skontaktuj się z sekretariatem.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="rekrutacja.html" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3 rounded-full text-white shadow-md transition-all bg-brand-600 hover:bg-brand-700">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>Sprawdź rekrutację
+          </a>
+          <a href="tel:+48566485784" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3 rounded-full border-2 border-brand-600 text-brand-700 transition-all hover:bg-brand-50">
+            <i data-lucide="phone" class="w-4 h-4"></i>(56) 648-57-84
           </a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <div id="site-footer"></div>
 
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
+  <script src="components/a11y.js"></script>
   <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
 </body>
 </html>
