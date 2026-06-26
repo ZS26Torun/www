@@ -20,7 +20,7 @@ window.NEWS_DATA = [
     date: '2026-05-20',
     category: 'rekrutacja',
     title: 'Rekrutacja na rok szkolny 2026/2027 trwa',
-    excerpt: 'Trwa nabór do wszystkich oddziałów: przedszkola, szkoły podstawowej, klas rewalidacyjno-wychowawczych i szkoły przysposabiającej do pracy. Zapraszamy do zapoznania się z ofertą.',
+    excerpt: 'Trwa nabór do wszystkich oddziałów: przedszkola, szkoły podstawowej, grup terapeutycznych i szkoły przysposabiającej do pracy. Zapraszamy do zapoznania się z ofertą.',
     pinned: false
   },
   {

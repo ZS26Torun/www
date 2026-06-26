@@ -16,7 +16,7 @@
             </div>
             <p class="text-red-300 text-sm leading-relaxed">
               Szkoła specjalna z&nbsp;wieloletnią tradycją przy ul.&nbsp;Fałata&nbsp;88/90.
-              Przedszkole, szkoła podstawowa, klasy rewalidacyjne, przysposabiająca do pracy, OWiT i&nbsp;SCWEW.
+              Przedszkole, szkoła podstawowa, grupy terapeutyczne, przysposabiająca do pracy, OWiT i&nbsp;SCWEW.
             </p>
             <div class="flex items-center gap-3 mt-5">
               <a href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun" target="_blank" rel="noopener noreferrer"
