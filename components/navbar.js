@@ -39,8 +39,9 @@
           ${desktopLink('oferta.html',      'Oferta')}
           ${desktopLink('rekrutacja.html',  'Rekrutacja')}
           ${desktopLink('aktualnosci.html', 'Aktualności')}
-          ${desktopLink('dla-rodzicow.html','Dla rodziców')}
-          ${desktopLink('dostepnosc.html',  'Dostępność')}
+          ${desktopLink('dla-rodzicow.html',  'Dla rodziców')}
+          ${desktopLink('dla-pracownika.html','Dla pracownika')}
+          ${desktopLink('dostepnosc.html',   'Dostępność')}
         </nav>
 
         <!-- Prawa strona: CTA + hamburger -->
@@ -67,8 +68,9 @@
           ${mobileLink('oferta.html',      'book-open',    'Oferta edukacyjna')}
           ${mobileLink('rekrutacja.html',  'user-plus',    'Rekrutacja')}
           ${mobileLink('aktualnosci.html', 'newspaper',    'Aktualności')}
-          ${mobileLink('dla-rodzicow.html','users',        'Dla rodziców')}
-          ${mobileLink('dostepnosc.html',  'accessibility','Dostępność')}
+          ${mobileLink('dla-rodzicow.html',  'users',         'Dla rodziców')}
+          ${mobileLink('dla-pracownika.html','briefcase',   'Dla pracownika')}
+          ${mobileLink('dostepnosc.html',    'accessibility','Dostępność')}
           <div class="pt-3 mt-2 border-t border-gray-100 space-y-2">
             <a href="https://uonetplus.vulcan.net.pl/torun" target="_blank" rel="noopener noreferrer"
               class="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-600 text-white font-semibold text-sm">

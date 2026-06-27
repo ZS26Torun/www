@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Linki dla pracowników ZS Nr 26 w Toruniu – e-dziennik, poczta, Teams, Kadry Place.">
+  <meta name="theme-color" content="#C62828">
+  <title>Dla pracownika – ZS Nr 26 Toruń</title>
+  <link rel="icon" href="images/ui/logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css?v=2">
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+</head>
+<body class="antialiased text-gray-800">
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- Nagłówek -->
+    <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Strefa pracownika</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Dla pracownika</h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">Szybki dostęp do systemów szkolnych i narzędzi pracy</p>
+      </div>
+    </section>
+
+    <!-- Kafelki -->
+    <section class="py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="grid sm:grid-cols-2 gap-4">
+
+          <a href="https://uonetplus.vulcan.net.pl/torun" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-4 p-6 rounded-2xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50 transition-colors group">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 group-hover:bg-brand-200 flex items-center justify-center flex-shrink-0 transition-colors">
+              <i data-lucide="book-open" class="w-6 h-6 text-brand-700"></i>
+            </span>
+            <div>
+              <p class="font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">E-dziennik</p>
+              <p class="text-xs text-gray-400 mt-0.5">Vulcan UONET+</p>
+            </div>
+          </a>
+
+          <a href="https://outlook.office.com" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-4 p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+            <span class="w-12 h-12 rounded-xl bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center flex-shrink-0 transition-colors">
+              <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+            </span>
+            <div>
+              <p class="font-semibold text-gray-800 group-hover:text-blue-700 transition-colors">Poczta Outlook</p>
+              <p class="text-xs text-gray-400 mt-0.5">Microsoft 365</p>
+            </div>
+          </a>
+
+          <a href="https://teams.microsoft.com" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-4 p-6 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition-colors group">
+            <span class="w-12 h-12 rounded-xl bg-indigo-100 group-hover:bg-indigo-200 flex items-center justify-center flex-shrink-0 transition-colors">
+              <i data-lucide="video" class="w-6 h-6 text-indigo-600"></i>
+            </span>
+            <div>
+              <p class="font-semibold text-gray-800 group-hover:text-indigo-700 transition-colors">Microsoft Teams</p>
+              <p class="text-xs text-gray-400 mt-0.5">Spotkania i komunikacja</p>
+            </div>
+          </a>
+
+          <a href="https://kadryplace.vulcan.net.pl/torun/1/PRACOWNIK/" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-4 p-6 rounded-2xl border border-gray-100 hover:border-leaf-600 hover:bg-green-50 transition-colors group">
+            <span class="w-12 h-12 rounded-xl bg-green-100 group-hover:bg-green-200 flex items-center justify-center flex-shrink-0 transition-colors">
+              <i data-lucide="briefcase" class="w-6 h-6 text-leaf-600"></i>
+            </span>
+            <div>
+              <p class="font-semibold text-gray-800 group-hover:text-leaf-700 transition-colors">Kadry Place</p>
+              <p class="text-xs text-gray-400 mt-0.5">Vulcan – kadry i płace</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="components/a11y.js"></script>
+  <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
+</body>
+</html>
