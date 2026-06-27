@@ -20,7 +20,6 @@
 
   "customEvents": [
     {
-      "_example": true,
       "label": "Dzień otwarty szkoły",
       "date": "2026-11-05",
       "note": "Zapraszamy rodziców przyszłych uczniów – usuń pole _example aby termin był widoczny"
