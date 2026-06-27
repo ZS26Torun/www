@@ -7,7 +7,6 @@
     { "label": "Święto Niepodległości",                "date": "2026-11-11", "type": "swieto",    "note": "dzień wolny" },
     { "label": "Zimowa przerwa świąteczna",            "dateStart": "2026-12-23", "dateEnd": "2026-12-31", "type": "przerwa" },
     { "label": "Nowy Rok",                             "date": "2027-01-01", "type": "swieto",    "note": "dzień wolny" },
-    { "label": "Wznowienie zajęć po przerwie świątecznej", "date": "2027-01-02", "type": "rok-szkolny" },
     { "label": "Ferie zimowe",                         "dateStart": "2027-02-15", "dateEnd": "2027-02-28", "type": "ferie", "note": "woj. kujawsko-pomorskie" },
     { "label": "Wiosenna przerwa świąteczna",          "dateStart": "2027-03-25", "dateEnd": "2027-03-30", "type": "przerwa" },
     { "label": "Święto Pracy",                         "date": "2027-05-01", "type": "swieto",    "note": "dzień wolny" },
