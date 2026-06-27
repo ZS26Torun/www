@@ -74,7 +74,7 @@
           <p>© 2026 Zespół Szkół Nr 26 w Toruniu</p>
           <div class="flex flex-wrap items-center gap-4 text-xs text-red-400">
             <a href="dostepnosc.html" class="hover:text-red-200 transition-colors">Deklaracja dostępności</a>
-            <a href="o-szkole.html#rodo" class="hover:text-red-200 transition-colors">RODO</a>
+            <a href="rodo.html" class="hover:text-red-200 transition-colors">Ochrona danych</a>
             <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer" class="hover:text-red-200 transition-colors">BIP</a>
           </div>
         </div>
