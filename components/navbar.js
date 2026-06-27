@@ -17,6 +17,13 @@
     </a>`;
   }
 
+  const pracownikLinks = [
+    { href: 'https://uonetplus.vulcan.net.pl/torun', icon: 'book-open', label: 'E-dziennik', sub: 'Vulcan UONET+' },
+    { href: 'https://outlook.office.com',            icon: 'mail',      label: 'Poczta Outlook', sub: 'Microsoft 365' },
+    { href: 'https://teams.microsoft.com',           icon: 'video',     label: 'Microsoft Teams', sub: 'Spotkania i komunikacja' },
+    { href: 'https://kadryplace.vulcan.net.pl/torun/1/PRACOWNIK/', icon: 'briefcase', label: 'Kadry Place', sub: 'Vulcan – kadry i płace' },
+  ];
+
   const navHTML = `
     <header id="site-header" role="banner"
       class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
@@ -39,9 +46,29 @@
           ${desktopLink('oferta.html',      'Oferta')}
           ${desktopLink('rekrutacja.html',  'Rekrutacja')}
           ${desktopLink('aktualnosci.html', 'Aktualności')}
-          ${desktopLink('dla-rodzicow.html',  'Dla rodziców')}
-          ${desktopLink('dla-pracownika.html','Dla pracownika')}
-          ${desktopLink('dostepnosc.html',   'Dostępność')}
+          ${desktopLink('dla-rodzicow.html','Dla rodziców')}
+          <div class="relative" id="pracownik-wrap">
+            <button id="pracownik-btn"
+              class="font-semibold text-sm text-gray-600 hover:text-brand-600 transition-colors flex items-center gap-1"
+              aria-haspopup="true" aria-expanded="false">
+              Dla pracownika <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="pracownik-chevron"></i>
+            </button>
+            <div id="pracownik-menu"
+              class="hidden absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
+              ${pracownikLinks.map(l => `
+              <a href="${l.href}" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group">
+                <span class="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-brand-100 flex items-center justify-center flex-shrink-0 transition-colors">
+                  <i data-lucide="${l.icon}" class="w-4 h-4 text-gray-500 group-hover:text-brand-700 transition-colors"></i>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">${l.label}</p>
+                  <p class="text-xs text-gray-400">${l.sub}</p>
+                </div>
+              </a>`).join('')}
+            </div>
+          </div>
+          ${desktopLink('dostepnosc.html',  'Dostępność')}
         </nav>
 
         <!-- Prawa strona: CTA + hamburger -->
@@ -68,18 +95,15 @@
           ${mobileLink('oferta.html',      'book-open',    'Oferta edukacyjna')}
           ${mobileLink('rekrutacja.html',  'user-plus',    'Rekrutacja')}
           ${mobileLink('aktualnosci.html', 'newspaper',    'Aktualności')}
-          ${mobileLink('dla-rodzicow.html',  'users',         'Dla rodziców')}
-          ${mobileLink('dla-pracownika.html','briefcase',   'Dla pracownika')}
-          ${mobileLink('dostepnosc.html',    'accessibility','Dostępność')}
-          <div class="pt-3 mt-2 border-t border-gray-100 space-y-2">
-            <a href="https://uonetplus.vulcan.net.pl/torun" target="_blank" rel="noopener noreferrer"
-              class="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-600 text-white font-semibold text-sm">
-              <i data-lucide="book" class="w-5 h-5"></i>E-dziennik (Vulcan)
-            </a>
-            <a href="https://portal.office.com" target="_blank" rel="noopener noreferrer"
-              class="flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm">
-              <i data-lucide="layout-grid" class="w-5 h-5"></i>Office 365
-            </a>
+          ${mobileLink('dla-rodzicow.html','users',        'Dla rodziców')}
+          ${mobileLink('dostepnosc.html',  'accessibility','Dostępność')}
+          <div class="pt-3 mt-2 border-t border-gray-100">
+            <p class="px-4 pb-2 text-xs font-bold text-gray-400 uppercase tracking-wide">Dla pracownika</p>
+            ${pracownikLinks.map(l => `
+            <a href="${l.href}" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+              <i data-lucide="${l.icon}" class="w-5 h-5 flex-shrink-0 text-gray-400"></i>${l.label}
+            </a>`).join('')}
           </div>
         </nav>
       </div>
@@ -103,6 +127,24 @@
       } else {
         lines.forEach(l => l.style.transform = '');
       }
+    });
+  }
+
+  // Dropdown pracownika
+  const btn = document.getElementById('pracownik-btn');
+  const menu = document.getElementById('pracownik-menu');
+  const chevron = document.getElementById('pracownik-chevron');
+  if (btn && menu) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open);
+      if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+    });
+    document.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      if (chevron) chevron.style.transform = '';
     });
   }
 
