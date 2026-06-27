@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: ZS26Torun/www
+  branch: master
+  auth_type: pkce
+  app_id: Ov23liqXy2OYkQX8aArz
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+locale: pl
+
+collections:
+  - name: aktualnosci
+    label: Aktualności
+    files:
+      - name: news
+        label: Lista aktualności
+        file: data/news.json
+        fields:
+          - name: posts
+            label: Wpisy
+            label_singular: Wpis
+            widget: list
+            summary: "{{fields.date}} – {{fields.title}}"
+            fields:
+              - name: id
+                label: ID
+                widget: number
+                hint: "Unikalny numer – użyj kolejnego wolnego"
+              - name: date
+                label: Data
+                widget: datetime
+                format: "YYYY-MM-DD"
+                date_format: "DD.MM.YYYY"
+                time_format: false
+              - name: category
+                label: Kategoria
+                widget: select
+                options:
+                  - { label: "Ogłoszenie", value: "ogłoszenie" }
+                  - { label: "Wydarzenie", value: "wydarzenie" }
+                  - { label: "Rekrutacja", value: "rekrutacja" }
+              - name: title
+                label: Tytuł
+                widget: string
+              - name: excerpt
+                label: Treść skrócona
+                widget: text
+              - name: pinned
+                label: Przypięte na górze
+                widget: boolean
+                default: false

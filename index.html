@@ -57,6 +57,10 @@
 </head>
 <body class="antialiased text-gray-800">
 
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v21.0"></script>
+
   <div id="scroll-progress" aria-hidden="true"></div>
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
@@ -746,10 +750,10 @@
     })();
 
     // ── News renderer ────────────────────────────────────────────
-    function renderNews() {
+    function renderNews(data) {
       const list = document.getElementById('news-list');
-      if (!list || !window.NEWS_DATA) return;
-      const sorted = [...window.NEWS_DATA].sort((a, b) => {
+      if (!list) return;
+      const sorted = [...data].sort((a, b) => {
         if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
         return new Date(b.date) - new Date(a.date);
       });
@@ -773,50 +777,25 @@
       lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
     }
 
-    // ── Facebook – karta profilu (niezawodna na każdej domenie) ──
+    // ── Facebook Page Plugin (timeline) ──────────────────────────
     (function () {
       const wrapper = document.getElementById('fb-consent-wrapper');
       if (!wrapper) return;
-      const FB_URL = 'https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun';
       wrapper.innerHTML = `
-        <a href="${FB_URL}" target="_blank" rel="noopener noreferrer"
-          class="fb-card-link"
-          style="display:block;border-radius:1rem;overflow:hidden;border:1px solid #e4e6eb;text-decoration:none;transition:box-shadow .2s;"
-          onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
-          onmouseout="this.style.boxShadow='none'">
-
-          <!-- Nagłówek w stylu Facebooka -->
-          <div style="background:#1877F2;padding:1.5rem 1.5rem 2.5rem;position:relative;">
-            <div style="display:flex;align-items:center;gap:.75rem;">
-              <img src="images/ui/logo.png" alt="Logo ZS Nr 26"
-                style="width:52px;height:52px;border-radius:50%;border:3px solid #fff;object-fit:contain;background:#fff;padding:4px;">
-              <div>
-                <p style="color:#fff;font-weight:700;font-size:1rem;margin:0;line-height:1.2;">Szkoła Podstawowa Specjalna Nr&nbsp;26</p>
-                <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.2rem 0 0;">Szkoła specjalna · Toruń</p>
-              </div>
-            </div>
-            <!-- Dekoracja fala -->
-            <svg viewBox="0 0 400 40" preserveAspectRatio="none"
-              style="position:absolute;bottom:-1px;left:0;width:100%;height:40px;" aria-hidden="true">
-              <path d="M0,20 C100,40 300,0 400,20 L400,40 L0,40 Z" fill="#f0f2f5"/>
-            </svg>
-          </div>
-
-          <!-- Treść -->
-          <div style="background:#f0f2f5;padding:1.25rem 1.5rem 1.5rem;">
-            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true" style="flex-shrink:0"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-              <p style="color:#1c1e21;font-weight:600;font-size:.9rem;margin:0;">Śledź nas na Facebooku</p>
-            </div>
-            <p style="color:#65676b;font-size:.85rem;margin:0 0 1.1rem;line-height:1.5;">
-              Aktualności, relacje z&nbsp;wydarzeń i&nbsp;ważne ogłoszenia – wszystko na bieżąco na naszym profilu.
-            </p>
-            <span style="display:inline-flex;align-items:center;gap:.5rem;background:#1877F2;color:#fff;font-weight:700;font-size:.85rem;padding:.65rem 1.4rem;border-radius:8px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-              Odwiedź nasz profil
-            </span>
-          </div>
-        </a>`;
+        <div class="fb-page"
+          data-href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun"
+          data-tabs="timeline"
+          data-width=""
+          data-height="600"
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+          <blockquote cite="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun">Szkoła Podstawowa Specjalna Nr 26 Toruń</a>
+          </blockquote>
+        </div>`;
+      if (window.FB) window.FB.XFBML.parse(wrapper);
     })();
 
     // ── Sierotki PL ──────────────────────────────────────────────
@@ -909,8 +888,15 @@
   })();
   </script>
 
-  <script src="data/news.js"></script>
-  <script>document.addEventListener('DOMContentLoaded', renderNews);</script>
+  <script>
+    fetch('data/news.json')
+      .then(r => r.json())
+      .then(data => renderNews(data.posts || []))
+      .catch(() => {
+        const list = document.getElementById('news-list');
+        if (list) list.innerHTML = '<p class="text-gray-400 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>';
+      });
+  </script>
   <script src="components/navbar.js"></script>
   <script src="components/footer.js?v=5"></script>
 </body>

@@ -72,7 +72,6 @@
 
   <div id="site-footer"></div>
 
-  <script src="data/news.js"></script>
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
   <script src="components/a11y.js"></script>
@@ -86,10 +85,13 @@
       return new Date(iso).toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
+    let allNews = [];
+    let activeFilter = 'wszystkie';
+
     function renderNews(filter) {
       const list = document.getElementById('news-list');
       const noResults = document.getElementById('no-results');
-      const items = (window.NEWS_DATA || [])
+      const items = allNews
         .filter(n => filter === 'wszystkie' || n.category === filter)
         .sort((a, b) => { if (a.pinned !== b.pinned) return a.pinned ? -1 : 1; return new Date(b.date) - new Date(a.date); });
 
@@ -108,8 +110,16 @@
       if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
     }
 
-    let activeFilter = 'wszystkie';
-    renderNews(activeFilter);
+    fetch('data/news.json')
+      .then(r => r.json())
+      .then(data => {
+        allNews = data.posts || [];
+        renderNews(activeFilter);
+      })
+      .catch(() => {
+        const list = document.getElementById('news-list');
+        if (list) list.innerHTML = '<p class="text-gray-400 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>';
+      });
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
