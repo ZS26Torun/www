@@ -34,8 +34,8 @@
         <a href="index.html" class="flex items-center gap-3 flex-shrink-0 min-w-0"
           aria-label="Strona główna – Zespół Szkół Nr 26 w Toruniu">
           <img src="images/ui/logo.png" alt="" class="h-9 w-auto flex-shrink-0" aria-hidden="true">
-          <div class="hidden sm:block leading-tight">
-            <p class="font-bold text-sm text-gray-900">Zespół Szkół Nr 26</p>
+          <div class="leading-tight">
+            <p class="font-bold text-sm text-gray-900"><span class="sm:hidden">ZS Nr&nbsp;26</span><span class="hidden sm:inline">Zespół Szkół Nr 26</span></p>
             <p class="text-xs text-gray-500">w Toruniu</p>
           </div>
         </a>
