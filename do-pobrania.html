@@ -177,11 +177,16 @@
         <p class="text-gray-400 text-sm mb-6">Sprawozdania z badań sanitarnych wody basenowej</p>
 
         <!-- Bieżące (2026) -->
-        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-3">2026</h3>
-        <div class="space-y-2 mb-8">
+        <div class="border border-gray-200 rounded-xl overflow-hidden mb-4">
+          <button id="basen2026-btn" onclick="toggleBasen2026()"
+            class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 transition-colors bg-gray-50">
+            <span class="font-semibold text-gray-700 text-sm">2026</span>
+            <i data-lucide="chevron-down" id="basen2026-chevron" class="w-5 h-5 text-gray-400 transition-transform duration-200"></i>
+          </button>
+          <div id="basen2026-content" class="hidden px-4 pb-4 pt-3 bg-white space-y-2">
 
           <a href="pdf/sharepoint/BASEN/Roczna_ocena_wody_do_k%C4%85pieli_ZS_26_2025-1.pdf" target="_blank"
-             class="flex items-center gap-4 bg-white rounded-xl p-4 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
+             class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
             <span class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
               <i data-lucide="droplets" class="w-5 h-5 text-teal-600"></i>
             </span>
@@ -192,7 +197,7 @@
             <i data-lucide="download" class="w-4 h-4 flex-shrink-0 text-gray-400"></i>
           </a>
 
-          <a href="pdf/sharepoint/BASEN/2026.01.14.pdf" target="_blank" class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
+          <a href="pdf/sharepoint/BASEN/2026.01.14.pdf" target="_blank" class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
             <i data-lucide="file" class="w-4 h-4 text-gray-400 flex-shrink-0"></i>
             <span class="text-sm text-gray-700 group-hover:text-brand-700 transition-colors flex-1">Sprawozdanie – 14.01.2026</span>
             <i data-lucide="download" class="w-4 h-4 text-gray-300 flex-shrink-0"></i>
@@ -272,12 +277,13 @@
             <span class="text-sm text-gray-700 group-hover:text-brand-700 transition-colors flex-1">Sprawozdanie nr 2826 – 08.06.2026</span>
             <i data-lucide="download" class="w-4 h-4 text-gray-300 flex-shrink-0"></i>
           </a>
-          <a href="pdf/sharepoint/BASEN/Sprawozdanie%20z%20bada%C5%84%20wody%20nr%203161%20z%20dnia%2022.06.2026%20r..pdf" target="_blank" class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
+          <a href="pdf/sharepoint/BASEN/Sprawozdanie%20z%20bada%C5%84%20wody%20nr%203161%20z%20dnia%2022.06.2026%20r..pdf" target="_blank" class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 transition-colors group">
             <i data-lucide="file" class="w-4 h-4 text-gray-400 flex-shrink-0"></i>
             <span class="text-sm text-gray-700 group-hover:text-brand-700 transition-colors flex-1">Sprawozdanie nr 3161 – 22.06.2026</span>
             <i data-lucide="download" class="w-4 h-4 text-gray-300 flex-shrink-0"></i>
           </a>
-        </div>
+          </div><!-- /basen2026-content -->
+        </div><!-- /basen2026 accordion -->
 
         <!-- Archiwum -->
         <div class="border border-gray-200 rounded-xl overflow-hidden">
@@ -460,6 +466,12 @@
     function toggleArchiwum() {
       var c = document.getElementById('archiwum-content');
       var ch = document.getElementById('archiwum-chevron');
+      var open = c.classList.toggle('hidden') === false;
+      ch.style.transform = open ? 'rotate(180deg)' : '';
+    }
+    function toggleBasen2026() {
+      var c = document.getElementById('basen2026-content');
+      var ch = document.getElementById('basen2026-chevron');
       var open = c.classList.toggle('hidden') === false;
       ch.style.transform = open ? 'rotate(180deg)' : '';
     }
