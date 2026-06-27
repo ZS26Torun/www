@@ -1,15 +1,17 @@
 (function () {
   const page = window.location.pathname.split('/').pop() || 'index.html';
 
+  function isActive(href) { return href.split('/').pop() === page; }
+
   function desktopLink(href, label) {
-    const active = href.split('/').pop() === page;
+    const active = isActive(href);
     return `<a href="${href}"
       class="font-semibold text-sm transition-colors ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}"
       ${active ? 'aria-current="page"' : ''}>${label}</a>`;
   }
 
   function mobileLink(href, icon, label) {
-    const active = href.split('/').pop() === page;
+    const active = isActive(href);
     return `<a href="${href}"
       class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${active ? 'bg-brand-50 text-brand-700' : 'text-gray-700 hover:bg-gray-50'}"
       ${active ? 'aria-current="page"' : ''}>
@@ -17,12 +19,54 @@
     </a>`;
   }
 
+  // Dropdown: Aktualności
+  const aktPages = ['aktualnosci.html', 'kalendarz.html'];
+  const aktActive = aktPages.includes(page);
+  const aktLinks = [
+    { href: 'aktualnosci.html', icon: 'newspaper',  label: 'Aktualności',     sub: 'Newsy i ogłoszenia' },
+    { href: 'kalendarz.html',   icon: 'calendar',   label: 'Kalendarz szkolny', sub: 'Rok szkolny 2026/2027' },
+  ];
+
+  // Dropdown: Dla rodziców
+  const rodzPages = ['dla-rodzicow.html', 'do-pobrania.html', 'faq.html'];
+  const rodzActive = rodzPages.includes(page);
+  const rodzLinks = [
+    { href: 'dla-rodzicow.html', icon: 'users',       label: 'Przydatne informacje',  sub: 'E-dziennik, rada rodziców' },
+    { href: 'do-pobrania.html',  icon: 'download',    label: 'Do pobrania',   sub: 'Statuty, wnioski, procedury' },
+    { href: 'faq.html',          icon: 'help-circle', label: 'FAQ',           sub: 'Często zadawane pytania' },
+  ];
+
+  // Dropdown: Dla pracownika
   const pracownikLinks = [
-    { href: 'https://uonetplus.vulcan.net.pl/torun', icon: 'book-open', label: 'E-dziennik', sub: 'Vulcan UONET+' },
+    { href: 'https://uonetplus.vulcan.net.pl/torun', icon: 'book-open', label: 'E-dziennik',     sub: 'Vulcan UONET+' },
     { href: 'https://outlook.office.com',            icon: 'mail',      label: 'Poczta Outlook', sub: 'Microsoft 365' },
     { href: 'https://teams.microsoft.com',           icon: 'video',     label: 'Microsoft Teams', sub: 'Spotkania i komunikacja' },
     { href: 'https://kadryplace.vulcan.net.pl/torun/1/PRACOWNIK/', icon: 'briefcase', label: 'Kadry Place', sub: 'Vulcan – kadry i płace' },
   ];
+
+  function desktopDropdown(id, label, links, active, external) {
+    const btnClass = `font-semibold text-sm transition-colors flex items-center gap-1 ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}`;
+    const items = links.map(l => `
+      <a href="${l.href}" ${external ? 'target="_blank" rel="noopener noreferrer"' : ''}
+        class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group ${isActive(l.href) ? 'bg-brand-50' : ''}">
+        <span class="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-brand-100 flex items-center justify-center flex-shrink-0 transition-colors ${isActive(l.href) ? 'bg-brand-100' : ''}">
+          <i data-lucide="${l.icon}" class="w-4 h-4 text-gray-500 group-hover:text-brand-700 transition-colors ${isActive(l.href) ? 'text-brand-700' : ''}"></i>
+        </span>
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">${l.label}</p>
+          <p class="text-xs text-gray-400">${l.sub}</p>
+        </div>
+      </a>`).join('');
+    return `
+      <div class="relative" id="${id}-wrap">
+        <button id="${id}-btn" class="${btnClass}" aria-haspopup="true" aria-expanded="false">
+          ${label} <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="${id}-chevron"></i>
+        </button>
+        <div id="${id}-menu" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-3 w-60 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
+          ${items}
+        </div>
+      </div>`;
+  }
 
   const navHTML = `
     <header id="site-header" role="banner"
@@ -41,35 +85,13 @@
         </a>
 
         <!-- Desktop nawigacja -->
-        <nav class="hidden lg:flex items-center gap-7" aria-label="Główna nawigacja">
-          ${desktopLink('o-szkole.html',    'O szkole')}
-          ${desktopLink('oferta.html',      'Oferta')}
-          ${desktopLink('rekrutacja.html',  'Rekrutacja')}
-          ${desktopLink('aktualnosci.html', 'Aktualności')}
-          ${desktopLink('dla-rodzicow.html','Dla rodziców')}
-          ${desktopLink('do-pobrania.html', 'Do pobrania')}
-          <div class="relative" id="pracownik-wrap">
-            <button id="pracownik-btn"
-              class="font-semibold text-sm text-gray-600 hover:text-brand-600 transition-colors flex items-center gap-1"
-              aria-haspopup="true" aria-expanded="false">
-              Dla pracownika <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="pracownik-chevron"></i>
-            </button>
-            <div id="pracownik-menu"
-              class="hidden absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
-              ${pracownikLinks.map(l => `
-              <a href="${l.href}" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group">
-                <span class="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-brand-100 flex items-center justify-center flex-shrink-0 transition-colors">
-                  <i data-lucide="${l.icon}" class="w-4 h-4 text-gray-500 group-hover:text-brand-700 transition-colors"></i>
-                </span>
-                <div class="min-w-0">
-                  <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">${l.label}</p>
-                  <p class="text-xs text-gray-400">${l.sub}</p>
-                </div>
-              </a>`).join('')}
-            </div>
-          </div>
-          ${desktopLink('dostepnosc.html',  'Dostępność')}
+        <nav class="hidden lg:flex items-center gap-6" aria-label="Główna nawigacja">
+          ${desktopLink('o-szkole.html',   'O szkole')}
+          ${desktopLink('oferta.html',     'Oferta')}
+          ${desktopLink('rekrutacja.html', 'Rekrutacja')}
+          ${desktopDropdown('akt',        'Aktualności',    aktLinks,       aktActive,   false)}
+          ${desktopDropdown('rodzice',    'Dla rodziców',   rodzLinks,      rodzActive,  false)}
+          ${desktopDropdown('pracownik',  'Dla pracownika', pracownikLinks, false,       true)}
         </nav>
 
         <!-- Prawa strona: CTA + hamburger -->
@@ -91,14 +113,16 @@
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl"
         role="dialog" aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
-          ${mobileLink('index.html',       'home',         'Strona główna')}
-          ${mobileLink('o-szkole.html',    'info',         'O szkole')}
-          ${mobileLink('oferta.html',      'book-open',    'Oferta edukacyjna')}
-          ${mobileLink('rekrutacja.html',  'user-plus',    'Rekrutacja')}
-          ${mobileLink('aktualnosci.html', 'newspaper',    'Aktualności')}
-          ${mobileLink('dla-rodzicow.html','users',        'Dla rodziców')}
-          ${mobileLink('do-pobrania.html', 'download',     'Do pobrania')}
-          ${mobileLink('dostepnosc.html',  'accessibility','Dostępność')}
+          ${mobileLink('index.html',       'home',          'Strona główna')}
+          ${mobileLink('o-szkole.html',    'info',          'O szkole')}
+          ${mobileLink('oferta.html',      'book-open',     'Oferta edukacyjna')}
+          ${mobileLink('rekrutacja.html',  'user-plus',     'Rekrutacja')}
+          ${mobileLink('aktualnosci.html', 'newspaper',     'Aktualności')}
+          ${mobileLink('kalendarz.html',   'calendar',      'Kalendarz szkolny')}
+          ${mobileLink('dla-rodzicow.html','users',         'Dla rodziców')}
+          ${mobileLink('do-pobrania.html', 'download',      'Do pobrania')}
+          ${mobileLink('faq.html',         'help-circle',   'FAQ')}
+          ${mobileLink('dostepnosc.html',  'accessibility', 'Dostępność')}
           <div class="pt-3 mt-2 border-t border-gray-100">
             <p class="px-4 pb-2 text-xs font-bold text-gray-400 uppercase tracking-wide">Dla pracownika</p>
             ${pracownikLinks.map(l => `
@@ -132,23 +156,35 @@
     });
   }
 
-  // Dropdown pracownika
-  const btn = document.getElementById('pracownik-btn');
-  const menu = document.getElementById('pracownik-menu');
-  const chevron = document.getElementById('pracownik-chevron');
-  if (btn && menu) {
-    btn.addEventListener('click', (e) => {
+  // Obsługa dropdownów
+  ['akt', 'rodzice', 'pracownik'].forEach(id => {
+    const btn  = document.getElementById(`${id}-btn`);
+    const menu = document.getElementById(`${id}-menu`);
+    const chev = document.getElementById(`${id}-chevron`);
+    if (!btn || !menu) return;
+    btn.addEventListener('click', e => {
       e.stopPropagation();
       const open = menu.classList.toggle('hidden') === false;
       btn.setAttribute('aria-expanded', open);
-      if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+      if (chev) chev.style.transform = open ? 'rotate(180deg)' : '';
+      // zamknij pozostałe
+      ['akt', 'rodzice', 'pracownik'].filter(x => x !== id).forEach(other => {
+        document.getElementById(`${other}-menu`)?.classList.add('hidden');
+        document.getElementById(`${other}-btn`)?.setAttribute('aria-expanded', 'false');
+        const oc = document.getElementById(`${other}-chevron`);
+        if (oc) oc.style.transform = '';
+      });
     });
-    document.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
-      if (chevron) chevron.style.transform = '';
+  });
+
+  document.addEventListener('click', () => {
+    ['akt', 'rodzice', 'pracownik'].forEach(id => {
+      document.getElementById(`${id}-menu`)?.classList.add('hidden');
+      document.getElementById(`${id}-btn`)?.setAttribute('aria-expanded', 'false');
+      const chev = document.getElementById(`${id}-chevron`);
+      if (chev) chev.style.transform = '';
     });
-  }
+  });
 
   if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
 })();

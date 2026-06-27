@@ -36,7 +36,10 @@
               <li><a href="oferta.html"       class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Oferta edukacyjna</a></li>
               <li><a href="rekrutacja.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Rekrutacja</a></li>
               <li><a href="aktualnosci.html"  class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Aktualności</a></li>
+              <li><a href="kalendarz.html"    class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kalendarz szkolny</a></li>
               <li><a href="dla-rodzicow.html" class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla rodziców</a></li>
+              <li><a href="faq.html"          class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>FAQ</a></li>
+              <li><a href="dla-mediow.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla mediów</a></li>
               <li><a href="dostepnosc.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Deklaracja dostępności</a></li>
               <li><a href="index.html#kontakt" class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kontakt</a></li>
             </ul>

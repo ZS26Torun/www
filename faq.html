@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Najczęściej zadawane pytania dotyczące Zespołu Szkół Nr 26 w Toruniu – rekrutacja, oferta, terapie, transport.">
+  <meta name="theme-color" content="#C62828">
+  <title>FAQ – Często zadawane pytania – ZS Nr 26 Toruń</title>
+  <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css?v=2">
+  <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <style>
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding-bottom .3s ease;
+    }
+    .faq-answer.open {
+      max-height: 600px;
+      padding-bottom: 1.25rem;
+    }
+    .faq-btn[aria-expanded="true"] .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-icon {
+      transition: transform .25s ease;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Pomoc</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Często zadawane pytania</h1>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">Odpowiedzi na najczęstsze pytania dotyczące naszej szkoły, rekrutacji i codziennego funkcjonowania.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-6">
+
+        <!-- Ogólne -->
+        <div class="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+          <div class="px-6 py-4 bg-brand-50 border-b border-brand-100">
+            <h2 class="font-bold text-brand-800 flex items-center gap-2 text-sm">
+              <i data-lucide="info" class="w-4 h-4"></i>Informacje ogólne
+            </h2>
+          </div>
+          <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Kto może uczęszczać do Zespołu Szkół Nr 26?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed mb-2">Do naszej szkoły przyjmujemy dzieci, młodzież i dorosłych z:</p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>niepełnosprawnością intelektualną (w stopniu lekkim, umiarkowanym i znacznym)</li>
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>niepełnosprawnościami sprzężonymi</li>
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>autyzmem i zespołem Aspergera</li>
+                </ul>
+                <p class="text-gray-600 text-sm leading-relaxed mt-2">Podstawą przyjęcia jest aktualne orzeczenie o potrzebie kształcenia specjalnego wydane przez poradnię psychologiczno-pedagogiczną.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czym jest szkoła specjalna i jak różni się od ogólnodostępnej?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Szkoła specjalna jest przeznaczona dla uczniów ze specjalnymi potrzebami edukacyjnymi, którzy wymagają dostosowania treści, metod i organizacji kształcenia do ich indywidualnych możliwości. W ZS Nr 26 klasy są nieliczne (najczęściej 4–10 uczniów), a każdy uczeń pracuje według indywidualnego programu edukacyjno-terapeutycznego (IPET). Oprócz nauki uczniowie korzystają z licznych zajęć terapeutycznych i rehabilitacyjnych.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Jakie są godziny pracy sekretariatu?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">Sekretariat jest czynny w dni robocze w godzinach <strong>7:30–15:30</strong>.</p>
+                <p class="text-gray-600 text-sm">Telefon: <a href="tel:+48566485784" class="text-brand-600 font-semibold hover:underline">(56) 648-57-84</a><br>
+                E-mail: <a href="mailto:sekretariat@szkola26.torun.pl" class="text-brand-600 font-semibold hover:underline">sekretariat@szkola26.torun.pl</a></p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Rekrutacja -->
+        <div class="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+          <div class="px-6 py-4 bg-blue-50 border-b border-blue-100">
+            <h2 class="font-bold text-blue-800 flex items-center gap-2 text-sm">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>Rekrutacja
+            </h2>
+          </div>
+          <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Jakie dokumenty są potrzebne do przyjęcia dziecka?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <ul class="space-y-1.5 text-sm text-gray-600">
+                  <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>Aktualne orzeczenie o potrzebie kształcenia specjalnego</li>
+                  <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>Wypełniony wniosek o przyjęcie (do pobrania na stronie)</li>
+                  <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>Aktualna opinia psychologiczno-pedagogiczna (jeśli istnieje)</li>
+                  <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>W przypadku WWR: skierowanie od lekarza specjalisty lub opinia poradni</li>
+                </ul>
+                <a href="rekrutacja.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-600 font-semibold text-sm hover:underline">
+                  Więcej o rekrutacji <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Jak przebiega rekrutacja krok po kroku?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <ol class="space-y-2 text-sm text-gray-600">
+                  <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>Skontaktuj się z sekretariatem i umów spotkanie informacyjne</li>
+                  <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>Przygotuj wymagane dokumenty (orzeczenie, wniosek)</li>
+                  <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>Złóż dokumenty w sekretariacie szkoły</li>
+                  <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>Komisja rekrutacyjna rozpatruje wniosek</li>
+                  <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>Otrzymujesz informację o przyjęciu</li>
+                </ol>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czy można odwiedzić szkołę przed zapisaniem dziecka?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Tak, serdecznie zapraszamy na wizytę zapoznawczą. Rodzice i opiekunowie mogą umówić się na spotkanie z dyrekcją lub pedagogiem, obejrzeć sale i poznać kadrę. W tym celu prosimy o wcześniejszy kontakt z sekretariatem.</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Oddziały i programy -->
+        <div class="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+          <div class="px-6 py-4 bg-purple-50 border-b border-purple-100">
+            <h2 class="font-bold text-purple-800 flex items-center gap-2 text-sm">
+              <i data-lucide="book-open" class="w-4 h-4"></i>Oddziały i programy
+            </h2>
+          </div>
+          <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czym jest Wczesne Wspomaganie Rozwoju (WWR)?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">WWR to specjalistyczna pomoc dla dzieci od urodzenia do momentu pójścia do szkoły (0–7 lat), u których stwierdzono nieprawidłowości w rozwoju psychoruchowym. Zajęcia prowadzone są przez zespół specjalistów (logopeda, psycholog, fizjoterapeuta, pedagog specjalny) w wymiarze 4–8 godzin miesięcznie na dziecko, z udziałem rodziny.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czym różni się SPS od Szkoły Przysposabiającej do Pracy?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed mb-2"><strong>Szkoła Podstawowa Specjalna (SPS)</strong> – realizuje podstawę programową szkoły podstawowej dostosowaną do potrzeb uczniów z niepełnosprawnością intelektualną. Nauka trwa 8 lat (klasy I–VIII).</p>
+                <p class="text-gray-600 text-sm leading-relaxed"><strong>Szkoła Przysposabiająca do Pracy (SPdP)</strong> – przeznaczona dla uczniów z niepełnosprawnością w stopniu umiarkowanym lub znacznym oraz z niepełnosprawnościami sprzężonymi. Trwa 3 lata i przygotowuje do możliwie samodzielnego funkcjonowania w życiu dorosłym.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Co to są Grupy Terapeutyczno-Wychowawcze (ZRW)?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Zespoły Rewalidacyjno-Wychowawcze (ZRW) są skierowane do dzieci i młodzieży z głębokimi wielorakimi niepełnosprawnościami (wiek 3–25 lat). Zajęcia koncentrują się na rozwijaniu podstawowych funkcji życiowych, komunikacji i samodzielności, a nie na realizacji programu szkolnego.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czym jest program Rehab 25+?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Rehab 25+ to zajęcia rehabilitacyjne dla dorosłych absolwentów szkół specjalnych (po 25. roku życia) z niepełnosprawnościami sprzężonymi. Program obejmuje rehabilitację ruchową, terapię zajęciową, zajęcia z psychologiem i logopedą, podtrzymując nabyte umiejętności.</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Organizacja i codzienność -->
+        <div class="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+          <div class="px-6 py-4 bg-amber-50 border-b border-amber-100">
+            <h2 class="font-bold text-amber-800 flex items-center gap-2 text-sm">
+              <i data-lucide="calendar-days" class="w-4 h-4"></i>Organizacja i codzienność
+            </h2>
+          </div>
+          <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czy szkoła zapewnia transport dla uczniów?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Kwestia transportu zależy od miejsca zamieszkania ucznia i jest organizowana przez Gminę Miasto Toruń. Rodziców zachęcamy do kontaktu z sekretariatem lub bezpośrednio z Wydziałem Edukacji UM Toruń w sprawie dowozu. Możliwy jest również dojazd komunikacją miejską – szkoła dysponuje ulgami MZK (szczegóły w <a href="do-pobrania.html#mzk" class="text-brand-600 hover:underline">dziale Do pobrania</a>).</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Czy szkoła ma basen?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Tak, ZS Nr 26 dysponuje basenem rehabilitacyjnym, który jest regularnie monitorowany pod względem jakości wody (wyniki badań dostępne w <a href="do-pobrania.html#basen" class="text-brand-600 hover:underline">dziale Do pobrania</a>). Z basenu korzystają uczniowie w ramach zajęć rehabilitacyjnych i wychowania fizycznego.</p>
+              </div>
+            </li>
+
+            <li>
+              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded="false" onclick="toggleFaq(this)">
+                <span class="font-semibold text-gray-900 text-sm">Jak sprawdzać postępy dziecka?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
+              </button>
+              <div class="faq-answer px-6">
+                <p class="text-gray-600 text-sm leading-relaxed">Rodzice i opiekunowie mają dostęp do dziennika elektronicznego <strong>UONET+ Vulcan</strong>, gdzie mogą na bieżąco śledzić frekwencję, oceny i komunikaty od nauczycieli. Link do e-dziennika dostępny jest w zakładce <a href="dla-rodzicow.html" class="text-brand-600 hover:underline">Dla rodziców</a>. Dodatkowo odbywają się regularne spotkania z rodzicami (wywiadówki).</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-10 bg-brand-600">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-xl font-bold text-white mb-2">Nie znalazłeś odpowiedzi?</h2>
+        <p class="text-red-200 text-sm mb-6">Skontaktuj się z nami – chętnie odpowiemy na każde pytanie.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="tel:+48566485784" class="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-bold text-sm px-6 py-3 rounded-full hover:bg-red-50 transition-all">
+            <i data-lucide="phone" class="w-4 h-4"></i>(56) 648-57-84
+          </a>
+          <a href="mailto:sekretariat@szkola26.torun.pl" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-brand-700 transition-all">
+            <i data-lucide="mail" class="w-4 h-4"></i>Napisz e-mail
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="components/a11y.js"></script>
+  <script>
+    if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-btn[aria-expanded="true"]').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(() => answer.classList.add('open'));
+      }
+    }
+  </script>
+</body>
+</html>
