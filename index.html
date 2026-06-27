@@ -243,14 +243,13 @@
                 scrolling="no" frameborder="0"
                 allowfullscreen="true"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                title="Profil szkoły na Facebooku"
-                loading="lazy">
+                title="Profil szkoły na Facebooku">
               </iframe>
             </div>
 
             <!-- karta fallback – pokazywana gdy FB zablokowany -->
             <a id="fb-card-fallback" href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun"
-              target="_blank" rel="noopener noreferrer" hidden
+              target="_blank" rel="noopener noreferrer" style="display:none"
               class="block rounded-3xl overflow-hidden no-underline transition-shadow hover:shadow-xl"
               style="box-shadow:0 8px 32px -4px rgba(24,119,242,0.18),0 2px 8px -2px rgba(0,0,0,0.08);text-decoration:none;">
               <div style="background:#1877F2;padding:1.5rem 1.5rem 2.75rem;position:relative;">
@@ -280,18 +279,11 @@
 
             <script>
               (function () {
-                var fbLoaded = false;
-                window.addEventListener('message', function (e) {
-                  if (typeof e.origin === 'string' && e.origin.indexOf('facebook.com') !== -1) {
-                    fbLoaded = true;
-                  }
-                });
-                setTimeout(function () {
-                  if (!fbLoaded) {
-                    document.getElementById('fb-iframe-wrap').hidden = true;
-                    document.getElementById('fb-card-fallback').hidden = false;
-                  }
-                }, 4000);
+                fetch('https://www.facebook.com/plugins/page.php', { mode: 'no-cors', cache: 'no-store' })
+                  .catch(function () {
+                    document.getElementById('fb-iframe-wrap').style.display = 'none';
+                    document.getElementById('fb-card-fallback').style.display = 'block';
+                  });
               })();
             </script>
           </div>
