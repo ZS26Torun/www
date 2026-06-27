@@ -362,3 +362,7 @@ html { scroll-padding-top: 4rem; }
 }
 
 body.a11y-stop-motion .przyjaciele-track { animation: none; }
+@media (prefers-reduced-motion: reduce) { .przyjaciele-track { animation: none; } }
+
+/* ── WCAG 1.4.3 fix: gray-500 (#6B7280 = 4.17:1) → gray-600 (#4B5563 = 6.37:1) ── */
+.text-gray-500 { color: #4B5563 !important; }

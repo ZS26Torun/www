@@ -11,10 +11,10 @@
                 class="h-14 object-contain brightness-0 invert" onerror="this.style.display='none'">
               <div>
                 <p class="font-bold text-white leading-tight">Zespół Szkół Nr 26</p>
-                <p class="text-red-300 text-sm">w Toruniu</p>
+                <p class="text-red-100 text-sm">w Toruniu</p>
               </div>
             </div>
-            <p class="text-red-300 text-sm leading-relaxed">
+            <p class="text-red-100 text-sm leading-relaxed">
               Szkoła specjalna z&nbsp;wieloletnią tradycją przy ul.&nbsp;Fałata&nbsp;88/90.
               Przedszkole, szkoła podstawowa, grupy terapeutyczne, przysposabiająca do pracy, OWiT i&nbsp;SCWEW.
             </p>
@@ -29,42 +29,42 @@
 
           <!-- Nawigacja -->
           <nav aria-label="Nawigacja w stopce">
-            <p class="font-bold text-red-200 mb-5 uppercase text-xs tracking-widest">Nawigacja</p>
+            <p class="font-bold text-red-100 mb-5 uppercase text-xs tracking-widest">Nawigacja</p>
             <ul class="space-y-2.5">
-              <li><a href="index.html"        class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Strona główna</a></li>
-              <li><a href="o-szkole.html"     class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>O szkole</a></li>
-              <li><a href="oferta.html"       class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Oferta edukacyjna</a></li>
-              <li><a href="rekrutacja.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Rekrutacja</a></li>
-              <li><a href="aktualnosci.html"  class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Aktualności</a></li>
-              <li><a href="kalendarz.html"    class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kalendarz szkolny</a></li>
-              <li><a href="dla-rodzicow.html" class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla rodziców</a></li>
-              <li><a href="faq.html"          class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>FAQ</a></li>
-              <li><a href="dla-mediow.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla mediów</a></li>
-              <li><a href="dostepnosc.html"   class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Deklaracja dostępności</a></li>
-              <li><a href="index.html#kontakt" class="text-red-300 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kontakt</a></li>
+              <li><a href="index.html"        class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Strona główna</a></li>
+              <li><a href="o-szkole.html"     class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>O szkole</a></li>
+              <li><a href="oferta.html"       class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Oferta edukacyjna</a></li>
+              <li><a href="rekrutacja.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Rekrutacja</a></li>
+              <li><a href="aktualnosci.html"  class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Aktualności</a></li>
+              <li><a href="kalendarz.html"    class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kalendarz szkolny</a></li>
+              <li><a href="dla-rodzicow.html" class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla rodziców</a></li>
+              <li><a href="faq.html"          class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>FAQ</a></li>
+              <li><a href="dla-mediow.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla mediów</a></li>
+              <li><a href="dostepnosc.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Deklaracja dostępności</a></li>
+              <li><a href="index.html#kontakt" class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kontakt</a></li>
             </ul>
           </nav>
 
           <!-- Kontakt -->
           <div>
-            <p class="font-bold text-red-200 mb-5 uppercase text-xs tracking-widest">Kontakt</p>
+            <p class="font-bold text-red-100 mb-5 uppercase text-xs tracking-widest">Kontakt</p>
             <ul class="space-y-3.5">
-              <li class="flex items-center gap-3 text-red-300 text-sm">
-                <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-red-400"></i>
+              <li class="flex items-center gap-3 text-red-100 text-sm">
+                <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-red-200"></i>
                 <a href="tel:+48566485784" class="hover:text-white transition-colors">(56) 648-57-84</a>
               </li>
-              <li class="flex items-center gap-3 text-red-300 text-sm">
-                <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-red-400"></i>
+              <li class="flex items-center gap-3 text-red-100 text-sm">
+                <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-red-200"></i>
                 <a href="mailto:sekretariat@szkola26.torun.pl" class="hover:text-white transition-colors break-all">sekretariat@szkola26.torun.pl</a>
               </li>
-              <li class="flex items-start gap-3 text-red-300 text-sm">
-                <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400"></i>
+              <li class="flex items-start gap-3 text-red-100 text-sm">
+                <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-200"></i>
                 <a href="https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84"
                   target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors">ul. Juliana Fałata 88/90<br>87-100 Toruń</a>
               </li>
-              <li class="flex items-start gap-3 text-red-300 text-sm">
-                <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400"></i>
+              <li class="flex items-start gap-3 text-red-100 text-sm">
+                <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-200"></i>
                 <span>Sekretariat: pn.–pt.<br>7:30–15:30</span>
               </li>
             </ul>
@@ -73,12 +73,12 @@
         </div>
 
         <!-- Bottom bar -->
-        <div class="border-t border-red-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-red-300">
+        <div class="border-t border-red-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-red-100">
           <p>© 2026 Zespół Szkół Nr 26 w Toruniu</p>
-          <div class="flex flex-wrap items-center gap-4 text-xs text-red-400">
-            <a href="dostepnosc.html" class="hover:text-red-200 transition-colors">Deklaracja dostępności</a>
-            <a href="rodo.html" class="hover:text-red-200 transition-colors">Ochrona danych</a>
-            <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer" class="hover:text-red-200 transition-colors">BIP</a>
+          <div class="flex flex-wrap items-center gap-4 text-xs text-red-200">
+            <a href="dostepnosc.html" class="hover:text-red-100 transition-colors">Deklaracja dostępności</a>
+            <a href="rodo.html" class="hover:text-red-100 transition-colors">Ochrona danych</a>
+            <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer" class="hover:text-red-100 transition-colors">BIP</a>
           </div>
         </div>
       </div>

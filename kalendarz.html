@@ -8,7 +8,7 @@
   <title>Kalendarz roku szkolnego – ZS Nr 26 Toruń</title>
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF5F5',100:'#FFEBEE',200:'#FFCDD2',300:'#EF9A9A',600:'#C62828',700:'#B71C1C',800:'#8B0000',900:'#4A0000'},leaf:{600:'#2B7333',700:'#1E5C27'}},fontFamily:{sans:['Lexend','ui-sans-serif','sans-serif']}}}}</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -81,7 +81,7 @@
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div id="view-list"></div>
         <div id="view-grid" class="hidden"></div>
-        <div id="view-loading" class="py-16 text-center text-gray-400 text-sm">Ładowanie…</div>
+        <div id="view-loading" class="py-16 text-center text-gray-500 text-sm">Ładowanie…</div>
       </div>
     </section>
 
@@ -95,7 +95,7 @@
             </span>
             <div>
               <p class="font-semibold text-gray-900 text-sm">Kalendarz roku szkolnego 2026/2027</p>
-              <p class="text-xs text-gray-400">Rozporządzenie MEN · woj. kujawsko-pomorskie</p>
+              <p class="text-xs text-gray-500">Rozporządzenie MEN · woj. kujawsko-pomorskie</p>
             </div>
           </div>
           <a href="pdf/kalendarz/Kalendarz_2026_2027.pdf" target="_blank"
@@ -103,7 +103,7 @@
             <i data-lucide="download" class="w-4 h-4"></i>Pobierz PDF
           </a>
         </div>
-        <p class="text-xs text-gray-400 mt-4">Terminy przerw świątecznych i ferii ustalono na podstawie rozporządzenia Ministra Edukacji Narodowej z dnia 11 sierpnia 2017 r. w sprawie organizacji roku szkolnego (Dz.U. z 2023 r. poz. 1211). Podane daty mogą ulec zmianie – w przypadku wątpliwości prosimy o kontakt z sekretariatem szkoły.</p>
+        <p class="text-xs text-gray-500 mt-4">Terminy przerw świątecznych i ferii ustalono na podstawie rozporządzenia Ministra Edukacji Narodowej z dnia 11 sierpnia 2017 r. w sprawie organizacji roku szkolnego (Dz.U. z 2023 r. poz. 1211). Podane daty mogą ulec zmianie – w przypadku wątpliwości prosimy o kontakt z sekretariatem szkoły.</p>
       </div>
     </section>
 
@@ -112,7 +112,7 @@
   <div id="site-footer"></div>
 
   <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="components/footer.js?v=6"></script>
   <script src="components/a11y.js"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
@@ -229,7 +229,7 @@
         const heading = MONTHS_PL[m-1] + ' ' + y;
         const cards = byMonth[ym].map(ev => {
           const t = TYPE[ev.type] || TYPE['custom'];
-          const noteHtml = ev.note ? `<p class="text-xs text-gray-400 mt-0.5">${ev.note}</p>` : '';
+          const noteHtml = ev.note ? `<p class="text-xs text-gray-500 mt-0.5">${ev.note}</p>` : '';
           return `
             <div class="flex items-start gap-4 ${t.card} border rounded-xl p-4">
               <span class="mt-0.5 w-9 h-9 rounded-lg ${t.icon_bg} flex items-center justify-center flex-shrink-0">
@@ -245,7 +245,7 @@
 
         return `
           <div class="mb-10">
-            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">${heading}</h2>
+            <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">${heading}</h2>
             <div class="space-y-3">${cards}</div>
           </div>`;
       }).join('');
@@ -288,12 +288,12 @@
               style="background:${t.cell};color:${t.cellText}"
               class="w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold cursor-default">${d}</div>`);
           } else {
-            cells.push(`<div class="w-8 h-8 flex items-center justify-center rounded-lg text-xs ${isWeekend ? 'text-gray-400' : 'text-gray-700'}">${d}</div>`);
+            cells.push(`<div class="w-8 h-8 flex items-center justify-center rounded-lg text-xs ${isWeekend ? 'text-gray-500' : 'text-gray-700'}">${d}</div>`);
           }
         }
 
         const dayHeaders = DAY_LABELS.map(dl =>
-          `<div class="text-center text-xs text-gray-400 font-semibold">${dl}</div>`).join('');
+          `<div class="text-center text-xs text-gray-500 font-semibold">${dl}</div>`).join('');
 
         return `
           <div class="bg-white border border-gray-100 rounded-2xl p-4">

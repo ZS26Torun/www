@@ -9,7 +9,7 @@
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 
   <!-- Tailwind – czerwona paleta ZS26 -->
   <script>
@@ -145,7 +145,7 @@
       </div>
 
       <!-- Scroll cue – tylko desktop -->
-      <div class="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce" aria-hidden="true">
+      <div class="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 animate-bounce" aria-hidden="true">
         <i data-lucide="chevrons-down" class="w-7 h-7"></i>
       </div>
     </section>
@@ -162,7 +162,7 @@
               <i data-lucide="book" class="w-5 h-5 text-brand-700"></i>
             </span>
             <span class="font-semibold text-sm text-gray-700 group-hover:text-brand-700 transition-colors">E-dziennik</span>
-            <span class="text-[11px] text-gray-400">Vulcan UONET+</span>
+            <span class="text-[11px] text-gray-500">Vulcan UONET+</span>
           </a>
 
           <a href="https://portal.office.com" target="_blank" rel="noopener noreferrer"
@@ -171,7 +171,7 @@
               <i data-lucide="layout-grid" class="w-5 h-5 text-blue-600"></i>
             </span>
             <span class="font-semibold text-sm text-gray-700 group-hover:text-blue-700 transition-colors">Office 365</span>
-            <span class="text-[11px] text-gray-400">Poczta i&nbsp;Teams</span>
+            <span class="text-[11px] text-gray-500">Poczta i&nbsp;Teams</span>
           </a>
 
           <a href="rekrutacja.html"
@@ -180,7 +180,7 @@
               <i data-lucide="user-plus" class="w-5 h-5 text-leaf-600"></i>
             </span>
             <span class="font-semibold text-sm text-gray-700 group-hover:text-leaf-700 transition-colors">Rekrutacja</span>
-            <span class="text-[11px] text-gray-400">Rok 2026/2027</span>
+            <span class="text-[11px] text-gray-500">Rok 2026/2027</span>
           </a>
 
           <a href="#kontakt"
@@ -189,7 +189,7 @@
               <i data-lucide="phone" class="w-5 h-5 text-orange-600"></i>
             </span>
             <span class="font-semibold text-sm text-gray-700 group-hover:text-orange-700 transition-colors">Kontakt</span>
-            <span class="text-[11px] text-gray-400">Sekretariat</span>
+            <span class="text-[11px] text-gray-500">Sekretariat</span>
           </a>
 
           <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer"
@@ -198,7 +198,7 @@
               <img src="images/Logo_BIP_uproszczone.svg" alt="BIP" class="w-6 h-6">
             </span>
             <span class="font-semibold text-sm text-gray-700 group-hover:text-gray-900 transition-colors">BIP</span>
-            <span class="text-[11px] text-gray-400">Informacja publiczna</span>
+            <span class="text-[11px] text-gray-500">Informacja publiczna</span>
           </a>
 
         </div>
@@ -214,7 +214,7 @@
             <h2 id="news-heading" class="text-2xl sm:text-3xl font-bold text-gray-900">Aktualności</h2>
             <p class="text-gray-500 mt-1 text-sm">Co słychać w&nbsp;naszej szkole?</p>
           </div>
-          <a href="aktualnosci.html"
+          <a href="aktualnosci.html" aria-label="Wszystkie aktualności"
             class="flex items-center gap-1 text-brand-700 hover:text-brand-900 font-semibold text-sm transition-colors">
             Wszystkie <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
@@ -224,8 +224,8 @@
 
           <!-- Newsy natywne (3/5) -->
           <div class="lg:col-span-3">
-            <div id="news-list" class="space-y-4">
-              <div class="text-gray-400 text-sm py-10 text-center">Ładowanie aktualności…</div>
+            <div id="news-list" class="space-y-4" aria-live="polite" aria-busy="true">
+              <div class="text-gray-500 text-sm py-10 text-center">Ładowanie aktualności…</div>
             </div>
           </div>
 
@@ -438,17 +438,17 @@
       <div class="przyjaciele-track-wrapper" aria-label="Logotypy przyjaciół szkoły">
         <div class="przyjaciele-track">
           <!-- zestaw 1 -->
-          <div class="przyjaciele-logo"><img src="images/przyjaciele/BS_logo.png"                        alt="BS" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/BS_logo.png"                        alt="Bank Spółdzielczy" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/margo.png"                         alt="Margo" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/Medical_Clinik_Babiarz.jpg"        alt="Medical Clinik Babiarz" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/nomet.jpg"                         alt="Nomet" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/nadleśnictwo_dobrzejewice_logo_2.jpg" alt="Nadleśnictwo Dobrzejewice" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/DrClown.jpg"                       alt="Dr Clown" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/logo_prestige.jpg"                 alt="Prestige" loading="lazy"></div>
-          <div class="przyjaciele-logo"><img src="images/przyjaciele/logo.PNG"                          alt="Partner" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/logo.PNG"       alt="" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/sharp.jpg"                         alt="Sharp" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/DD_Logo.jpg"                       alt="DD" loading="lazy"></div>
-          <div class="przyjaciele-logo"><img src="images/przyjaciele/Przechwytywanie.PNG"               alt="Partner" loading="lazy"></div>
+          <div class="przyjaciele-logo" aria-hidden="true"><img src="images/przyjaciele/Przechwytywanie.PNG" alt="" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/propery.PNG"                       alt="Propery" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/Logo_21concept.png"                alt="21 Concept" loading="lazy"></div>
           <!-- zestaw 2 – duplikat dla płynnej pętli -->
@@ -548,7 +548,7 @@
 
       <div class="px-4 pt-4 pb-2 border-b border-gray-100 flex items-center justify-between">
         <p class="text-xs font-bold text-gray-600 uppercase tracking-wider">Ułatwienia dostępu</p>
-        <button onclick="toggleA11yPanel()" class="text-gray-400 hover:text-gray-700 p-1 rounded transition-colors" aria-label="Zamknij panel">
+        <button onclick="toggleA11yPanel()" class="text-gray-500 hover:text-gray-700 p-1 rounded transition-colors" aria-label="Zamknij panel">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
@@ -567,8 +567,8 @@
           <span class="w-9 h-9 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="type" class="w-5 h-5 text-brand-700"></i></span>
           <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Rozmiar tekstu</p><p class="text-[11px] text-gray-500" id="font-size-label">Domyślny (16px)</p></div>
           <div class="flex items-center gap-1 flex-shrink-0">
-            <button onclick="changeFontSize(-1)" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Zmniejsz tekst">−</button>
-            <button onclick="changeFontSize(1)"  class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Powiększ tekst">+</button>
+            <button onclick="changeFontSize(-1)" class="w-11 h-11 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Zmniejsz tekst">−</button>
+            <button onclick="changeFontSize(1)"  class="w-11 h-11 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Powiększ tekst">+</button>
           </div>
         </div>
 
@@ -814,7 +814,7 @@
             <div class="flex items-center gap-2 mb-2.5 flex-wrap">
               <span class="badge-${n.category} text-xs font-semibold px-2.5 py-0.5 rounded-full">${n.category}</span>
               ${pinHtml}
-              <time class="text-xs text-gray-400 ml-auto" datetime="${n.date}">${dateStr}</time>
+              <time class="text-xs text-gray-500 ml-auto" datetime="${n.date}">${dateStr}</time>
             </div>
             <h3 class="font-bold text-gray-900 text-base mb-1.5">${n.title}</h3>
             <p class="text-sm text-gray-500 leading-relaxed">${n.excerpt}</p>
@@ -920,13 +920,16 @@
   <script>
     fetch('data/news.json')
       .then(r => r.json())
-      .then(data => renderNews(data.posts || []))
+      .then(data => {
+        renderNews(data.posts || []);
+        document.getElementById('news-list').removeAttribute('aria-busy');
+      })
       .catch(() => {
         const list = document.getElementById('news-list');
-        if (list) list.innerHTML = '<p class="text-gray-400 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>';
+        if (list) { list.removeAttribute('aria-busy'); list.innerHTML = '<p class="text-gray-500 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>'; }
       });
   </script>
   <script src="components/navbar.js"></script>
-  <script src="components/footer.js?v=5"></script>
+  <script src="components/footer.js?v=6"></script>
 </body>
 </html>
