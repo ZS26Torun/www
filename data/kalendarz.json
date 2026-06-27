@@ -1,0 +1,27 @@
+{
+  "_info": "Plik kalendarza roku szkolnego 2026/2027. Sekcja 'events' zawiera oficjalne terminy MEN – nie edytuj. Dodatkowe terminy od dyrekcji wpisuj w 'customEvents'.",
+
+  "events": [
+    { "label": "Rozpoczęcie roku szkolnego",          "date": "2026-09-01", "type": "rok-szkolny" },
+    { "label": "Dzień Edukacji Narodowej",             "date": "2026-10-14", "type": "swieto",    "note": "dzień wolny od zajęć" },
+    { "label": "Święto Niepodległości",                "date": "2026-11-11", "type": "swieto",    "note": "dzień wolny" },
+    { "label": "Zimowa przerwa świąteczna",            "dateStart": "2026-12-23", "dateEnd": "2026-12-31", "type": "przerwa" },
+    { "label": "Nowy Rok",                             "date": "2027-01-01", "type": "swieto",    "note": "dzień wolny" },
+    { "label": "Wznowienie zajęć po przerwie świątecznej", "date": "2027-01-02", "type": "rok-szkolny" },
+    { "label": "Ferie zimowe",                         "dateStart": "2027-02-15", "dateEnd": "2027-02-28", "type": "ferie", "note": "woj. kujawsko-pomorskie" },
+    { "label": "Wiosenna przerwa świąteczna",          "dateStart": "2027-03-25", "dateEnd": "2027-03-30", "type": "przerwa" },
+    { "label": "Święto Pracy",                         "date": "2027-05-01", "type": "swieto",    "note": "dzień wolny" },
+    { "label": "Święto Konstytucji 3 Maja",            "date": "2027-05-03", "type": "swieto",    "note": "dzień wolny" },
+    { "label": "Zakończenie roku szkolnego",           "date": "2027-06-25", "type": "rok-szkolny" },
+    { "label": "Ferie letnie",                         "dateStart": "2027-06-26", "dateEnd": "2027-08-31", "type": "ferie" }
+  ],
+
+  "customEvents": [
+    {
+      "_example": true,
+      "label": "Dzień otwarty szkoły",
+      "date": "2026-11-05",
+      "note": "Zapraszamy rodziców przyszłych uczniów – usuń pole _example aby termin był widoczny"
+    }
+  ]
+}
