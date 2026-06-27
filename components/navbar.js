@@ -47,6 +47,7 @@
           ${desktopLink('rekrutacja.html',  'Rekrutacja')}
           ${desktopLink('aktualnosci.html', 'Aktualności')}
           ${desktopLink('dla-rodzicow.html','Dla rodziców')}
+          ${desktopLink('do-pobrania.html', 'Do pobrania')}
           <div class="relative" id="pracownik-wrap">
             <button id="pracownik-btn"
               class="font-semibold text-sm text-gray-600 hover:text-brand-600 transition-colors flex items-center gap-1"
@@ -96,6 +97,7 @@
           ${mobileLink('rekrutacja.html',  'user-plus',    'Rekrutacja')}
           ${mobileLink('aktualnosci.html', 'newspaper',    'Aktualności')}
           ${mobileLink('dla-rodzicow.html','users',        'Dla rodziców')}
+          ${mobileLink('do-pobrania.html', 'download',     'Do pobrania')}
           ${mobileLink('dostepnosc.html',  'accessibility','Dostępność')}
           <div class="pt-3 mt-2 border-t border-gray-100">
             <p class="px-4 pb-2 text-xs font-bold text-gray-400 uppercase tracking-wide">Dla pracownika</p>
