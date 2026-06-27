@@ -279,11 +279,13 @@
 
             <script>
               (function () {
-                fetch('https://www.facebook.com/plugins/page.php', { mode: 'no-cors', cache: 'no-store' })
-                  .catch(function () {
-                    document.getElementById('fb-iframe-wrap').style.display = 'none';
-                    document.getElementById('fb-card-fallback').style.display = 'block';
-                  });
+                var img = new Image();
+                img.onload = function () { /* FB dostępny – iframe zostaje */ };
+                img.onerror = function () {
+                  document.getElementById('fb-iframe-wrap').style.display = 'none';
+                  document.getElementById('fb-card-fallback').style.display = 'block';
+                };
+                img.src = 'https://www.facebook.com/favicon.ico?_=' + Date.now();
               })();
             </script>
           </div>
