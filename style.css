@@ -148,6 +148,7 @@ body.high-contrast { background: #000 !important; color: #FFD700 !important; }
 body.high-contrast * { background: transparent !important; color: #FFD700 !important; border-color: #FFD700 !important; }
 body.high-contrast button { background: #000 !important; border: 1px solid #FFD700 !important; }
 body.high-contrast a { color: #FFD700 !important; text-decoration: underline !important; }
+body.high-contrast #site-header { background: #000 !important; box-shadow: 0 2px 0 #FFD700 !important; }
 
 /* ════════════════════════════════════════════════════════════
    TRYB CIEMNY – pełny zestaw
