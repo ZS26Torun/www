@@ -347,7 +347,7 @@
     }
 
     // ── Fetch i render ────────────────────────────────────────────────
-    fetch('data/kalendarz.json')
+    fetch('data/kalendarz.json', { cache: 'no-store' })
       .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(data => render(data.events || BASE_EVENTS, data.customEvents))
       .catch(() => render(BASE_EVENTS, []));
