@@ -6,6 +6,21 @@
   <meta name="description" content="Kalendarz roku szkolnego 2026/2027 – terminy zajęć, ferii i przerw świątecznych w Zespole Szkół Nr 26 w Toruniu.">
   <meta name="theme-color" content="#C62828">
   <title>Kalendarz roku szkolnego – ZS Nr 26 Toruń</title>
+  <link rel="canonical" href="https://szkola26.torun.pl/kalendarz.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Zespół Szkół Nr 26 w Toruniu">
+  <meta property="og:title" content="Kalendarz roku szkolnego – ZS Nr 26 Toruń">
+  <meta property="og:description" content="Kalendarz roku szkolnego 2026/2027 – terminy zajęć, ferii i przerw świątecznych w Zespole Szkół Nr 26 w Toruniu.">
+  <meta property="og:url" content="https://szkola26.torun.pl/kalendarz.html">
+  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta property="og:image:alt" content="Zespół Szkół Nr 26 w Toruniu">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kalendarz roku szkolnego – ZS Nr 26 Toruń">
+  <meta name="twitter:description" content="Kalendarz roku szkolnego 2026/2027 – terminy zajęć, ferii i przerw świątecznych w Zespole Szkół Nr 26 w Toruniu.">
+  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/mural.png">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css?v=3">
@@ -19,7 +34,8 @@
     .view-btn.active { background: #C62828; color: #fff; }
     .view-btn { transition: background .15s, color .15s; }
     [data-tooltip] { position: relative; }
-    [data-tooltip]:hover::after {
+    [data-tooltip]:hover::after,
+    [data-tooltip]:focus::after {
       content: attr(data-tooltip);
       position: absolute;
       bottom: calc(100% + 6px);
@@ -54,6 +70,13 @@
         </a>
       </div>
     </section>
+
+    <!-- Widget odliczający -->
+    <div id="countdown-widget" class="hidden bg-white border-b border-gray-100 py-5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div id="countdown-inner"></div>
+      </div>
+    </div>
 
     <!-- Legenda + przełącznik widoku -->
     <section class="py-5 bg-white border-b border-gray-100 sticky top-16 z-40">
@@ -111,9 +134,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js?v=6"></script>
-  <script src="components/a11y.js"></script>
+  <script src="components/navbar.js?v=1"></script>
+  <script src="components/footer.js?v=7"></script>
+  <script src="components/a11y.js?v=1"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
   </script>
@@ -284,7 +307,7 @@
           if (ev) {
             const t = TYPE[ev.type] || TYPE['custom'];
             const tooltip = ev.label + (ev.note ? ' – ' + ev.note : '');
-            cells.push(`<div data-tooltip="${tooltip}"
+            cells.push(`<div data-tooltip="${tooltip}" tabindex="0" aria-label="${d} ${MONTHS_GEN[m]} – ${tooltip}"
               style="background:${t.cell};color:${t.cellText}"
               class="w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold cursor-default">${d}</div>`);
           } else {
@@ -335,10 +358,93 @@
       { label: 'Ferie letnie',                      dateStart: '2027-06-26', dateEnd: '2027-08-31', type: 'ferie' },
     ];
 
+    // ── Widget odliczający ────────────────────────────────────────────
+    function buildCountdown(events) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // Znajdź ferie letnie i rok szkolny
+      const ferieLetnie = events.find(e => e.type === 'ferie' && (e.dateStart || '').includes('-06-'));
+      const startSchool  = events.find(e => e.type === 'rok-szkolny' && e.date && e.date.includes('-09-01'));
+      const endSchool    = events.find(e => e.type === 'rok-szkolny' && e.date && !e.date.includes('-09-01'));
+
+      if (!ferieLetnie || !startSchool || !endSchool) return;
+
+      const ferieStart = new Date(ferieLetnie.dateStart + 'T00:00:00');
+      const ferieEnd   = new Date(ferieLetnie.dateEnd   + 'T00:00:00');
+      const schoolStart = new Date(startSchool.date + 'T00:00:00');
+      const schoolEnd   = new Date(endSchool.date   + 'T00:00:00');
+
+      const diffDays = (a, b) => Math.round((a - b) / 86400000);
+
+      let html = '';
+
+      if (today >= ferieStart && today <= ferieEnd) {
+        // Wakacje letnie — odliczaj do szkoły
+        // Następny rok szkolny zaczyna się 1 września roku ferie
+        const nextSep = new Date(ferieEnd.getFullYear(), 8, 1);
+        const days = diffDays(nextSep, today);
+        const label = days === 0 ? 'Dziś pierwszy dzień szkoły!' : `${days} ${days === 1 ? 'dzień' : days < 5 ? 'dni' : 'dni'}`;
+        html = `
+          <div class="flex items-center gap-4 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
+            <span class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sun" class="w-6 h-6 text-amber-500"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Trwają wakacje letnie</p>
+              <p class="font-semibold text-gray-900 text-sm sm:text-base leading-snug">
+                Do powrotu do szkoły: <span class="text-amber-700 font-bold">${label}</span>
+              </p>
+            </div>
+            <span class="text-3xl sm:text-4xl font-bold text-amber-400 flex-shrink-0 tabular-nums">${days === 0 ? '🎒' : days}</span>
+          </div>`;
+      } else if (today >= schoolStart && today <= schoolEnd) {
+        // Rok szkolny — odliczaj do ferii letnich
+        const days = diffDays(ferieStart, today);
+        const label = days === 0 ? 'Dziś ostatni dzień!' : `${days} ${days === 1 ? 'dzień' : days < 5 ? 'dni' : 'dni'}`;
+        html = `
+          <div class="flex items-center gap-4 bg-leaf-600/5 border border-leaf-600/20 rounded-2xl px-5 py-4">
+            <span class="w-11 h-11 rounded-xl bg-leaf-600/15 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="hourglass" class="w-6 h-6 text-leaf-700"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold text-leaf-700 uppercase tracking-wide mb-0.5">Rok szkolny 2026/2027</p>
+              <p class="font-semibold text-gray-900 text-sm sm:text-base leading-snug">
+                Do wakacji letnich: <span class="text-leaf-700 font-bold">${label}</span>
+              </p>
+            </div>
+            <span class="text-3xl sm:text-4xl font-bold text-leaf-600/50 flex-shrink-0 tabular-nums">${days}</span>
+          </div>`;
+      } else if (today < schoolStart) {
+        // Przed rokiem szkolnym (np. sierpień)
+        const days = diffDays(schoolStart, today);
+        html = `
+          <div class="flex items-center gap-4 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
+            <span class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sun" class="w-6 h-6 text-amber-500"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Wakacje letnie</p>
+              <p class="font-semibold text-gray-900 text-sm sm:text-base leading-snug">
+                Do początku roku szkolnego: <span class="text-amber-700 font-bold">${days} ${days === 1 ? 'dzień' : 'dni'}</span>
+              </p>
+            </div>
+            <span class="text-3xl sm:text-4xl font-bold text-amber-400 flex-shrink-0 tabular-nums">${days}</span>
+          </div>`;
+      }
+
+      if (html) {
+        document.getElementById('countdown-inner').innerHTML = html;
+        document.getElementById('countdown-widget').classList.remove('hidden');
+        if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+      }
+    }
+
     function render(events, customEvents) {
       const custom = (customEvents || []).filter(e => !e._example);
       const all = [...events, ...custom.map(e => ({ ...e, type: 'custom' }))];
       all.sort((a, b) => (a.date || a.dateStart) > (b.date || b.dateStart) ? 1 : -1);
+      buildCountdown(all);
       document.getElementById('view-loading').remove();
       document.getElementById('view-list').innerHTML = buildList(all);
       document.getElementById('view-grid').innerHTML = buildGrid(all);

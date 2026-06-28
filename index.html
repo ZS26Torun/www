@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, grupy terapeutyczne i wiele więcej.">
   <meta name="theme-color" content="#C62828">
-  <title>Zespół Szkół Nr 26 w Toruniu</title>
+  <title>Zespół Szkół Nr 26 w Toruniu – szkoła specjalna</title>
+  <link rel="canonical" href="https://szkola26.torun.pl/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Zespół Szkół Nr 26 w Toruniu">
+  <meta property="og:title" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna">
+  <meta property="og:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, grupy terapeutyczne i wiele więcej.">
+  <meta property="og:url" content="https://szkola26.torun.pl/">
+  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta property="og:image:alt" content="Zespół Szkół Nr 26 w Toruniu">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna">
+  <meta name="twitter:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, grupy terapeutyczne i wiele więcej.">
+  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/mural.png">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
@@ -54,6 +69,32 @@
     .stat-card { backdrop-filter: blur(4px); }
 
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "School",
+  "name": "Zespół Szkół Nr 26 w Toruniu",
+  "alternateName": "ZS Nr 26 Toruń",
+  "description": "Szkoła specjalna w Toruniu – przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, wczesne wspomaganie rozwoju, zajęcia rewalidacyjno-wychowawcze oraz Rehabilitacja 25+.",
+  "url": "https://szkola26.torun.pl/",
+  "logo": "https://szkola26.torun.pl/images/ui/logo.png",
+  "image": "https://szkola26.torun.pl/images/ui/mural.png",
+  "telephone": "+48566485784",
+  "email": "sekretariat@szkola26.torun.pl",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Fałata 88/90",
+    "postalCode": "87-100",
+    "addressLocality": "Toruń",
+    "addressRegion": "kujawsko-pomorskie",
+    "addressCountry": "PL"
+  },
+  "hasMap": "https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84",
+  "sameAs": [
+    "https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun"
+  ]
+}
+  </script>
 </head>
 <body class="antialiased text-gray-800">
 
@@ -73,8 +114,11 @@
 
       <!-- ── Desktop: mural absolutnie po prawej ── -->
       <div class="hidden lg:block absolute inset-y-0 right-0 w-[55%] pointer-events-none" aria-hidden="true">
-        <img src="images/ui/mural.png" alt=""
-          class="w-full h-full object-cover object-center opacity-90 mural-parallax">
+        <picture>
+          <source srcset="images/ui/mural.webp" type="image/webp">
+          <img src="images/ui/mural.png" alt=""
+            class="w-full h-full object-cover object-center opacity-90 mural-parallax">
+        </picture>
         <div class="absolute inset-y-0 left-0 w-64"
           style="background: linear-gradient(to right, white, transparent);"></div>
         <div class="absolute inset-x-0 top-0 h-20"
@@ -138,8 +182,11 @@
 
       <!-- ── Mobile: mural pod tekstem ── -->
       <div class="lg:hidden w-full relative" aria-hidden="true">
-        <img src="images/ui/mural.png" alt=""
-          class="w-full h-52 sm:h-72 object-cover object-top">
+        <picture>
+          <source srcset="images/ui/mural.webp" type="image/webp">
+          <img src="images/ui/mural.png" alt=""
+            class="w-full h-52 sm:h-72 object-cover object-top">
+        </picture>
         <div class="absolute inset-x-0 top-0 h-12"
           style="background: linear-gradient(to bottom, white, transparent);"></div>
       </div>
@@ -405,7 +452,7 @@
               <p class="text-gray-500 text-sm">lat doświadczenia</p>
             </div>
             <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-              <p class="text-5xl font-bold text-leaf-600 mb-2">❤</p>
+              <p class="text-5xl font-bold text-leaf-600 mb-2" aria-hidden="true">❤</p>
               <p class="text-gray-500 text-sm">serce i&nbsp;zaangażowanie</p>
             </div>
             <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 flex flex-col items-center justify-center">
@@ -929,7 +976,7 @@
         if (list) { list.removeAttribute('aria-busy'); list.innerHTML = '<p class="text-gray-500 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>'; }
       });
   </script>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js?v=6"></script>
+  <script src="components/navbar.js?v=1"></script>
+  <script src="components/footer.js?v=7"></script>
 </body>
 </html>

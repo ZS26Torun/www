@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona nie znaleziona – ZS Nr 26 Toruń</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://szkola26.torun.pl/404.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Zespół Szkół Nr 26 w Toruniu">
+  <meta property="og:title" content="Strona nie znaleziona – ZS Nr 26 Toruń">
+  <meta property="og:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90.">
+  <meta property="og:url" content="https://szkola26.torun.pl/404.html">
+  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta property="og:image:alt" content="Zespół Szkół Nr 26 w Toruniu">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Strona nie znaleziona – ZS Nr 26 Toruń">
+  <meta name="twitter:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90.">
+  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/mural.png">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css?v=3">
@@ -13,14 +29,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased bg-brand-50 min-h-screen flex flex-col items-center justify-center text-center px-4">
-  <img src="images/ui/logo.png" alt="Logo ZS Nr 26" class="w-24 h-24 mx-auto mb-6 object-contain">
-  <h1 class="text-6xl font-bold text-brand-600 mb-2">404</h1>
-  <p class="text-xl font-semibold text-gray-800 mb-2">Strona nie znaleziona</p>
-  <p class="text-gray-500 mb-8 max-w-sm">Szukana strona nie istnieje lub została przeniesiona. Wróć na stronę główną.</p>
-  <a href="index.html"
-    class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-full shadow transition-all">
-    <i data-lucide="home" class="w-5 h-5"></i>Strona główna
-  </a>
-  <script>if(window.lucide) lucide.createIcons();</script>
+  <main class="flex flex-col items-center">
+    <img src="images/ui/logo.png" alt="Logo Zespołu Szkół Nr 26 w Toruniu" class="w-24 h-24 mx-auto mb-6 object-contain">
+    <p class="text-6xl font-bold text-brand-600 mb-2" aria-hidden="true">404</p>
+    <h1 class="text-xl font-semibold text-gray-800 mb-2">Strona nie znaleziona</h1>
+    <p class="text-gray-600 mb-8 max-w-sm">Szukana strona nie istnieje lub została przeniesiona. Wróć na stronę główną.</p>
+    <a href="index.html"
+      class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-full shadow transition-all">
+      <i data-lucide="home" class="w-5 h-5"></i>Strona główna
+    </a>
+  </main>
+  <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
 </body>
 </html>

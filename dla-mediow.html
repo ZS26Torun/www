@@ -6,6 +6,21 @@
   <meta name="description" content="Materiały prasowe, logotyp i notka informacyjna Zespołu Szkół Nr 26 w Toruniu dla mediów i instytucji partnerskich.">
   <meta name="theme-color" content="#C62828">
   <title>Dla mediów – ZS Nr 26 Toruń</title>
+  <link rel="canonical" href="https://szkola26.torun.pl/dla-mediow.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Zespół Szkół Nr 26 w Toruniu">
+  <meta property="og:title" content="Dla mediów – ZS Nr 26 Toruń">
+  <meta property="og:description" content="Materiały prasowe, logotyp i notka informacyjna Zespołu Szkół Nr 26 w Toruniu dla mediów i instytucji partnerskich.">
+  <meta property="og:url" content="https://szkola26.torun.pl/dla-mediow.html">
+  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta property="og:image:alt" content="Zespół Szkół Nr 26 w Toruniu">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dla mediów – ZS Nr 26 Toruń">
+  <meta name="twitter:description" content="Materiały prasowe, logotyp i notka informacyjna Zespołu Szkół Nr 26 w Toruniu dla mediów i instytucji partnerskich.">
+  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/mural.png">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css?v=3">
@@ -90,7 +105,10 @@
             </div>
             <p class="text-sm text-gray-500 mb-5 flex-grow">Fotografia siedziby szkoły przy ul. Juliana Fałata 88/90 w Toruniu.</p>
             <div class="rounded-xl mb-4 overflow-hidden border border-gray-100 h-28">
-              <img src="images/ui/mural-foto.png" alt="Budynek Zespołu Szkół Nr 26 w Toruniu" class="w-full h-full object-cover">
+              <picture>
+                <source srcset="images/ui/mural-foto-thumb.webp" type="image/webp">
+                <img src="images/ui/mural-foto.png" alt="Budynek Zespołu Szkół Nr 26 w Toruniu" class="w-full h-full object-cover" loading="lazy">
+              </picture>
             </div>
             <a href="images/ui/mural-foto.png" download
                class="inline-flex items-center justify-center gap-2 bg-white border border-gray-200 hover:border-blue-400 hover:text-blue-700 text-gray-700 font-semibold px-4 py-2.5 rounded-xl transition-colors text-sm">
@@ -178,9 +196,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js?v=6"></script>
-  <script src="components/a11y.js"></script>
+  <script src="components/navbar.js?v=1"></script>
+  <script src="components/footer.js?v=7"></script>
+  <script src="components/a11y.js?v=1"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
     function copyNotka() {
