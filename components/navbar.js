@@ -54,7 +54,7 @@
         </span>
         <div class="min-w-0">
           <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">${l.label}</p>
-          <p class="text-xs text-gray-400">${l.sub}</p>
+          <p class="text-xs text-gray-500">${l.sub}</p>
         </div>
       </a>`).join('');
     return `
@@ -124,7 +124,7 @@
           ${mobileLink('faq.html',         'help-circle',   'FAQ')}
           ${mobileLink('dostepnosc.html',  'accessibility', 'Dostępność')}
           <div class="pt-3 mt-2 border-t border-gray-100">
-            <p class="px-4 pb-2 text-xs font-bold text-gray-400 uppercase tracking-wide">Dla pracownika</p>
+            <p class="px-4 pb-2 text-xs font-bold text-gray-500 uppercase tracking-wide">Dla pracownika</p>
             ${pracownikLinks.map(l => `
             <a href="${l.href}" target="_blank" rel="noopener noreferrer"
               class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">

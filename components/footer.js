@@ -87,4 +87,24 @@
 
   document.getElementById('site-footer').outerHTML = html;
   if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+
+  // ── A11y: zapowiedź linków otwieranych w nowej karcie / pobierań ──────────
+  // WCAG 3.2.5 – informujemy użytkownika (czytniki ekranu), że link otwiera
+  // nową kartę albo pobiera plik. Dotyczy całej strony, nie tylko stopki.
+  (function labelExternalLinks() {
+    const fileRe = /\.(pdf|docx?|xlsx?|pptx?|zip|doc)$/i;
+    document.querySelectorAll('a[target="_blank"], a[download]').forEach(a => {
+      if (a.dataset.extLabeled) return;
+      a.dataset.extLabeled = '1';
+      // Link z własnym aria-label (np. Facebook w stopce) już to opisuje
+      if (a.getAttribute('aria-label')) return;
+      // Linki bez widocznego tekstu (sama ikona) pomijamy – brak nazwy do uzupełnienia
+      if (!a.textContent.trim()) return;
+      const isFile = a.hasAttribute('download') || fileRe.test(a.getAttribute('href') || '');
+      const span = document.createElement('span');
+      span.className = 'sr-only';
+      span.textContent = isFile ? ' (otwiera plik do pobrania)' : ' (otwiera się w nowej karcie)';
+      a.appendChild(span);
+    });
+  })();
 })();

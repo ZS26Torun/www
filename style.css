@@ -366,3 +366,21 @@ body.a11y-stop-motion .przyjaciele-track { animation: none; }
 
 /* ── WCAG 1.4.3 fix: gray-500 (#6B7280 = 4.17:1) → gray-600 (#4B5563 = 6.37:1) ── */
 .text-gray-500 { color: #4B5563 !important; }
+
+/* ── WCAG 2.3.3 / 2.2.2: poszanowanie systemowego "ogranicz ruch" ──────────
+   Wyłącza wszystkie animacje i auto-przewijanie dla użytkowników, którzy
+   ustawili "Ogranicz ruch" w systemie (niezależnie od widgetu ułatwień). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-anim { opacity: 1 !important; }
+  .reveal, .stagger-item { opacity: 1 !important; transform: none !important; }
+  .logo-float, .btn-pulse, .animate-bounce, .mural-parallax,
+  #a11y-toggle-btn, .przyjaciele-track { animation: none !important; }
+  .mural-parallax { transform: none !important; }
+  html { scroll-behavior: auto !important; }
+}
