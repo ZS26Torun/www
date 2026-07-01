@@ -1,0 +1,53 @@
+name: Build Tailwind CSS
+
+# Przebudowuje tailwind.css automatycznie, gdy zmienią się klasy w HTML/JS
+# lub konfiguracja. Dzięki temu nie trzeba uruchamiać `npm run build:css` ręcznie.
+on:
+  workflow_dispatch:        # pozwala uruchomić ręcznie (przycisk w zakładce Actions)
+  push:
+    branches: [master]
+    paths:
+      - '**/*.html'
+      - 'components/**'
+      - 'tailwind.config.js'
+      - 'tailwind-input.css'
+      - 'package.json'
+
+# Pozwól akcji zapisać przebudowany plik z powrotem do repo
+permissions:
+  contents: write
+
+# Nie uruchamiaj kilku buildów naraz dla tego samego brancha
+concurrency:
+  group: build-css-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz repo
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalacja zależności
+        run: npm install
+
+      - name: Build tailwind.css
+        run: npm run build:css
+
+      - name: Commit przebudowanego CSS (jeśli się zmienił)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- tailwind.css; then
+            echo "tailwind.css bez zmian — nic do commitu."
+          else
+            git add tailwind.css
+            git commit -m "chore: automatyczna przebudowa tailwind.css [skip ci]"
+            git push
+          fi
