@@ -7,3 +7,7 @@
 
 # Dokumentacja wewnętrzna
 ADMIN.md
+
+# Tailwind build
+node_modules/
+package-lock.json

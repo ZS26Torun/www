@@ -14,49 +14,22 @@
   <meta property="og:title" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna">
   <meta property="og:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, grupy terapeutyczne i wiele więcej.">
   <meta property="og:url" content="https://szkola26.torun.pl/">
-  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta property="og:image" content="https://szkola26.torun.pl/images/ui/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Zespół Szkół Nr 26 w Toruniu">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna">
   <meta name="twitter:description" content="Zespół Szkół Nr 26 w Toruniu – szkoła specjalna przy ul. Fałata 88/90. Przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, grupy terapeutyczne i wiele więcej.">
-  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/mural.png">
+  <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/og-image.jpg">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="tailwind.css?v=1">
   <link rel="stylesheet" href="style.css?v=3">
 
   <!-- Tailwind – czerwona paleta ZS26 -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:  '#FFF5F5',
-              100: '#FFEBEE',
-              200: '#FFCDD2',
-              300: '#EF9A9A',
-              400: '#EF5350',
-              500: '#E53935',
-              600: '#C62828',
-              700: '#B71C1C',
-              800: '#8B0000',
-              900: '#4A0000',
-            },
-            leaf: {
-              600: '#2B7333',
-              700: '#1E5C27',
-            }
-          },
-          fontFamily: {
-            sans: ['Lexend', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -78,7 +51,7 @@
   "description": "Szkoła specjalna w Toruniu – przedszkole, szkoła podstawowa, szkoła przysposabiająca do pracy, wczesne wspomaganie rozwoju, zajęcia rewalidacyjno-wychowawcze oraz Rehabilitacja 25+.",
   "url": "https://szkola26.torun.pl/",
   "logo": "https://szkola26.torun.pl/images/ui/logo.png",
-  "image": "https://szkola26.torun.pl/images/ui/mural.png",
+  "image": "https://szkola26.torun.pl/images/ui/og-image.jpg",
   "telephone": "+48566485784",
   "email": "sekretariat@szkola26.torun.pl",
   "address": {
@@ -279,7 +252,7 @@
           <!-- Facebook feed (2/5) -->
           <div class="lg:col-span-2">
             <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-              <i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i>Na Facebooku
+              <svg class="w-4 h-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Na Facebooku
             </p>
             <!-- Karta domyślna – zawsze widoczna, bez zasobów FB -->
             <div id="fb-card" class="rounded-3xl overflow-hidden" style="box-shadow:0 8px 32px -4px rgba(24,119,242,0.18),0 2px 8px -2px rgba(0,0,0,0.08);">
