@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=8">
 
   <!-- Tailwind – czerwona paleta ZS26 -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -256,13 +256,13 @@
             </p>
             <!-- Karta domyślna – zawsze widoczna, bez zasobów FB -->
             <div id="fb-card" class="rounded-3xl overflow-hidden" style="box-shadow:0 8px 32px -4px rgba(24,119,242,0.18),0 2px 8px -2px rgba(0,0,0,0.08);">
-              <div style="background:#1877F2;padding:1.5rem 1.5rem 2.75rem;position:relative;">
+              <div style="background:#1158B8;padding:1.5rem 1.5rem 2.75rem;position:relative;">
                 <div style="display:flex;align-items:center;gap:.75rem;">
                   <img src="images/ui/logo.png" alt=""
                     style="width:52px;height:52px;border-radius:50%;border:3px solid rgba(255,255,255,.8);background:#fff;padding:4px;object-fit:contain;flex-shrink:0;">
                   <div>
                     <p style="color:#fff;font-weight:700;font-size:1rem;margin:0;line-height:1.25;">Szkoła Podstawowa Specjalna Nr&nbsp;26</p>
-                    <p style="color:rgba(255,255,255,.75);font-size:.8rem;margin:.2rem 0 0;">Szkoła specjalna · Toruń · 1,4 tys. obserwujących</p>
+                    <p style="color:#fff;font-size:.8rem;margin:.2rem 0 0;">Szkoła specjalna · Toruń · 1,4 tys. obserwujących</p>
                   </div>
                 </div>
                 <svg viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"
@@ -275,12 +275,12 @@
                   Aktualności, relacje z wydarzeń i ważne ogłoszenia – wszystko na bieżąco na naszym profilu.
                 </p>
                 <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-                  <button onclick="loadFbFeed()" style="display:inline-flex;align-items:center;gap:.5rem;background:#1877F2;color:#fff;font-weight:700;font-size:.85rem;padding:.6rem 1.25rem;border-radius:.5rem;border:none;cursor:pointer;">
+                  <button onclick="loadFbFeed()" style="display:inline-flex;align-items:center;gap:.5rem;background:#1158B8;color:#fff;font-weight:700;font-size:.85rem;padding:.6rem 1.25rem;border-radius:.5rem;border:none;cursor:pointer;">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
                     Załaduj feed
                   </button>
                   <a href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun" target="_blank" rel="noopener noreferrer"
-                    style="display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:#1877F2;font-weight:600;font-size:.85rem;padding:.6rem 1.25rem;border-radius:.5rem;border:1.5px solid #1877F2;text-decoration:none;">
+                    style="display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:#1158B8;font-weight:600;font-size:.85rem;padding:.6rem 1.25rem;border-radius:.5rem;border:1.5px solid #1158B8;text-decoration:none;">
                     Otwórz profil
                   </a>
                 </div>
@@ -949,7 +949,7 @@
         if (list) { list.removeAttribute('aria-busy'); list.innerHTML = '<p class="text-gray-500 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>'; }
       });
   </script>
-  <script src="components/navbar.js?v=1"></script>
-  <script src="components/footer.js?v=7"></script>
+  <script src="components/navbar.js?v=3"></script>
+  <script src="components/footer.js?v=8"></script>
 </body>
 </html>

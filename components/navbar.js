@@ -111,7 +111,7 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl"
-        role="dialog" aria-label="Menu mobilne">
+        aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
           ${mobileLink('index.html',       'home',          'Strona główna')}
           ${mobileLink('o-szkole.html',    'info',          'O szkole')}
@@ -184,6 +184,27 @@
       const chev = document.getElementById(`${id}-chevron`);
       if (chev) chev.style.transform = '';
     });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    ['akt', 'rodzice', 'pracownik'].forEach(id => {
+      const menu = document.getElementById(`${id}-menu`);
+      const btn = document.getElementById(`${id}-btn`);
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        btn?.setAttribute('aria-expanded', 'false');
+        const chev = document.getElementById(`${id}-chevron`);
+        if (chev) chev.style.transform = '';
+        btn?.focus();
+      }
+    });
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      ham?.setAttribute('aria-expanded', 'false');
+      ham?.querySelectorAll('.ham-line').forEach(l => l.style.transform = '');
+      ham?.focus();
+    }
   });
 
   if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });

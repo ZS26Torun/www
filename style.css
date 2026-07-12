@@ -63,6 +63,8 @@ body { font-family: 'Lexend', ui-sans-serif, system-ui, sans-serif; }
 
 /* ── Focus ring ─────────────────────────────────────────── */
 :focus-visible { outline: 3px solid #C62828; outline-offset: 3px; border-radius: 4px; }
+footer :focus-visible { outline-color: #fff; }
+body.dark-mode :focus-visible { outline-color: #FCA5A5; }
 
 /* ── Scroll progress ──────────────────────────────────────── */
 #scroll-progress {
@@ -181,13 +183,55 @@ body.dark-mode #site-header span { color: var(--dm-text) !important; }
 body.dark-mode .text-gray-900,
 body.dark-mode .text-gray-800 { color: var(--dm-text) !important; }
 body.dark-mode .text-gray-700,
-body.dark-mode .text-gray-600 { color: var(--dm-muted) !important; }
+body.dark-mode .text-gray-600,
 body.dark-mode .text-gray-500,
-body.dark-mode .text-gray-400 { color: var(--dm-subtle) !important; }
+body.dark-mode .text-gray-400 { color: var(--dm-muted) !important; }
 
 /* Obramowania */
 body.dark-mode .border-gray-100,
 body.dark-mode .border-gray-200 { border-color: var(--dm-border) !important; }
+
+/* Kolorowe akcenty tekstu – rozjaśnione dla kontrastu na ciemnym tle */
+body.dark-mode .text-brand-600,
+body.dark-mode .text-brand-700,
+body.dark-mode .text-brand-800 { color: #FCA5A5 !important; }
+body.dark-mode .text-teal-600,
+body.dark-mode .text-teal-700 { color: #5EEAD4 !important; }
+body.dark-mode .text-leaf-600,
+body.dark-mode .text-leaf-700 { color: #86EFAC !important; }
+body.dark-mode .text-amber-600,
+body.dark-mode .text-amber-700,
+body.dark-mode .text-amber-800,
+body.dark-mode .text-yellow-600 { color: #FCD34D !important; }
+body.dark-mode .text-blue-600,
+body.dark-mode .text-blue-700,
+body.dark-mode .text-blue-800 { color: #93C5FD !important; }
+body.dark-mode .text-purple-600,
+body.dark-mode .text-purple-700,
+body.dark-mode .text-purple-800 { color: #D8B4FE !important; }
+body.dark-mode .text-orange-600,
+body.dark-mode .text-orange-700 { color: #FDBA74 !important; }
+body.dark-mode .view-btn.active { color: #fff !important; }
+
+/* Jasne tła-akcenty (odznaki, ramki informacyjne) – przyciemnione do przezroczystych wersji */
+body.dark-mode .bg-gray-100  { background: var(--dm-surface2) !important; }
+body.dark-mode .bg-brand-50,
+body.dark-mode .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
+body.dark-mode .bg-red-50    { background: rgba(220,38,38,.15) !important; }
+body.dark-mode .bg-amber-50,
+body.dark-mode .bg-amber-100,
+body.dark-mode .bg-yellow-50,
+body.dark-mode .bg-yellow-100 { background: rgba(234,179,8,.15) !important; }
+body.dark-mode .bg-green-50,
+body.dark-mode .bg-green-100 { background: rgba(43,115,51,.15) !important; }
+body.dark-mode .bg-teal-50,
+body.dark-mode .bg-teal-100  { background: rgba(13,148,136,.15) !important; }
+body.dark-mode .bg-blue-50,
+body.dark-mode .bg-blue-100  { background: rgba(37,99,235,.15) !important; }
+body.dark-mode .bg-purple-50,
+body.dark-mode .bg-purple-100 { background: rgba(147,51,234,.15) !important; }
+body.dark-mode .bg-orange-50,
+body.dark-mode .bg-orange-100 { background: rgba(234,88,12,.15) !important; }
 
 /* Hero */
 body.dark-mode #hero { background: var(--dm-bg) !important; }

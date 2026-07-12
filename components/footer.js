@@ -50,21 +50,21 @@
             <p class="font-bold text-red-100 mb-5 uppercase text-xs tracking-widest">Kontakt</p>
             <ul class="space-y-3.5">
               <li class="flex items-center gap-3 text-red-100 text-sm">
-                <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-red-200"></i>
+                <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-white"></i>
                 <a href="tel:+48566485784" class="hover:text-white transition-colors">(56) 648-57-84</a>
               </li>
               <li class="flex items-center gap-3 text-red-100 text-sm">
-                <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-red-200"></i>
+                <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-white"></i>
                 <a href="mailto:sekretariat@szkola26.torun.pl" class="hover:text-white transition-colors break-all">sekretariat@szkola26.torun.pl</a>
               </li>
               <li class="flex items-start gap-3 text-red-100 text-sm">
-                <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-200"></i>
+                <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-0.5 text-white"></i>
                 <a href="https://maps.google.com/maps?q=ul.+Fa%C5%82ata+88%2F90,+87-100+Toru%C5%84"
                   target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors">ul. Juliana Fałata 88/90<br>87-100 Toruń</a>
               </li>
               <li class="flex items-start gap-3 text-red-100 text-sm">
-                <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-red-200"></i>
+                <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-white"></i>
                 <span>Sekretariat: pn.–pt.<br>7:30–15:30</span>
               </li>
             </ul>
@@ -75,10 +75,10 @@
         <!-- Bottom bar -->
         <div class="border-t border-red-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-red-100">
           <p>© 2026 Zespół Szkół Nr 26 w Toruniu</p>
-          <div class="flex flex-wrap items-center gap-4 text-xs text-red-200">
-            <a href="dostepnosc.html" class="hover:text-red-100 transition-colors">Deklaracja dostępności</a>
-            <a href="rodo.html" class="hover:text-red-100 transition-colors">Ochrona danych</a>
-            <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer" class="hover:text-red-100 transition-colors">BIP</a>
+          <div class="flex flex-wrap items-center gap-4 text-xs text-white">
+            <a href="dostepnosc.html" class="hover:text-red-100 transition-colors py-2 inline-block">Deklaracja dostępności</a>
+            <a href="rodo.html" class="hover:text-red-100 transition-colors py-2 inline-block">Ochrona danych</a>
+            <a href="https://zs26torun.naszbip.pl/" target="_blank" rel="noopener noreferrer" class="hover:text-red-100 transition-colors py-2 inline-block">BIP</a>
           </div>
         </div>
       </div>
