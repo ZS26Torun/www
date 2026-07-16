@@ -96,6 +96,10 @@
 
         <!-- Prawa strona: CTA + hamburger -->
         <div class="flex items-center gap-2 flex-shrink-0">
+          <button data-search-trigger aria-label="Szukaj na stronie"
+            class="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:text-brand-600 hover:bg-gray-100 transition-colors">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
           <a href="index.html#kontakt"
             class="hidden sm:inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-all shadow-sm">
             <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
@@ -113,6 +117,10 @@
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl"
         aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
+          <button data-search-trigger
+            class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+            <i data-lucide="search" class="w-5 h-5 flex-shrink-0 text-gray-400"></i>Szukaj na stronie
+          </button>
           ${mobileLink('index.html',       'home',          'Strona główna')}
           ${mobileLink('o-szkole.html',    'info',          'O szkole')}
           ${mobileLink('oferta.html',      'book-open',     'Oferta edukacyjna')}

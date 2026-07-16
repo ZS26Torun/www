@@ -67,6 +67,10 @@
                 <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-0.5 text-white"></i>
                 <span>Sekretariat: pn.–pt.<br>7:30–15:30</span>
               </li>
+              <li class="flex items-start gap-3 text-red-100 text-sm">
+                <i data-lucide="inbox" class="w-4 h-4 flex-shrink-0 mt-0.5 text-white"></i>
+                <span>Adres do e-Doręczeń:<br>AE:PL-34057-66406-DWGGW-17</span>
+              </li>
             </ul>
           </div>
 

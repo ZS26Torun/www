@@ -40,14 +40,17 @@ jobs:
       - name: Build tailwind.css
         run: npm run build:css
 
-      - name: Commit przebudowanego CSS (jeśli się zmienił)
+      - name: Build search-index.json
+        run: npm run build:search
+
+      - name: Commit przebudowanych plików (jeśli się zmieniły)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- tailwind.css; then
-            echo "tailwind.css bez zmian — nic do commitu."
+          if git diff --quiet -- tailwind.css data/search-index.json; then
+            echo "Bez zmian — nic do commitu."
           else
-            git add tailwind.css
-            git commit -m "chore: automatyczna przebudowa tailwind.css [skip ci]"
+            git add tailwind.css data/search-index.json
+            git commit -m "chore: automatyczna przebudowa tailwind.css i search-index.json [skip ci]"
             git push
           fi
