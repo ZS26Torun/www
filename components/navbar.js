@@ -1,6 +1,22 @@
 (function () {
   const page = window.location.pathname.split('/').pop() || 'index.html';
 
+  // Strony mające wersję ETR (tekst łatwy do czytania). W trybie ETR linki
+  // nawigacji prowadzą do odpowiedników -etr, dopóki użytkownik nie wyjdzie
+  // z tego trybu (link "Zobacz zwykłą wersję tej strony" na stronie -etr).
+  const ETR_PAGES = new Set([
+    'index.html', 'o-szkole.html', 'oferta.html', 'rekrutacja.html',
+    'aktualnosci.html', 'kalendarz.html', 'dla-rodzicow.html',
+    'do-pobrania.html', 'faq.html',
+  ]);
+  const inEtrMode = page.endsWith('-etr.html');
+  function href_(href) {
+    if (!inEtrMode || /^https?:\/\//.test(href)) return href;
+    const [base, hash] = href.split('#');
+    if (!ETR_PAGES.has(base)) return href;
+    return base.replace(/\.html$/, '-etr.html') + (hash ? '#' + hash : '');
+  }
+
   function isActive(href) { return href.split('/').pop() === page; }
 
   function desktopLink(href, label) {
@@ -20,20 +36,20 @@
   }
 
   // Dropdown: Aktualności
-  const aktPages = ['aktualnosci.html', 'kalendarz.html'];
+  const aktPages = ['aktualnosci.html', 'kalendarz.html'].map(href_);
   const aktActive = aktPages.includes(page);
   const aktLinks = [
-    { href: 'aktualnosci.html', icon: 'newspaper',  label: 'Aktualności',     sub: 'Newsy i ogłoszenia' },
-    { href: 'kalendarz.html',   icon: 'calendar',   label: 'Kalendarz szkolny', sub: 'Rok szkolny 2026/2027' },
+    { href: href_('aktualnosci.html'), icon: 'newspaper',  label: 'Aktualności',     sub: 'Newsy i ogłoszenia' },
+    { href: href_('kalendarz.html'),   icon: 'calendar',   label: 'Kalendarz szkolny', sub: 'Rok szkolny 2026/2027' },
   ];
 
   // Dropdown: Dla rodziców
-  const rodzPages = ['dla-rodzicow.html', 'do-pobrania.html', 'faq.html'];
+  const rodzPages = ['dla-rodzicow.html', 'do-pobrania.html', 'faq.html'].map(href_);
   const rodzActive = rodzPages.includes(page);
   const rodzLinks = [
-    { href: 'dla-rodzicow.html', icon: 'users',       label: 'Przydatne informacje',  sub: 'E-dziennik, rada rodziców' },
-    { href: 'do-pobrania.html',  icon: 'download',    label: 'Do pobrania',   sub: 'Statuty, wnioski, procedury' },
-    { href: 'faq.html',          icon: 'help-circle', label: 'FAQ',           sub: 'Często zadawane pytania' },
+    { href: href_('dla-rodzicow.html'), icon: 'users',       label: 'Przydatne informacje',  sub: 'E-dziennik, rada rodziców' },
+    { href: href_('do-pobrania.html'),  icon: 'download',    label: 'Do pobrania',   sub: 'Statuty, wnioski, procedury' },
+    { href: href_('faq.html'),          icon: 'help-circle', label: 'FAQ',           sub: 'Często zadawane pytania' },
   ];
 
   // Dropdown: Dla pracownika
@@ -75,7 +91,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
 
         <!-- Logo + nazwa -->
-        <a href="index.html" class="flex items-center gap-3 flex-shrink-0 min-w-0"
+        <a href="${href_('index.html')}" class="flex items-center gap-3 flex-shrink-0 min-w-0"
           aria-label="Strona główna – Zespół Szkół Nr 26 w Toruniu">
           <img src="images/ui/logo.png" alt="" class="h-9 w-auto flex-shrink-0" aria-hidden="true">
           <div class="leading-tight">
@@ -86,9 +102,9 @@
 
         <!-- Desktop nawigacja -->
         <nav class="hidden lg:flex items-center gap-6" aria-label="Główna nawigacja">
-          ${desktopLink('o-szkole.html',   'O szkole')}
-          ${desktopLink('oferta.html',     'Oferta')}
-          ${desktopLink('rekrutacja.html', 'Rekrutacja')}
+          ${desktopLink(href_('o-szkole.html'),   'O szkole')}
+          ${desktopLink(href_('oferta.html'),     'Oferta')}
+          ${desktopLink(href_('rekrutacja.html'), 'Rekrutacja')}
           ${desktopDropdown('akt',        'Aktualności',    aktLinks,       aktActive,   false)}
           ${desktopDropdown('rodzice',    'Dla rodziców',   rodzLinks,      rodzActive,  false)}
           ${desktopDropdown('pracownik',  'Dla pracownika', pracownikLinks, false,       true)}
@@ -121,15 +137,15 @@
             class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
             <i data-lucide="search" class="w-5 h-5 flex-shrink-0 text-gray-400"></i>Szukaj na stronie
           </button>
-          ${mobileLink('index.html',       'home',          'Strona główna')}
-          ${mobileLink('o-szkole.html',    'info',          'O szkole')}
-          ${mobileLink('oferta.html',      'book-open',     'Oferta edukacyjna')}
-          ${mobileLink('rekrutacja.html',  'user-plus',     'Rekrutacja')}
-          ${mobileLink('aktualnosci.html', 'newspaper',     'Aktualności')}
-          ${mobileLink('kalendarz.html',   'calendar',      'Kalendarz szkolny')}
-          ${mobileLink('dla-rodzicow.html','users',         'Dla rodziców')}
-          ${mobileLink('do-pobrania.html', 'download',      'Do pobrania')}
-          ${mobileLink('faq.html',         'help-circle',   'FAQ')}
+          ${mobileLink(href_('index.html'),       'home',          'Strona główna')}
+          ${mobileLink(href_('o-szkole.html'),    'info',          'O szkole')}
+          ${mobileLink(href_('oferta.html'),      'book-open',     'Oferta edukacyjna')}
+          ${mobileLink(href_('rekrutacja.html'),  'user-plus',     'Rekrutacja')}
+          ${mobileLink(href_('aktualnosci.html'), 'newspaper',     'Aktualności')}
+          ${mobileLink(href_('kalendarz.html'),   'calendar',      'Kalendarz szkolny')}
+          ${mobileLink(href_('dla-rodzicow.html'),'users',         'Dla rodziców')}
+          ${mobileLink(href_('do-pobrania.html'), 'download',      'Do pobrania')}
+          ${mobileLink(href_('faq.html'),         'help-circle',   'FAQ')}
           ${mobileLink('dostepnosc.html',  'accessibility', 'Dostępność')}
           <div class="pt-3 mt-2 border-t border-gray-100">
             <p class="px-4 pb-2 text-xs font-bold text-gray-500 uppercase tracking-wide">Dla pracownika</p>
