@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aktualności ze szkoły – tekst łatwy do czytania i zrozumienia.">
+  <meta name="theme-color" content="#C62828">
+  <title>Aktualności – tekst łatwy do czytania</title>
+  <link rel="canonical" href="https://szkola26.torun.pl/aktualnosci-etr.html">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="tailwind.css?v=1">
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+</head>
+<body class="antialiased text-gray-900" style="font-size:18px;">
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- Nagłówek -->
+    <section class="py-10 sm:py-14 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <span class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-sm font-bold px-4 py-2 rounded-full mb-5">
+          <i data-lucide="book-open-check" class="w-5 h-5" aria-hidden="true"></i>
+          Tekst łatwy do czytania
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-snug">Co nowego<br>w szkole</h1>
+        <a href="aktualnosci.html" class="inline-flex items-center gap-2 text-brand-600 font-semibold underline underline-offset-2 text-base">
+          <i data-lucide="arrow-left-right" class="w-5 h-5" aria-hidden="true"></i>
+          Zobacz zwykłą wersję tej strony
+        </a>
+      </div>
+    </section>
+
+    <!-- Lista aktualności -->
+    <section class="py-10 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+        <div id="news-list" class="space-y-5" aria-live="polite" aria-busy="true"></div>
+        <p id="no-results" class="hidden text-center text-lg text-gray-500 py-12">Nie ma teraz żadnych nowości.</p>
+
+        <!-- Facebook -->
+        <div class="mt-8 rounded-2xl p-6 bg-gray-50 border-2 border-gray-200">
+          <p class="text-lg leading-relaxed mb-5">
+            Więcej zdjęć i nowości znajdziesz na naszym Facebooku.
+          </p>
+          <a href="https://www.facebook.com/szkola.podstawowa.specjalna.nr26.Torun" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base px-5 py-3 rounded-xl shadow-sm transition-colors">
+            <i data-lucide="external-link" class="w-5 h-5" aria-hidden="true"></i>Zobacz Facebook szkoły
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="components/navbar.js?v=3"></script>
+  <script src="components/footer.js?v=8"></script>
+  <script src="components/tts.js?v=1"></script>
+  <script src="components/a11y.js?v=1"></script>
+  <script>
+    if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+
+    const CATEGORY_LABELS = { 'ogłoszenie': 'Ogłoszenie', 'wydarzenie': 'Wydarzenie', 'rekrutacja': 'Rekrutacja' };
+    const CATEGORY_COLORS = { 'ogłoszenie': 'badge-ogłoszenie', 'wydarzenie': 'badge-wydarzenie', 'rekrutacja': 'badge-rekrutacja' };
+
+    function formatDate(iso) {
+      return new Date(iso).toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    fetch('data/news.json')
+      .then(r => r.json())
+      .then(data => {
+        const list = document.getElementById('news-list');
+        const noResults = document.getElementById('no-results');
+        const items = (data.posts || []).sort((a, b) => {
+          if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+          return new Date(b.date) - new Date(a.date);
+        });
+
+        if (!items.length) { noResults.classList.remove('hidden'); }
+        else {
+          list.innerHTML = items.map(n => `
+            <article class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6${n.pinned ? ' ring-2 ring-brand-200' : ''}">
+              ${n.pinned ? `<div class="flex items-center gap-1.5 text-sm font-bold text-brand-600 mb-3"><i data-lucide="pin" class="w-4 h-4" aria-hidden="true"></i>Ważne</div>` : ''}
+              <div class="flex items-center gap-2 mb-3 flex-wrap">
+                <span class="${CATEGORY_COLORS[n.category] || 'badge-inne'} text-sm font-bold px-3 py-1 rounded-full">${CATEGORY_LABELS[n.category] || n.category}</span>
+                <time datetime="${n.date}" class="text-base text-gray-500 ml-auto">${formatDate(n.date)}</time>
+              </div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">${n.title}</h2>
+              <p class="text-lg text-gray-700 leading-relaxed">${n.excerpt_etr || n.excerpt}</p>
+            </article>`).join('');
+        }
+        list.removeAttribute('aria-busy');
+        if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+      })
+      .catch(() => {
+        const list = document.getElementById('news-list');
+        if (list) { list.removeAttribute('aria-busy'); list.innerHTML = '<p class="text-lg text-gray-500 py-10 text-center">Nie udało się wczytać nowości.</p>'; }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kalendarz roku szkolnego – tekst łatwy do czytania i zrozumienia.">
+  <meta name="theme-color" content="#C62828">
+  <title>Kalendarz szkolny – tekst łatwy do czytania</title>
+  <link rel="canonical" href="https://szkola26.torun.pl/kalendarz-etr.html">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="tailwind.css?v=1">
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+</head>
+<body class="antialiased text-gray-900" style="font-size:18px;">
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- Nagłówek -->
+    <section class="py-10 sm:py-14 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <span class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-sm font-bold px-4 py-2 rounded-full mb-5">
+          <i data-lucide="book-open-check" class="w-5 h-5" aria-hidden="true"></i>
+          Tekst łatwy do czytania
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-snug">Kalendarz<br>roku szkolnego</h1>
+        <a href="kalendarz.html" class="inline-flex items-center gap-2 text-brand-600 font-semibold underline underline-offset-2 text-base">
+          <i data-lucide="arrow-left-right" class="w-5 h-5" aria-hidden="true"></i>
+          Zobacz zwykłą wersję tej strony
+        </a>
+      </div>
+    </section>
+
+    <!-- Widget odliczający -->
+    <div id="countdown-widget" class="hidden bg-white border-b border-gray-100 py-6">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div id="countdown-inner"></div>
+      </div>
+    </div>
+
+    <!-- Legenda -->
+    <section class="py-6 bg-white border-b border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 flex flex-wrap gap-3">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leaf-600/10 text-leaf-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-leaf-600 inline-block"></span>Rok szkolny</span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span>Przerwa świąteczna</span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>Ferie</span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-brand-600 inline-block"></span>Święto</span>
+      </div>
+    </section>
+
+    <!-- Lista terminów -->
+    <section class="py-10 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div id="view-list"></div>
+        <div id="view-loading" class="py-16 text-center text-lg text-gray-500">Wczytywanie…</div>
+      </div>
+    </section>
+
+    <!-- PDF -->
+    <section class="py-10 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border-2 border-gray-200 rounded-2xl p-6">
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="file-text" class="w-6 h-6 text-brand-700" aria-hidden="true"></i>
+            </span>
+            <div>
+              <p class="text-lg font-bold text-gray-900">Cały kalendarz w jednym pliku</p>
+              <p class="text-base text-gray-600">PDF</p>
+            </div>
+          </div>
+          <a href="pdf/kalendarz/Kalendarz_2026_2027.pdf" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base px-5 py-3 rounded-xl shadow-sm transition-colors flex-shrink-0">
+            <i data-lucide="download" class="w-5 h-5" aria-hidden="true"></i>Pobierz PDF
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="components/navbar.js?v=3"></script>
+  <script src="components/footer.js?v=8"></script>
+  <script src="components/tts.js?v=1"></script>
+  <script src="components/a11y.js?v=1"></script>
+  <script>
+    if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+  </script>
+
+  <script>
+  (function () {
+
+    const TYPE = {
+      'rok-szkolny': { icon: 'play-circle', card: 'bg-leaf-600/5 border-leaf-600/20', icon_bg: 'bg-leaf-600/15', icon_color: 'text-leaf-700', date_color: 'text-leaf-700' },
+      'przerwa':     { icon: 'snowflake',   card: 'bg-blue-50 border-blue-100',       icon_bg: 'bg-blue-100',    icon_color: 'text-blue-500',  date_color: 'text-blue-700' },
+      'ferie':       { icon: 'sun',         card: 'bg-amber-50 border-amber-100',     icon_bg: 'bg-amber-100',   icon_color: 'text-amber-500', date_color: 'text-amber-700' },
+      'swieto':      { icon: 'flag',        card: 'bg-brand-50 border-brand-200',     icon_bg: 'bg-brand-100',   icon_color: 'text-brand-700', date_color: 'text-brand-700' },
+      'custom':      { icon: 'star',        card: 'bg-purple-50 border-purple-200',   icon_bg: 'bg-purple-100',  icon_color: 'text-purple-600',date_color: 'text-purple-700' },
+    };
+
+    const MONTHS_PL = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
+                       'Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+    const MONTHS_GEN = ['stycznia','lutego','marca','kwietnia','maja','czerwca',
+                        'lipca','sierpnia','września','października','listopada','grudnia'];
+
+    function fmtDate(str) {
+      const [y, m, d] = str.split('-').map(Number);
+      return `${d} ${MONTHS_GEN[m-1]} ${y} r.`;
+    }
+    function fmtRange(s, e) {
+      const [sy, sm, sd] = s.split('-').map(Number);
+      const [ey, em, ed] = e.split('-').map(Number);
+      if (sm === em) return `${sd}–${ed} ${MONTHS_GEN[sm-1]} ${sy === ey ? sy : sy + '/' + ey} r.`;
+      return `${sd} ${MONTHS_GEN[sm-1]} – ${ed} ${MONTHS_GEN[em-1]} ${sy === ey ? sy : sy + '/' + ey} r.`;
+    }
+    function dateLabel(ev) {
+      if (ev.date) return fmtDate(ev.date);
+      return fmtRange(ev.dateStart, ev.dateEnd);
+    }
+
+    function buildList(events) {
+      const byMonth = {};
+      events.forEach(ev => {
+        const month = (ev.date || ev.dateStart).slice(0, 7);
+        if (!byMonth[month]) byMonth[month] = [];
+        byMonth[month].push(ev);
+      });
+
+      return Object.keys(byMonth).sort().map(ym => {
+        const [y, m] = ym.split('-').map(Number);
+        const heading = MONTHS_PL[m-1] + ' ' + y;
+        const cards = byMonth[ym].map(ev => {
+          const t = TYPE[ev.type] || TYPE['custom'];
+          const noteHtml = ev.note ? `<p class="text-base text-gray-600 mt-1">${ev.note}</p>` : '';
+          return `
+            <div class="flex items-start gap-4 ${t.card} border-2 rounded-2xl p-5">
+              <span class="mt-0.5 w-11 h-11 rounded-xl ${t.icon_bg} flex items-center justify-center flex-shrink-0">
+                <i data-lucide="${t.icon}" class="w-6 h-6 ${t.icon_color}" aria-hidden="true"></i>
+              </span>
+              <div>
+                <p class="text-lg font-bold text-gray-900">${ev.label}</p>
+                <p class="text-base ${t.date_color} font-semibold">${dateLabel(ev)}</p>
+                ${noteHtml}
+              </div>
+            </div>`;
+        }).join('');
+
+        return `
+          <div class="mb-8">
+            <h2 class="text-base font-bold text-gray-500 uppercase tracking-widest mb-4">${heading}</h2>
+            <div class="space-y-3">${cards}</div>
+          </div>`;
+      }).join('');
+    }
+
+    const BASE_EVENTS = [
+      { label: 'Rozpoczęcie roku szkolnego',       date: '2026-09-01', type: 'rok-szkolny' },
+      { label: 'Wszystkich Świętych',               date: '2026-11-01', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Dzień Edukacji Narodowej',          date: '2026-10-14', type: 'swieto',    note: 'dzień wolny od zajęć' },
+      { label: 'Święto Niepodległości',             date: '2026-11-11', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Zimowa przerwa świąteczna',         dateStart: '2026-12-23', dateEnd: '2026-12-31', type: 'przerwa' },
+      { label: 'Nowy Rok',                          date: '2027-01-01', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Trzech Króli',                      date: '2027-01-06', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Ferie zimowe',                      dateStart: '2027-02-15', dateEnd: '2027-02-28', type: 'ferie', note: 'woj. kujawsko-pomorskie' },
+      { label: 'Wiosenna przerwa świąteczna',       dateStart: '2027-03-25', dateEnd: '2027-03-30', type: 'przerwa' },
+      { label: 'Święto Pracy',                      date: '2027-05-01', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Święto Konstytucji 3 Maja',         date: '2027-05-03', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Boże Ciało',                        date: '2027-05-27', type: 'swieto',    note: 'dzień wolny' },
+      { label: 'Zakończenie roku szkolnego',        date: '2027-06-25', type: 'rok-szkolny' },
+      { label: 'Ferie letnie',                      dateStart: '2027-06-26', dateEnd: '2027-08-31', type: 'ferie' },
+    ];
+
+    function buildCountdown(events) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const ferieLetnie = events.find(e => e.type === 'ferie' && (e.dateStart || '').includes('-06-'));
+      const startSchool  = events.find(e => e.type === 'rok-szkolny' && e.date && e.date.includes('-09-01'));
+      const endSchool    = events.find(e => e.type === 'rok-szkolny' && e.date && !e.date.includes('-09-01'));
+
+      if (!ferieLetnie || !startSchool || !endSchool) return;
+
+      const ferieStart = new Date(ferieLetnie.dateStart + 'T00:00:00');
+      const ferieEnd   = new Date(ferieLetnie.dateEnd   + 'T00:00:00');
+      const schoolStart = new Date(startSchool.date + 'T00:00:00');
+      const schoolEnd   = new Date(endSchool.date   + 'T00:00:00');
+
+      const diffDays = (a, b) => Math.round((a - b) / 86400000);
+
+      let html = '';
+
+      if (today >= ferieStart && today <= ferieEnd) {
+        const nextSep = new Date(ferieEnd.getFullYear(), 8, 1);
+        const days = diffDays(nextSep, today);
+        const label = days === 0 ? 'Dziś pierwszy dzień szkoły!' : `Zostało ${days} ${days === 1 ? 'dzień' : 'dni'}`;
+        html = `
+          <div class="flex items-center gap-4 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-5">
+            <span class="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sun" class="w-7 h-7 text-amber-500" aria-hidden="true"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-base font-bold text-amber-700 mb-1">Trwają wakacje letnie</p>
+              <p class="text-lg font-semibold text-gray-900 leading-snug">Do szkoły: ${label}</p>
+            </div>
+          </div>`;
+      } else if (today >= schoolStart && today <= schoolEnd) {
+        const days = diffDays(ferieStart, today);
+        const label = days === 0 ? 'Dziś ostatni dzień!' : `Zostało ${days} ${days === 1 ? 'dzień' : 'dni'}`;
+        html = `
+          <div class="flex items-center gap-4 bg-leaf-600/5 border-2 border-leaf-600/20 rounded-2xl px-6 py-5">
+            <span class="w-14 h-14 rounded-xl bg-leaf-600/15 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="hourglass" class="w-7 h-7 text-leaf-700" aria-hidden="true"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-base font-bold text-leaf-700 mb-1">Trwa rok szkolny 2026/2027</p>
+              <p class="text-lg font-semibold text-gray-900 leading-snug">Do wakacji: ${label}</p>
+            </div>
+          </div>`;
+      } else if (today < schoolStart) {
+        const days = diffDays(schoolStart, today);
+        html = `
+          <div class="flex items-center gap-4 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-5">
+            <span class="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sun" class="w-7 h-7 text-amber-500" aria-hidden="true"></i>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-base font-bold text-amber-700 mb-1">Trwają wakacje letnie</p>
+              <p class="text-lg font-semibold text-gray-900 leading-snug">Do szkoły: zostało ${days} ${days === 1 ? 'dzień' : 'dni'}</p>
+            </div>
+          </div>`;
+      }
+
+      if (html) {
+        document.getElementById('countdown-inner').innerHTML = html;
+        document.getElementById('countdown-widget').classList.remove('hidden');
+        if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+      }
+    }
+
+    function render(events, customEvents) {
+      const custom = (customEvents || []).filter(e => !e._example);
+      const all = [...events, ...custom.map(e => ({ ...e, type: 'custom' }))];
+      all.sort((a, b) => (a.date || a.dateStart) > (b.date || b.dateStart) ? 1 : -1);
+      buildCountdown(all);
+      document.getElementById('view-loading').remove();
+      document.getElementById('view-list').innerHTML = buildList(all);
+      if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+    }
+
+    fetch('data/kalendarz.json', { cache: 'no-store' })
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => render(data.events || BASE_EVENTS, data.customEvents))
+      .catch(() => render(BASE_EVENTS, []));
+
+  })();
+  </script>
+</body>
+</html>

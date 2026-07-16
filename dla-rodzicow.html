@@ -43,7 +43,12 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Strefa rodzica</span>
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Dla rodziców i uczniów</h1>
-        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed">E-dziennik, przydatne linki i dokumenty szkolne</p>
+        <p class="text-gray-500 max-w-2xl text-base sm:text-lg leading-relaxed mb-5">E-dziennik, przydatne linki i dokumenty szkolne</p>
+        <a href="dla-rodzicow-etr.html" class="group inline-flex items-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base pl-5 pr-4 py-3 rounded-xl shadow-sm transition-colors">
+          <i data-lucide="book-open-check" class="w-5 h-5"></i>
+          Przełącz na łatwy tekst
+          <i data-lucide="arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1"></i>
+        </a>
       </div>
     </section>
 
@@ -78,6 +83,43 @@
           <p class="text-gray-600 leading-relaxed">Jeśli chcesz skontaktować się z Radą Rodziców lub dowiedzieć się więcej o jej działalności, skontaktuj się z sekretariatem szkoły.</p>
           <a href="tel:+48566485784" class="inline-flex items-center gap-2 mt-5 font-bold text-sm px-5 py-2.5 rounded-full text-white bg-brand-600 hover:bg-brand-700 transition-all">
             <i data-lucide="phone" class="w-4 h-4"></i>(56) 648-57-84
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zobacz też -->
+    <section class="py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-6">Zobacz też</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <a href="kalendarz.html" class="flex items-center gap-3 bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="calendar" class="w-5 h-5 text-brand-700"></i></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">Kalendarz szkolny</p>
+              <p class="text-xs text-gray-500">Rok szkolny 2026/2027</p>
+            </div>
+          </a>
+          <a href="faq.html" class="flex items-center gap-3 bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="help-circle" class="w-5 h-5 text-brand-700"></i></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">FAQ</p>
+              <p class="text-xs text-gray-500">Często zadawane pytania</p>
+            </div>
+          </a>
+          <a href="do-pobrania.html" class="flex items-center gap-3 bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="download" class="w-5 h-5 text-brand-700"></i></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">Do pobrania</p>
+              <p class="text-xs text-gray-500">Statuty, wnioski, procedury</p>
+            </div>
+          </a>
+          <a href="oferta.html" class="flex items-center gap-3 bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group border border-gray-100">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="book-open" class="w-5 h-5 text-brand-700"></i></span>
+            <div>
+              <p class="text-sm font-semibold text-gray-800 group-hover:text-brand-700 transition-colors">Oferta edukacyjna</p>
+              <p class="text-xs text-gray-500">WWR, Przedszkole, SPS, ZRW, SPdP</p>
+            </div>
           </a>
         </div>
       </div>
@@ -133,6 +175,7 @@
 
   <script src="components/navbar.js?v=3"></script>
   <script src="components/footer.js?v=8"></script>
+  <script src="components/tts.js?v=1"></script>
   <script src="components/a11y.js?v=1"></script>
   <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
 </body>

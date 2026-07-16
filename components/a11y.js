@@ -77,6 +77,10 @@ function toggleGrayscale() {
   setA11yBadge('a11y-grayscale', on); localStorage.setItem('zs26-grayscale', on); updateA11yCount();
   announce(on ? 'Skala szarości włączona' : 'Skala szarości wyłączona');
 }
+function toggleTTS() {
+  if (!window.ttsEngine) { announce('Czytanie na głos nie jest dostępne w tej przeglądarce'); return; }
+  window.ttsEngine.toggle();
+}
 function resetA11y() {
   ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale','dark-mode'].forEach(c => document.body.classList.remove(c));
   currentFontSize = 16; document.documentElement.style.fontSize = '16px';
@@ -120,6 +124,11 @@ function resetA11y() {
           </button>
         </div>
         <div class="p-2 space-y-0.5">
+          <button onclick="toggleTTS()" id="a11y-tts" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
+            <span class="w-9 h-9 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0"><i data-lucide="volume-2" class="w-5 h-5 text-red-600"></i></span>
+            <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Czytaj na głos</p><p class="text-[11px] text-gray-500" id="a11y-tts-label">Odtwarza treść strony</p></div>
+            <span class="a11y-badge off">WYŁ</span>
+          </button>
           <button onclick="toggleHighContrast()" id="a11y-contrast" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
             <span class="w-9 h-9 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0"><i data-lucide="eye" class="w-5 h-5 text-yellow-400"></i></span>
             <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Wysoki kontrast</p><p class="text-[11px] text-gray-500">Żółty tekst na czarnym tle</p></div>
@@ -191,6 +200,18 @@ function resetA11y() {
 
   // Re-render icons (widget was just appended)
   if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+
+  // Czytaj na głos — podłącz do wspólnego silnika (components/tts.js)
+  if (window.ttsEngine) {
+    window.ttsEngine.onChange(playing => {
+      setA11yBadge('a11y-tts', playing);
+      const label = document.getElementById('a11y-tts-label');
+      if (label) label.textContent = playing ? 'Czytanie w toku…' : 'Odtwarza treść strony';
+    });
+  } else {
+    const label = document.getElementById('a11y-tts-label');
+    if (label) label.textContent = 'Niedostępne w tej przeglądarce';
+  }
 
   // Scroll listener
   const bar    = document.getElementById('scroll-progress');
