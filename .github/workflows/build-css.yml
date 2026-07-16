@@ -2,6 +2,10 @@ name: Build Tailwind CSS
 
 # Przebudowuje tailwind.css automatycznie, gdy zmienią się klasy w HTML/JS
 # lub konfiguracja. Dzięki temu nie trzeba uruchamiać `npm run build:css` ręcznie.
+# Przy okazji: gdy zmieni się data/news.json lub data/kalendarz.json, wstrzykuje
+# statyczną treść do aktualnosci.html i kalendarz.html (SEO — realna treść od razu
+# w HTML, bez czekania na JS). Workflow dodawania newsów/terminów się nie zmienia,
+# nadal edytuje się wyłącznie pliki JSON w data/.
 on:
   workflow_dispatch:        # pozwala uruchomić ręcznie (przycisk w zakładce Actions)
   push:
@@ -12,6 +16,8 @@ on:
       - 'tailwind.config.js'
       - 'tailwind-input.css'
       - 'package.json'
+      - 'data/news.json'
+      - 'data/kalendarz.json'
 
 # Pozwól akcji zapisać przebudowany plik z powrotem do repo
 permissions:
@@ -43,14 +49,17 @@ jobs:
       - name: Build search-index.json
         run: npm run build:search
 
+      - name: Wstrzyknięcie statycznej treści (aktualności/kalendarz)
+        run: npm run build:content
+
       - name: Commit przebudowanych plików (jeśli się zmieniły)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- tailwind.css data/search-index.json; then
+          if git diff --quiet -- tailwind.css data/search-index.json aktualnosci.html kalendarz.html; then
             echo "Bez zmian — nic do commitu."
           else
-            git add tailwind.css data/search-index.json
-            git commit -m "chore: automatyczna przebudowa tailwind.css i search-index.json [skip ci]"
+            git add tailwind.css data/search-index.json aktualnosci.html kalendarz.html
+            git commit -m "chore: automatyczna przebudowa tailwind.css, search-index.json i statycznej treści [skip ci]"
             git push
           fi
