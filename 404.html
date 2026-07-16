@@ -2,6 +2,62 @@
 <html lang="pl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      var exact = {
+        "/biuletyn-informacji-publicznej": "https://zs26torun.naszbip.pl/",
+        "/deklaracja-dostepnosci-bip": "https://zs26torun.naszbip.pl/",
+        "/dokumenty-bip": "https://zs26torun.naszbip.pl/",
+        "/dyrekcja-bip": "https://zs26torun.naszbip.pl/",
+        "/informacje-nieudostepnione": "https://zs26torun.naszbip.pl/",
+        "/informacje-podstawowe": "https://zs26torun.naszbip.pl/",
+        "/informacje/iod": "https://zs26torun.naszbip.pl/",
+        "/instrukcja-korzystania-z-bip": "https://zs26torun.naszbip.pl/",
+        "/mapa-strony-bip": "https://zs26torun.naszbip.pl/",
+        "/przedmiot-dzialanosci": "https://zs26torun.naszbip.pl/",
+        "/przyjmowanie-i-zalatwianie-spraw": "https://zs26torun.naszbip.pl/",
+        "/redakcja": "https://zs26torun.naszbip.pl/",
+        "/rejestry-ewidencja-archiwa": "https://zs26torun.naszbip.pl/",
+        "/sprawozdania-finansowe": "https://zs26torun.naszbip.pl/",
+        "/zamowienia-publiczne": "https://zs26torun.naszbip.pl/",
+        "/informacje/deklaracja-dostepnosci": "/dostepnosc.html",
+        "/raport-o-stanie-zapewnienia-dostepnosci-podmiotu-publicznego": "/dostepnosc.html",
+        "/informacje/polityka-cookies": "/rodo.html",
+        "/informacje/rodo": "/rodo.html",
+        "/rodo-bip": "/rodo.html",
+        "/informacje/kontakt": "/index.html",
+        "/mapa-strony": "/index.html",
+        "/e-dziennik/logowanie-2": "/dla-rodzicow.html",
+        "/o-nas/informacje": "/o-szkole.html",
+        "/o-nas/patron-szkoly": "/o-szkole.html",
+        "/o-nas/media-o-nas": "/dla-mediow.html",
+        "/o-nas/statuty": "/do-pobrania.html",
+        "/oferta/oddzialy-przedszkolne": "/oferta.html",
+        "/oferta/owit": "/oferta.html",
+        "/oferta/rehabilitacja-25plus": "/oferta.html",
+        "/oferta/szkola-podstawowa": "/oferta.html",
+        "/oferta/szkola-przysposabiajaca-do-pracy": "/oferta.html",
+        "/oferta/wczesne-wspomaganie-rozwoju-dziecka": "/oferta.html",
+        "/oferta/zajecia-rewalidacyjno-wychowawcze": "/oferta.html",
+        "/owit": "/oferta.html",
+        "/ogloszenia": "/aktualnosci.html",
+        "/pomoc": "/faq.html",
+        "/nabor-do-pracy": "/index.html"
+      };
+      var prefixes = [
+        { test: "/informacje/laboratoria-przyszlosci", to: "/aktualnosci.html" },
+        { test: "/index.php/", to: "/index.html" }
+      ];
+      var path = window.location.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+      var target = exact[path];
+      if (!target) {
+        for (var i = 0; i < prefixes.length; i++) {
+          if (path.indexOf(prefixes[i].test) === 0) { target = prefixes[i].to; break; }
+        }
+      }
+      if (target) window.location.replace(target);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona nie znaleziona – ZS Nr 26 Toruń</title>
   <meta name="robots" content="noindex, follow">
@@ -28,6 +84,7 @@
   <link rel="stylesheet" href="style.css?v=8">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased bg-brand-50 min-h-screen flex flex-col items-center justify-center text-center px-4">
