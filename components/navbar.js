@@ -131,7 +131,7 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-y-auto"
-        style="max-height: calc(100vh - 4rem); -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;"
+        style="max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem); -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;"
         aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
           <button data-search-trigger
