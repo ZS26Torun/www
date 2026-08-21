@@ -57,7 +57,7 @@
     { href: 'https://uonetplus.vulcan.net.pl/torun', icon: 'book-open', label: 'E-dziennik',     sub: 'Vulcan UONET+' },
     { href: 'https://outlook.office.com',            icon: 'mail',      label: 'Poczta Outlook', sub: 'Microsoft 365' },
     { href: 'https://teams.microsoft.com',           icon: 'video',     label: 'Microsoft Teams', sub: 'Spotkania i komunikacja' },
-    { href: 'https://kadryplace.vulcan.net.pl/torun/1/PRACOWNIK/', icon: 'briefcase', label: 'Kadry Place', sub: 'Vulcan – kadry i płace' },
+    { href: 'https://kadryplace.vulcan.net.pl/torun/1/PRACOWNIK/', icon: 'briefcase', label: 'Kadry i Płace', sub: 'Vulcan – kadry i płace' },
   ];
 
   function desktopDropdown(id, label, links, active, external) {
@@ -130,8 +130,8 @@
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl"
-        aria-label="Menu mobilne">
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-y-auto"
+        style="max-height: calc(100vh - 4rem);" aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
           <button data-search-trigger
             class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
@@ -169,6 +169,8 @@
     ham.addEventListener('click', () => {
       const nowOpen = mobileMenu.classList.toggle('hidden') === false;
       ham.setAttribute('aria-expanded', nowOpen);
+      document.body.classList.toggle('overflow-hidden', nowOpen);
+      document.getElementById('a11y-widget')?.classList.toggle('hidden', nowOpen);
       const lines = ham.querySelectorAll('.ham-line');
       if (nowOpen) {
         lines[0].style.transform = 'translateY(7px) rotate(45deg)';
@@ -225,6 +227,8 @@
     });
     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
       mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('a11y-widget')?.classList.remove('hidden');
       ham?.setAttribute('aria-expanded', 'false');
       ham?.querySelectorAll('.ham-line').forEach(l => l.style.transform = '');
       ham?.focus();
