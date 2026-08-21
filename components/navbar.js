@@ -131,7 +131,8 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-y-auto"
-        style="max-height: calc(100vh - 4rem);" aria-label="Menu mobilne">
+        style="max-height: calc(100vh - 4rem); -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;"
+        aria-label="Menu mobilne">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
           <button data-search-trigger
             class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
@@ -162,6 +163,29 @@
 
   document.getElementById('navbar-placeholder').outerHTML = navHTML;
 
+  // Blokada scrolla tła — position:fixed zamiast overflow:hidden, bo Android
+  // Chrome/Edge potrafi przy samym overflow:hidden zablokować też scroll
+  // wewnątrz otwartego menu (nie tylko tła).
+  function lockBodyScroll() {
+    const scrollY = window.scrollY;
+    document.body.dataset.scrollY = String(scrollY);
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+  function unlockBodyScroll() {
+    const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    delete document.body.dataset.scrollY;
+    window.scrollTo(0, scrollY);
+  }
+
   // Hamburger
   const ham = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -169,7 +193,7 @@
     ham.addEventListener('click', () => {
       const nowOpen = mobileMenu.classList.toggle('hidden') === false;
       ham.setAttribute('aria-expanded', nowOpen);
-      document.body.classList.toggle('overflow-hidden', nowOpen);
+      if (nowOpen) lockBodyScroll(); else unlockBodyScroll();
       document.getElementById('a11y-widget')?.classList.toggle('hidden', nowOpen);
       const lines = ham.querySelectorAll('.ham-line');
       if (nowOpen) {
@@ -227,7 +251,7 @@
     });
     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
       mobileMenu.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
+      unlockBodyScroll();
       document.getElementById('a11y-widget')?.classList.remove('hidden');
       ham?.setAttribute('aria-expanded', 'false');
       ham?.querySelectorAll('.ham-line').forEach(l => l.style.transform = '');
