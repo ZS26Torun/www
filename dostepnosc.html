@@ -47,13 +47,13 @@
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- Nagłówek strony -->
     <section class="py-14 sm:py-20 bg-gray-50 border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">Prawo</span>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Deklaracja dostępności</h1>
+        <h1 id="a11y-deklaracja" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Deklaracja dostępności</h1>
         <p class="text-gray-500 max-w-2xl text-base leading-relaxed">Zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych</p>
       </div>
     </section>
@@ -69,7 +69,7 @@
             </span>
             <h2 class="text-lg font-bold text-gray-900">Wstęp</h2>
           </div>
-          <p>Zespół Szkół Nr 26 w Toruniu zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Deklaracja dostępności dotyczy strony internetowej <strong>szkola26.torun.pl</strong>.</p>
+          <p id="a11y-wstep"><span id="a11y-podmiot">Zespół Szkół Nr 26 w Toruniu</span> zobowiązuje się zapewnić dostępność cyfrową swojej strony internetowej zgodnie z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Deklaracja dostępności dotyczy strony internetowej <strong id="a11y-url">szkola26.torun.pl</strong>.</p>
         </div>
 
         <div>
@@ -80,9 +80,10 @@
             <h2 class="text-lg font-bold text-gray-900">Daty publikacji i aktualizacji</h2>
           </div>
           <ul class="space-y-1">
-            <li><span class="font-medium text-gray-800">Data publikacji strony:</span> 2026-06-26</li>
-            <li><span class="font-medium text-gray-800">Data ostatniej aktualizacji:</span> 2026-06-26</li>
-            <li><span class="font-medium text-gray-800">Data sporządzenia deklaracji:</span> 2026-06-26</li>
+            <li><span class="font-medium text-gray-800">Data publikacji strony:</span> <time id="a11y-data-publikacja" datetime="2026-06-26">2026-06-26</time></li>
+            <li><span class="font-medium text-gray-800">Data ostatniej aktualizacji:</span> <time id="a11y-data-aktualizacja" datetime="2026-08-26">2026-08-26</time></li>
+            <li><span class="font-medium text-gray-800">Data sporządzenia deklaracji:</span> <time id="a11y-data-sporzadzenie" datetime="2026-06-26">2026-06-26</time></li>
+            <li><span class="font-medium text-gray-800">Data ostatniego przeglądu deklaracji:</span> <time datetime="2026-08-26">2026-08-26</time></li>
           </ul>
         </div>
 
@@ -93,7 +94,10 @@
             </span>
             <h2 class="text-lg font-bold text-gray-900">Status zgodności</h2>
           </div>
-          <p class="mb-4">Strona internetowa jest <strong>częściowo zgodna</strong> z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej z powodu niezgodności lub wyłączeń wymienionych poniżej.</p>
+          <div id="a11y-status">
+            <p class="mb-2">Strona internetowa jest <strong>częściowo zgodna</strong> z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych, tj. z wytycznymi <strong>WCAG 2.1 na poziomie AA</strong>, z powodu niezgodności lub wyłączeń wymienionych poniżej.</p>
+            <p class="mb-4 text-xs text-gray-500">Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
+          </div>
 
           <h3 class="font-semibold text-gray-800 mb-3">Zastosowane rozwiązania dostępności:</h3>
           <ul class="space-y-2 mb-5">
@@ -109,7 +113,8 @@
 
           <h3 class="font-semibold text-gray-800 mb-3">Znane ograniczenia:</h3>
           <ul class="space-y-2">
-            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-500"></i>Część plików PDF (formularze rekrutacyjne) może nie być w pełni dostępna – trwają prace nad ich uzupełnieniem</li>
+            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-500"></i>Formularze rekrutacyjne oraz wniosek MZK udostępnione są w starszym formacie <strong>.doc</strong> zamiast .docx – mogą być gorzej obsługiwane przez czytniki ekranu; trwają prace nad ich zastąpieniem dostępnymi plikami .docx oraz – tam gdzie to możliwe – wersją HTML</li>
+            <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-500"></i>Statuty szkolne (pliki PDF) nie mają w pełni poprawnej struktury nagłówków i tagowania – trwają prace nad przygotowaniem ich dostępnej wersji</li>
             <li class="flex items-start gap-2"><i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-500"></i>Osadzone treści z serwisów zewnętrznych (Facebook) mogą nie spełniać wymogów WCAG 2.1</li>
           </ul>
         </div>
@@ -141,13 +146,15 @@
             </span>
             <h2 class="text-lg font-bold text-gray-900">Kontakt i informacje zwrotne</h2>
           </div>
-          <p class="mb-3">W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą odpowiedzialną jest <strong>sekretariat szkoły</strong>.</p>
+          <div id="a11y-kontakt">
+          <p class="mb-3">W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą odpowiedzialną jest <strong id="a11y-osoba">sekretariat szkoły</strong>.</p>
           <div class="space-y-1">
-            <p><span class="font-medium text-gray-800">E-mail:</span> <a href="mailto:sekretariat@szkola26.torun.pl" class="text-brand-600 underline">sekretariat@szkola26.torun.pl</a></p>
-            <p><span class="font-medium text-gray-800">Telefon:</span> <a href="tel:+48566485784" class="text-brand-600 underline">(56) 648-57-84</a></p>
+            <p><span class="font-medium text-gray-800">E-mail:</span> <a href="mailto:sekretariat@szkola26.torun.pl" id="a11y-email" class="text-brand-600 underline">sekretariat@szkola26.torun.pl</a></p>
+            <p><span class="font-medium text-gray-800">Telefon:</span> <a href="tel:+48566485784" id="a11y-telefon" class="text-brand-600 underline">(56) 648-57-84</a></p>
             <p><span class="font-medium text-gray-800">Adres do e-Doręczeń:</span> <span class="font-mono">AE:PL-34057-66406-DWGGW-17</span></p>
           </div>
           <p class="mt-3">Tą samą drogą można składać wnioski o udostępnienie informacji niedostępnej oraz żądania zapewnienia dostępności.</p>
+          </div>
         </div>
 
         <div>
@@ -168,11 +175,13 @@
             </span>
             <h2 class="text-lg font-bold text-gray-900">Skargi i odwołania</h2>
           </div>
-          <p class="mb-3">Na niedotrzymanie terminów lub odmowę realizacji żądania można złożyć skargę do organu nadzorującego:</p>
+          <div id="a11y-procedura">
+          <p class="mb-3">Jeżeli podmiot publiczny odmówi realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji, a także w przypadku niedotrzymania terminów, o których mowa w sekcji „Obsługa wniosków”, można złożyć skargę do organu prowadzącego (Miasta Torunia), a następnie – zgodnie z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej – do Rzecznika Praw Obywatelskich, który jest organem właściwym do rozpatrywania skarg dotyczących dostępności cyfrowej (nie jest to organ sprawujący ogólny nadzór nad działalnością szkoły):</p>
           <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
             <p class="font-semibold text-gray-900">Rzecznik Praw Obywatelskich</p>
             <p>al. Solidarności 77, 00-090 Warszawa</p>
             <a href="https://www.rpo.gov.pl" target="_blank" rel="noopener" class="text-brand-600 underline">www.rpo.gov.pl</a>
+          </div>
           </div>
         </div>
 
@@ -183,14 +192,32 @@
             </span>
             <h2 class="text-lg font-bold text-gray-900">Dostępność architektoniczna</h2>
           </div>
+          <div id="a11y-architektura">
           <p class="mb-3">Budynek szkoły przy ul. Fałata 88/90 w Toruniu:</p>
+          <!-- TODO (sekretariat/dyrekcja): potwierdzić i uzupełnić przed publikacją:
+               - czy w budynku jest winda / na które kondygnacje, jeśli nie ma windy - jak wygląda obsługa uczniów/interesantów z niepełnosprawnością ruchową na wyższych piętrach
+               - dokładna lokalizacja toalety dostosowanej (które piętro / które skrzydło)
+               - liczba miejsc parkingowych dla osób z niepełnosprawnościami -->
           <ul class="space-y-2 mb-3">
             <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 flex-shrink-0 mt-0.5 text-leaf-600"></i>Wejście główne dostosowane do potrzeb osób z niepełnosprawnością ruchową</li>
             <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 flex-shrink-0 mt-0.5 text-leaf-600"></i>Parking z miejscami dla osób z niepełnosprawnościami</li>
             <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 flex-shrink-0 mt-0.5 text-leaf-600"></i>Toalety przystosowane dla osób z niepełnosprawnościami</li>
             <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 flex-shrink-0 mt-0.5 text-leaf-600"></i>Możliwość obsługi interesantów na parterze</li>
+            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 flex-shrink-0 mt-0.5 text-leaf-600"></i>Do budynku i wszystkich jego pomieszczeń można wejść z psem asystującym i psem przewodnikiem</li>
           </ul>
           <p>W przypadku potrzeby wsparcia przy wejściu do budynku prosimy o kontakt z sekretariatem: <a href="tel:+48566485784" class="text-brand-600 underline font-medium">(56) 648-57-84</a>.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="ear" class="w-5 h-5 text-brand-700"></i>
+            </span>
+            <h2 class="text-lg font-bold text-gray-900">Dostępność informacyjno-komunikacyjna</h2>
+          </div>
+          <p class="mb-3">Zgodnie z ustawą z dnia 19 sierpnia 2011 r. o języku migowym i innych środkach komunikowania się, osoba uprawniona ma prawo skorzystać z pomocy tłumacza języka migowego przy załatwianiu spraw w szkole. Aby skorzystać z tej pomocy, prosimy o zgłoszenie takiej potrzeby co najmniej na <strong>3 dni robocze</strong> przed planowaną wizytą (z wyłączeniem sytuacji nagłych) – mailowo na adres <a href="mailto:sekretariat@szkola26.torun.pl" class="text-brand-600 underline">sekretariat@szkola26.torun.pl</a> lub telefonicznie: <a href="tel:+48566485784" class="text-brand-600 underline">(56) 648-57-84</a>.</p>
+          <p>W sprawie innych potrzeb komunikacyjnych (np. tłumacza-przewodnika, komunikacji alternatywnej) prosimy o kontakt z sekretariatem – dobierzemy dostępny sposób komunikacji indywidualnie.</p>
         </div>
 
       </div>
