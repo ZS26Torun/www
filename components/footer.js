@@ -1,4 +1,43 @@
 (function () {
+  // D-05 / D-16 · WCAG 2.4.4, spójność: w trybie ETR stopka prowadziła do
+  // wersji pełnych, mimo identycznej treści łączy co w nawigacji — użytkownik
+  // wypadał z trybu uproszczonego bez ostrzeżenia. Tu stosujemy tę samą
+  // zamianę adresów co navbar.js i oznaczamy bieżącą stronę.
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const ETR_PAGES = new Set([
+    'index.html', 'o-szkole.html', 'oferta.html', 'rekrutacja.html',
+    'aktualnosci.html', 'kalendarz.html', 'dla-rodzicow.html',
+    'do-pobrania.html', 'faq.html',
+  ]);
+  const inEtrMode = page.endsWith('-etr.html');
+  function href_(href) {
+    if (!inEtrMode || /^https?:\/\//.test(href)) return href;
+    const [base, hash] = href.split('#');
+    if (!ETR_PAGES.has(base)) return href;
+    return base.replace(/\.html$/, '-etr.html') + (hash ? '#' + hash : '');
+  }
+
+  const NAV = [
+    ['index.html',        'Strona główna'],
+    ['o-szkole.html',     'O szkole'],
+    ['oferta.html',       'Oferta edukacyjna'],
+    ['rekrutacja.html',   'Rekrutacja'],
+    ['aktualnosci.html',  'Aktualności'],
+    ['kalendarz.html',    'Kalendarz szkolny'],
+    ['dla-rodzicow.html', 'Dla rodziców'],
+    ['faq.html',          'FAQ'],
+    ['dla-mediow.html',   'Dla mediów'],
+    ['dostepnosc.html',   'Deklaracja dostępności'],
+    ['index.html#kontakt','Kontakt'],
+  ];
+
+  const navItems = NAV.map(([raw, label]) => {
+    const href = href_(raw);
+    const current = href.split('#')[0] === page && !raw.includes('#');
+    return `<li><a href="${href}"${current ? ' aria-current="page"' : ''}
+                class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2 py-1"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>${label}</a></li>`;
+  }).join('\n              ');
+
   const html = `
     <footer class="bg-brand-600 text-white pt-14 pb-8 px-4" role="contentinfo">
       <div class="max-w-7xl mx-auto">
@@ -31,17 +70,7 @@
           <nav aria-label="Nawigacja w stopce">
             <p class="font-bold text-red-100 mb-5 uppercase text-xs tracking-widest">Nawigacja</p>
             <ul class="space-y-2.5">
-              <li><a href="index.html"        class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Strona główna</a></li>
-              <li><a href="o-szkole.html"     class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>O szkole</a></li>
-              <li><a href="oferta.html"       class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Oferta edukacyjna</a></li>
-              <li><a href="rekrutacja.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Rekrutacja</a></li>
-              <li><a href="aktualnosci.html"  class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Aktualności</a></li>
-              <li><a href="kalendarz.html"    class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kalendarz szkolny</a></li>
-              <li><a href="dla-rodzicow.html" class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla rodziców</a></li>
-              <li><a href="faq.html"          class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>FAQ</a></li>
-              <li><a href="dla-mediow.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Dla mediów</a></li>
-              <li><a href="dostepnosc.html"   class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Deklaracja dostępności</a></li>
-              <li><a href="index.html#kontakt" class="text-red-100 hover:text-white transition-colors text-sm flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>Kontakt</a></li>
+              ${navItems}
             </ul>
           </nav>
 
@@ -96,19 +125,36 @@
   // WCAG 3.2.5 – informujemy użytkownika (czytniki ekranu), że link otwiera
   // nową kartę albo pobiera plik. Dotyczy całej strony, nie tylko stopki.
   (function labelExternalLinks() {
-    const fileRe = /\.(pdf|docx?|xlsx?|pptx?|zip|doc)$/i;
-    document.querySelectorAll('a[target="_blank"], a[download]').forEach(a => {
+    const FILE_RE = /\.(pdf|docx?|xlsx?|pptx?|zip|odt|ods)(?:[?#]|$)/i;
+    document.querySelectorAll('a[href]').forEach(a => {
       if (a.dataset.extLabeled) return;
+      const href = a.getAttribute('href') || '';
+      const blank = a.getAttribute('target') === '_blank';
+      const file = a.hasAttribute('download') || FILE_RE.test(href);
+      if (!blank && !file) return;
       a.dataset.extLabeled = '1';
       // Link z własnym aria-label (np. Facebook w stopce) już to opisuje
       if (a.getAttribute('aria-label')) return;
       // Linki bez widocznego tekstu (sama ikona) pomijamy – brak nazwy do uzupełnienia
       if (!a.textContent.trim()) return;
-      const isFile = a.hasAttribute('download') || fileRe.test(a.getAttribute('href') || '');
+
+      const parts = [];
+      if (file) {
+        // D-07 · WCAG 2.4.4 / G53: format pliku w nazwie dostępnej łącza.
+        // Pomijamy, gdy nazwa już go zawiera (np. karty „PDF · 2024").
+        const ext = (href.match(FILE_RE) || [, ''])[1].toUpperCase();
+        const named = new RegExp('\\b' + ext + '\\b', 'i').test(a.textContent);
+        if (ext && !named) parts.push('plik ' + ext);
+      }
+      if (blank) parts.push('otwiera się w nowej karcie');
+      else if (file && !/pobier|pobran/i.test(a.textContent)) parts.push('do pobrania');
+      if (!parts.length) return;
+
       const span = document.createElement('span');
       span.className = 'sr-only';
-      span.textContent = isFile ? ' (otwiera plik do pobrania)' : ' (otwiera się w nowej karcie)';
+      span.textContent = ' (' + parts.join(', ') + ')';
       a.appendChild(span);
     });
   })();
-})();
+
+  })();

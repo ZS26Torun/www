@@ -10,17 +10,36 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css?v=2">
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="https://unpkg.com/lucide@1.34.0/dist/umd/lucide.min.js"
+          onerror="document.documentElement.classList.add('no-lucide')"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <script>(function(){try{var d=localStorage.getItem('zs26-dark')==='true';if(d)document.documentElement.classList.add('dark-mode');var f=localStorage.getItem('zs26-font-size');if(f)document.documentElement.style.fontSize=parseInt(f,10)+'px';}catch(e){}})()</script>
 </head>
 <body class="antialiased text-gray-900" style="font-size:18px;">
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
+  <noscript>
+    <div class="noscript-note">
+      <strong>Ta strona działa lepiej z włączonym JavaScriptem.</strong>
+      Bez niego nie wyświetla się menu ani stopka. Poniżej najważniejsze łącza i kontakt do sekretariatu:
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="o-szkole.html">O szkole</a></li>
+        <li><a href="oferta.html">Oferta edukacyjna</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="aktualnosci.html">Aktualności</a></li>
+        <li><a href="dla-rodzicow.html">Dla rodziców</a></li>
+        <li><a href="do-pobrania.html">Do pobrania</a></li>
+        <li><a href="dostepnosc.html">Deklaracja dostępności</a></li>
+        <li><a href="tel:+48566485784">Sekretariat: (56) 648-57-84</a></li>
+        <li><a href="mailto:sekretariat@szkola26.torun.pl">sekretariat@szkola26.torun.pl</a></li>
+      </ul>
+    </div>
+  </noscript>
 
   <main id="main-content" tabindex="-1">
 
@@ -46,7 +65,7 @@
         <div class="space-y-5">
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Kto może chodzić do naszej szkoły?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Kto może chodzić do naszej szkoły?</h3>
             <div class="flex items-start gap-3 mb-2">
               <div class="flex gap-1 flex-shrink-0">
                 <img src="images/pictograms/2485.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
@@ -71,7 +90,7 @@
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czym jest szkoła specjalna?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czym jest szkoła specjalna?</h3>
             <div class="flex items-start gap-3 mb-2">
               <div class="flex gap-1 flex-shrink-0">
                 <img src="images/pictograms/3082.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
@@ -90,7 +109,7 @@
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Kiedy pracuje sekretariat?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Kiedy pracuje sekretariat?</h3>
             <div class="flex items-start gap-3 mb-2">
               <div class="flex gap-1 flex-shrink-0">
                 <img src="images/pictograms/9092.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
@@ -115,7 +134,7 @@
         <div class="space-y-5">
 
           <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <p class="text-lg font-bold text-gray-900 mb-3">Jakie dokumenty są potrzebne?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Jakie dokumenty są potrzebne?</h3>
             <div class="flex items-start gap-3 mb-3">
               <div class="flex gap-1 flex-shrink-0">
                 <img src="images/pictograms/19555.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
@@ -129,7 +148,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czy mogę odwiedzić szkołę przed zapisaniem dziecka?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czy mogę odwiedzić szkołę przed zapisaniem dziecka?</h3>
             <div class="flex items-start gap-3 mb-2">
               <img src="images/pictograms/11287.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
               <p class="text-lg leading-relaxed text-gray-700 pt-1">Tak. Zapraszamy!</p>
@@ -161,7 +180,7 @@
         <div class="space-y-5">
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czym jest wczesne wspomaganie rozwoju?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czym jest wczesne wspomaganie rozwoju?</h3>
             <div class="flex items-start gap-3 mb-2">
               <div class="flex gap-1 flex-shrink-0">
                 <img src="images/pictograms/11582.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
@@ -176,7 +195,7 @@
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Co to są zajęcia rewalidacyjne?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Co to są zajęcia rewalidacyjne?</h3>
             <div class="flex items-start gap-3 mb-2">
               <img src="images/pictograms/2485.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
               <p class="text-lg leading-relaxed text-gray-700 pt-1">To zajęcia dla dzieci i młodzieży w wieku 3–25 lat.</p>
@@ -191,7 +210,7 @@
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czym jest Rehabilitacja 25+?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czym jest Rehabilitacja 25+?</h3>
             <div class="flex items-start gap-3 mb-2">
               <img src="images/pictograms/6886.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
               <p class="text-lg leading-relaxed text-gray-700 pt-1">To program dla dorosłych po 25 roku życia.</p>
@@ -220,7 +239,7 @@
         <div class="space-y-5">
 
           <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czy szkoła zawozi uczniów?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czy szkoła zawozi uczniów?</h3>
             <div class="flex items-start gap-3 mb-2">
               <img src="images/pictograms/2262.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
               <p class="text-lg leading-relaxed text-gray-700 pt-1">Tak. Mamy własne busy w Toruniu.</p>
@@ -235,7 +254,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <p class="text-lg font-bold text-gray-900 mb-3">Czy szkoła ma basen?</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Czy szkoła ma basen?</h3>
             <div class="flex items-start gap-3 mb-2">
               <img src="images/pictograms/3142.webp" width="64" height="64" loading="lazy" alt="" class="w-16 h-16 rounded-xl border-2 border-gray-200 bg-white object-contain p-0.5 flex-shrink-0" aria-hidden="true">
               <p class="text-lg leading-relaxed text-gray-700 pt-1">Tak, mamy basen.</p>
@@ -283,11 +302,11 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js?v=5"></script>
-  <script src="components/footer.js?v=8"></script>
-  <script src="components/search.js?v=1"></script>
-  <script src="components/tts.js?v=1"></script>
-  <script src="components/a11y.js?v=1"></script>
+  <script src="components/navbar.js?v=9"></script>
+  <script src="components/footer.js?v=10"></script>
+  <script src="components/search.js?v=3"></script>
+  <script src="components/tts.js?v=4"></script>
+  <script src="components/a11y.js?v=3"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
   </script>

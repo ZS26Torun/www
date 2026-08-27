@@ -25,13 +25,14 @@
   <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/og-image.jpg">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css?v=2">
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="https://unpkg.com/lucide@1.34.0/dist/umd/lucide.min.js"
+          onerror="document.documentElement.classList.add('no-lucide')"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <script>(function(){try{var d=localStorage.getItem('zs26-dark')==='true';if(d)document.documentElement.classList.add('dark-mode');var f=localStorage.getItem('zs26-font-size');if(f)document.documentElement.style.fontSize=parseInt(f,10)+'px';}catch(e){}})()</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,6 +47,24 @@
 <body class="antialiased text-gray-800">
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
+  <noscript>
+    <div class="noscript-note">
+      <strong>Ta strona działa lepiej z włączonym JavaScriptem.</strong>
+      Bez niego nie wyświetla się menu ani stopka. Poniżej najważniejsze łącza i kontakt do sekretariatu:
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="o-szkole.html">O szkole</a></li>
+        <li><a href="oferta.html">Oferta edukacyjna</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="aktualnosci.html">Aktualności</a></li>
+        <li><a href="dla-rodzicow.html">Dla rodziców</a></li>
+        <li><a href="do-pobrania.html">Do pobrania</a></li>
+        <li><a href="dostepnosc.html">Deklaracja dostępności</a></li>
+        <li><a href="tel:+48566485784">Sekretariat: (56) 648-57-84</a></li>
+        <li><a href="mailto:sekretariat@szkola26.torun.pl">sekretariat@szkola26.torun.pl</a></li>
+      </ul>
+    </div>
+  </noscript>
 
   <main id="main-content" tabindex="-1">
 
@@ -83,16 +102,16 @@
             <p class="text-gray-600 mb-6 leading-relaxed">Wczesne wspomaganie rozwoju (WWR) to bezpłatna, wielospecjalistyczna pomoc dla dzieci z niepełnosprawnością lub zagrożonych nieprawidłowym rozwojem oraz ich rodzin. Celem jest pobudzanie psychoruchowego i społecznego funkcjonowania dziecka od najwcześniejszego etapu życia. Prowadzone jest na podstawie <strong>Rozporządzenia MEN z 24 sierpnia 2017 r.</strong> Wymiar zajęć wynosi <strong>od 4 do 8 godzin miesięcznie</strong>.</p>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Specjaliści prowadzący zajęcia</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logopeda / neurologopeda</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Surdologopeda / surdopedagog</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Tyflopedagog</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapeuta autyzmu</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapeuta integracji sensorycznej</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Fizjoterapeuta</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Psycholog</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Oligofrenopedagog</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logopeda / neurologopeda</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Surdologopeda / surdopedagog</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Tyflopedagog</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapeuta autyzmu</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapeuta integracji sensorycznej</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Fizjoterapeuta</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Psycholog</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Oligofrenopedagog</li>
+            </ul>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Sfery objęte wsparciem</h3>
             <div class="flex flex-wrap gap-2 mb-6">
@@ -150,16 +169,16 @@
             </div>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Zajęcia specjalistyczne</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia logopedyczna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wspomaganie komunikacji (AAC)</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia ruchowa</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie psychologiczne</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia autyzmu</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Integracja sensoryczna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logorytmika</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Stymulacja polisensoryczna</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia logopedyczna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wspomaganie komunikacji (AAC)</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia ruchowa</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie psychologiczne</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia autyzmu</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Integracja sensoryczna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logorytmika</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Stymulacja polisensoryczna</li>
+            </ul>
 
             <div class="bg-gray-50 rounded-2xl border border-gray-100 p-5">
               <div class="flex items-start gap-2 text-sm text-gray-600"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-600"></i><span>Wychowawcą każdej grupy jest <strong>nauczyciel oligofrenopedagog</strong>, w każdej grupie pracuje także pomoc nauczyciela.</span></div>
@@ -183,24 +202,24 @@
             <p class="text-gray-600 mb-6 leading-relaxed">Szkoła Podstawowa Specjalna realizuje podstawę programową dostosowaną do możliwości uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym, a także z niepełnosprawnościami sprzężonymi. Nacisk kładziony jest na rozwijanie samodzielności i umiejętności niezbędnych w codziennym życiu. Klasy liczą <strong>maksymalnie 4 uczniów</strong>. Dla każdego ucznia opracowywany jest <strong>Indywidualny Program Edukacyjno-Terapeutyczny (IPET)</strong>.</p>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Realizowane przedmioty i obszary</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Funkcjonowanie osobiste i społeczne</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Komunikowanie się</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Aktywność twórcza</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wychowanie fizyczne (w tym pływalnia)</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Religia</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Zajęcia rewalidacyjne</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Funkcjonowanie osobiste i społeczne</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Komunikowanie się</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Aktywność twórcza</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wychowanie fizyczne (w tym pływalnia)</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Religia</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Zajęcia rewalidacyjne</li>
+            </ul>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Specjalistyczne wsparcie</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-8">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logopedia i terapia AAC</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Integracja sensoryczna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Rehabilitacja ruchowa</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Hydroterapia (basen)</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie psychologiczne</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia autyzmu</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-8">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Logopedia i terapia AAC</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Integracja sensoryczna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Rehabilitacja ruchowa</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Hydroterapia (basen)</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie psychologiczne</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Terapia autyzmu</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -219,16 +238,16 @@
             <p class="text-gray-600 mb-6 leading-relaxed">Zajęcia rewalidacyjno-wychowawcze (ZRW) skierowane są do dzieci i młodzieży z niepełnosprawnością intelektualną w stopniu głębokim. Prowadzone są w formie <strong>grupowej</strong> (2–4 uczestników, 20 godzin tygodniowo + 3 godziny zajęć rewalidacyjnych + 2 godziny religii) oraz <strong>indywidualnej</strong> (10 godzin tygodniowo, w szkole lub w miejscu zamieszkania uczestnika).</p>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Metody i formy pracy</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Poranny Krąg</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Dogoterapia</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Metoda Knillów</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Metoda werbotonalna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Sala Doświadczania Świata</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Muzykoterapia (C. Orff)</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Ekspresja plastyczna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Stymulacja polisensoryczna</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Poranny Krąg</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Dogoterapia</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Metoda Knillów</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Metoda werbotonalna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Sala Doświadczania Świata</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Muzykoterapia (C. Orff)</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Ekspresja plastyczna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Stymulacja polisensoryczna</li>
+            </ul>
 
             <div class="bg-gray-50 rounded-2xl border border-gray-100 p-5 space-y-2">
               <div class="flex items-start gap-2 text-sm text-gray-600"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-600"></i><span>Zajęcia indywidualne mogą być prowadzone <strong>w domu uczestnika</strong> – wymagany jest wniosek rodziców/opiekunów.</span></div>
@@ -253,24 +272,24 @@
             <p class="text-gray-600 mb-6 leading-relaxed">Szkoła przysposabiająca do pracy (SPdP) to <strong>3-letni</strong> cykl kształcenia dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym oraz z niepełnosprawnościami sprzężonymi. Celem jest przygotowanie do możliwie samodzielnego życia, aktywności społecznej i podjęcia pracy. Dla każdego ucznia opracowywany jest <strong>IPET</strong>.</p>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Realizowane przedmioty i obszary</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Funkcjonowanie osobiste i społeczne</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Komunikowanie się</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Aktywność twórcza</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Przysposobienie do pracy</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wychowanie fizyczne (w tym pływalnia)</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Zajęcia rewalidacyjne</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Funkcjonowanie osobiste i społeczne</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Komunikowanie się</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Aktywność twórcza</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Przysposobienie do pracy</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wychowanie fizyczne (w tym pływalnia)</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Zajęcia rewalidacyjne</li>
+            </ul>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Pracownie i praktyki zawodowe</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia kulinarna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia stolarsko-ogrodnicza</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia tkacko-krawiecka</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia plastyczno-ceramiczna</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Praktyki w szkole i u pracodawców w Toruniu</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie logopedyczne, SI, psychologiczne</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia kulinarna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia stolarsko-ogrodnicza</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia tkacko-krawiecka</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Pracownia plastyczno-ceramiczna</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Praktyki w szkole i u pracodawców w Toruniu</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-leaf-600"></i>Wsparcie logopedyczne, SI, psychologiczne</li>
+            </ul>
 
             <div class="bg-green-50 border border-green-200 rounded-2xl p-5 mb-6">
               <p class="text-sm font-semibold text-leaf-700 mb-1">Co po ukończeniu szkoły?</p>
@@ -294,17 +313,17 @@
             <p class="text-gray-600 mb-6 leading-relaxed">Program <strong>Rehabilitacja 25+</strong> realizowany jest w ramach pilotażu finansowanego przez <strong>PFRON</strong>. Skierowany jest do dorosłych z niepełnosprawnością intelektualną, które zakończyły edukację szkolną. Celem jest podtrzymanie i rozwijanie nabytych umiejętności, zapobieganie regresji oraz wspieranie aktywności społecznej. Zajęcia prowadzone są w małych grupach.</p>
 
             <h3 class="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Zakres zajęć</h3>
-            <div class="grid sm:grid-cols-2 gap-2 mb-6">
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Rewalidacja</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Rehabilitacja ruchowa</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Terapia komunikacyjna i AAC / logopedia</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Ceramika i tkactwo</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Zajęcia kulinarne</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Zajęcia stolarskie</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Muzykoterapia</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Warsztaty seksualności i dojrzewania</div>
-              <div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Wsparcie psychologiczne</div>
-            </div>
+            <ul class="grid sm:grid-cols-2 gap-2 mb-6">
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Rewalidacja</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Rehabilitacja ruchowa</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Terapia komunikacyjna i AAC / logopedia</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Ceramika i tkactwo</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Zajęcia kulinarne</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Zajęcia stolarskie</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Muzykoterapia</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Warsztaty seksualności i dojrzewania</li>
+              <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0 text-teal-600"></i>Wsparcie psychologiczne</li>
+            </ul>
 
             <div class="bg-teal-50 border border-teal-100 rounded-2xl p-5">
               <div class="flex items-start gap-2 text-sm text-gray-600"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5 text-teal-600"></i>W sprawie uczestnictwa w programie prosimy o kontakt z sekretariatem szkoły.</div>
@@ -334,11 +353,11 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js?v=5"></script>
-  <script src="components/footer.js?v=8"></script>
-  <script src="components/search.js?v=1"></script>
-  <script src="components/tts.js?v=1"></script>
-  <script src="components/a11y.js?v=1"></script>
+  <script src="components/navbar.js?v=9"></script>
+  <script src="components/footer.js?v=10"></script>
+  <script src="components/search.js?v=3"></script>
+  <script src="components/tts.js?v=4"></script>
+  <script src="components/a11y.js?v=3"></script>
   <script>if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});</script>
 </body>
 </html>

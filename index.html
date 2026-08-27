@@ -26,17 +26,18 @@
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/ui/logo.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="tailwind.css?v=2">
+  <link rel="stylesheet" href="style.css?v=11">
 
   <!-- Tailwind – czerwona paleta ZS26 -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@1.34.0/dist/umd/lucide.min.js"
+          onerror="document.documentElement.classList.add('no-lucide')"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Dark mode – zapobieganie flashowi -->
-  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <script>(function(){try{var d=localStorage.getItem('zs26-dark')==='true';if(d)document.documentElement.classList.add('dark-mode');var f=localStorage.getItem('zs26-font-size');if(f)document.documentElement.style.fontSize=parseInt(f,10)+'px';}catch(e){}})()</script>
 
   <style>
     /* ── Stats card (tylko tu) ───────────────────────────────────── */
@@ -77,6 +78,24 @@
   <div id="scroll-progress" aria-hidden="true"></div>
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
+  <noscript>
+    <div class="noscript-note">
+      <strong>Ta strona działa lepiej z włączonym JavaScriptem.</strong>
+      Bez niego nie wyświetla się menu ani stopka. Poniżej najważniejsze łącza i kontakt do sekretariatu:
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="o-szkole.html">O szkole</a></li>
+        <li><a href="oferta.html">Oferta edukacyjna</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="aktualnosci.html">Aktualności</a></li>
+        <li><a href="dla-rodzicow.html">Dla rodziców</a></li>
+        <li><a href="do-pobrania.html">Do pobrania</a></li>
+        <li><a href="dostepnosc.html">Deklaracja dostępności</a></li>
+        <li><a href="tel:+48566485784">Sekretariat: (56) 648-57-84</a></li>
+        <li><a href="mailto:sekretariat@szkola26.torun.pl">sekretariat@szkola26.torun.pl</a></li>
+      </ul>
+    </div>
+  </noscript>
 
   <!-- ═══════════════════════════════════════════════════════════
        MAIN
@@ -87,10 +106,10 @@
     <section id="hero" class="relative bg-white overflow-hidden">
 
       <!-- ── Desktop: mural absolutnie po prawej ── -->
-      <div class="hidden lg:block absolute inset-y-0 right-0 w-[55%] pointer-events-none" aria-hidden="true">
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-[55%] pointer-events-none">
         <picture>
           <source srcset="images/ui/mural.webp" type="image/webp">
-          <img src="images/ui/mural.png" alt=""
+          <img src="images/ui/mural.png" alt="Mural na ścianie szkoły: drzewo z koroną w kształcie serca w barwach tęczy, nad nim postać z uniesionymi rękami, wokół dachy toruńskich kamienic i szarfa z napisem „Zespół Szkół Nr 26 w Toruniu”."
             class="w-full h-full object-cover object-center opacity-90 mural-parallax">
         </picture>
         <div class="absolute inset-y-0 left-0 w-64"
@@ -163,10 +182,10 @@
       </div>
 
       <!-- ── Mobile: mural pod tekstem ── -->
-      <div class="lg:hidden w-full relative" aria-hidden="true">
+      <div class="lg:hidden w-full relative">
         <picture>
           <source srcset="images/ui/mural.webp" type="image/webp">
-          <img src="images/ui/mural.png" alt=""
+          <img src="images/ui/mural.png" alt="Mural na ścianie szkoły: drzewo z koroną w kształcie serca w barwach tęczy, nad nim postać z uniesionymi rękami, wokół dachy toruńskich kamienic i szarfa z napisem „Zespół Szkół Nr 26 w Toruniu”."
             class="w-full h-52 sm:h-72 object-cover object-top">
         </picture>
         <div class="absolute inset-x-0 top-0 h-12"
@@ -297,7 +316,7 @@
             </div>
 
             <!-- Feed – ładowany dopiero po kliknięciu -->
-            <div id="fb-feed-wrap" style="display:none;" class="rounded-3xl overflow-hidden" style="box-shadow:0 8px 32px -4px rgba(24,119,242,0.18),0 2px 8px -2px rgba(0,0,0,0.08);"></div>
+            <div id="fb-feed-wrap" tabindex="-1" style="display:none;" class="rounded-3xl overflow-hidden"></div>
 
             <script>
               function loadFbFeed() {
@@ -305,7 +324,12 @@
                 var wrap = document.getElementById('fb-feed-wrap');
                 card.style.display = 'none';
                 wrap.style.cssText = 'display:block;border-radius:1.5rem;overflow:hidden;box-shadow:0 8px 32px -4px rgba(24,119,242,0.18),0 2px 8px -2px rgba(0,0,0,0.08);';
-                wrap.innerHTML = '<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fszkola.podstawowa.specjalna.nr26.Torun&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1938446480200241" width="100%" height="600" style="border:none;overflow:hidden;display:block" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Profil szkoły na Facebooku"></iframe>';
+                wrap.innerHTML = '<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fszkola.podstawowa.specjalna.nr26.Torun&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1938446480200241" width="100%" height="600" style="border:none;display:block" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Profil szkoły na Facebooku"></iframe>';
+                // Przycisk, który miał fokus, właśnie zniknął razem z kartą —
+                // bez tego fokus wracał na początek strony (WCAG 2.4.3).
+                wrap.focus();
+                var ann = document.getElementById('a11y-announcer');
+                if (ann) ann.textContent = 'Wczytano tablicę Facebooka szkoły.';
               }
             </script>
           </div>
@@ -461,11 +485,15 @@
           <span class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">Wsparcie</span>
           <h2 id="przyjaciele-heading" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Przyjaciele Szkoły</h2>
           <p class="text-gray-500 text-sm">Instytucje i&nbsp;firmy, które wspierają naszą działalność i&nbsp;uczniów.</p>
+          <!-- WCAG 2.2.2: mechanizm zatrzymania automatycznego ruchu -->
+          <button type="button" id="przyjaciele-pause" class="przyjaciele-pause mt-5" aria-pressed="false">
+            <i data-lucide="pause" class="w-4 h-4"></i><span id="przyjaciele-pause-label">Zatrzymaj przewijanie</span>
+          </button>
         </div>
       </div>
 
-      <div class="przyjaciele-track-wrapper" aria-label="Logotypy przyjaciół szkoły">
-        <div class="przyjaciele-track">
+      <div class="przyjaciele-track-wrapper" role="group" aria-label="Logotypy przyjaciół szkoły">
+        <div class="przyjaciele-track" id="przyjaciele-track">
           <!-- zestaw 1 -->
           <div class="przyjaciele-logo"><img src="images/przyjaciele/BS_logo.png"                        alt="Bank Spółdzielczy" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/margo.png"                         alt="Margo" loading="lazy"></div>
@@ -476,7 +504,7 @@
           <div class="przyjaciele-logo"><img src="images/przyjaciele/logo_prestige.jpg"                 alt="Prestige" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/logo.PNG"       alt="Fundacja Razem w Drodze" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/sharp.jpg"                         alt="Sharp" loading="lazy"></div>
-          <div class="przyjaciele-logo"><img src="images/przyjaciele/DD_Logo.jpg"                       alt="DD" loading="lazy"></div>
+          <div class="przyjaciele-logo"><img src="images/przyjaciele/DD_Logo.jpg"                       alt="Dienes" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/Przechwytywanie.PNG" alt="Drukarnia ED" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/propery.PNG"                       alt="Propery" loading="lazy"></div>
           <div class="przyjaciele-logo"><img src="images/przyjaciele/Logo_21concept.png"                alt="21 Concept" loading="lazy"></div>
@@ -573,124 +601,15 @@
 
   </main><!-- /main -->
 
-  <!-- A11y live region -->
-  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       WIDGET UŁATWIEŃ DOSTĘPU
-  ════════════════════════════════════════════════════════════ -->
-  <div id="a11y-widget" class="fixed bottom-6 left-6 z-50 print:hidden">
-    <div id="a11y-panel"
-      class="hidden mb-3 bg-white rounded-2xl shadow-2xl border border-gray-100 w-72 overflow-hidden"
-      role="dialog" aria-modal="true" aria-label="Panel ułatwień dostępu" tabindex="-1">
-
-      <div class="px-4 pt-4 pb-2 border-b border-gray-100 flex items-center justify-between">
-        <p class="text-xs font-bold text-gray-600 uppercase tracking-wider">Ułatwienia dostępu</p>
-        <button onclick="toggleA11yPanel()" class="text-gray-500 hover:text-gray-700 p-1 rounded transition-colors" aria-label="Zamknij panel">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-
-      <div class="p-2 space-y-0.5">
-        <!-- Czytaj na głos -->
-        <button onclick="toggleTTS()" id="a11y-tts"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0"><i data-lucide="volume-2" class="w-5 h-5 text-red-600"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Czytaj na głos</p><p class="text-[11px] text-gray-500" id="a11y-tts-label">Odtwarza treść strony</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Wysoki kontrast -->
-        <button onclick="toggleHighContrast()" id="a11y-contrast"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0"><i data-lucide="eye" class="w-5 h-5 text-yellow-400"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Wysoki kontrast</p><p class="text-[11px] text-gray-500">Żółty tekst na czarnym tle</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Rozmiar tekstu -->
-        <div class="flex items-center gap-3 px-3 py-2.5">
-          <span class="w-9 h-9 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0"><i data-lucide="type" class="w-5 h-5 text-brand-700"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Rozmiar tekstu</p><p class="text-[11px] text-gray-500" id="font-size-label">Domyślny (16px)</p></div>
-          <div class="flex items-center gap-1 flex-shrink-0">
-            <button onclick="changeFontSize(-1)" class="w-11 h-11 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Zmniejsz tekst">−</button>
-            <button onclick="changeFontSize(1)"  class="w-11 h-11 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-base transition-colors flex items-center justify-center" aria-label="Powiększ tekst">+</button>
-          </div>
-        </div>
-
-        <!-- Czcionka dla dysleksji -->
-        <button onclick="toggleDyslexicFont()" id="a11y-dyslexic"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0"><i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Czcionka dla dysleksji</p><p class="text-[11px] text-gray-500">Lexend – ułatwia czytanie</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Odstęp -->
-        <button onclick="toggleSpacing()" id="a11y-spacing"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0"><i data-lucide="align-justify" class="w-5 h-5 text-violet-600"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Zwiększony odstęp</p><p class="text-[11px] text-gray-500">Szersza interlinia i litery</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Stop motion -->
-        <button onclick="toggleStopAnimations()" id="a11y-motion"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0"><i data-lucide="zap-off" class="w-5 h-5 text-orange-500"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Zatrzymaj animacje</p><p class="text-[11px] text-gray-500">Dla wrażliwości na ruch</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Tryb ciemny -->
-        <button onclick="toggleDarkMode()" id="a11y-dark-mode"
-          class="a11y-row w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-slate-200 flex items-center justify-center flex-shrink-0"><i data-lucide="moon" class="w-5 h-5 text-slate-700"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Tryb ciemny</p><p class="text-[11px] text-gray-500">Ciemne tło, mniej zmęczenia oczu</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-
-        <!-- Skala szarości -->
-        <button onclick="toggleGrayscale()" id="a11y-grayscale"
-          class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left" aria-pressed="false">
-          <span class="w-9 h-9 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0"><i data-lucide="contrast" class="w-5 h-5 text-gray-600"></i></span>
-          <div class="flex-grow min-w-0"><p class="text-sm font-semibold text-gray-800">Skala szarości</p><p class="text-[11px] text-gray-500">Pomoc przy ślepocie barw</p></div>
-          <span class="a11y-badge off">WYŁ</span>
-        </button>
-      </div>
-
-      <div class="px-4 pb-4 pt-2 border-t border-gray-50">
-        <button onclick="resetA11y()" class="w-full text-xs text-gray-500 hover:text-red-500 transition-colors py-1 flex items-center justify-center gap-1.5">
-          <i data-lucide="rotate-ccw" class="w-3 h-3"></i>Przywróć ustawienia domyślne
-        </button>
-      </div>
-    </div>
-
-    <button id="a11y-toggle-btn" onclick="toggleA11yPanel()"
-      class="flex items-center gap-2 text-white px-4 py-3 rounded-full shadow-xl transition-all font-semibold text-sm"
-      style="background:#2B7333;"
-      onmouseover="this.style.background='#1E5C27'" onmouseout="this.style.background='#2B7333'"
-      aria-expanded="false" aria-controls="a11y-panel" aria-label="Otwórz panel ułatwień dostępu">
-      <i data-lucide="accessibility" class="w-5 h-5"></i>
-      <span>Ułatwienia</span>
-      <span id="a11y-active-count" class="hidden w-5 h-5 bg-white text-brand-700 text-xs font-bold rounded-full items-center justify-center">0</span>
-    </button>
-  </div>
-
-  <!-- Wróć na górę -->
-  <button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 text-white rounded-full shadow-lg items-center justify-center transition-all"
-    style="background:#2B7333;"
-    aria-label="Wróć na górę strony">
-    <i data-lucide="arrow-up" class="w-5 h-5"></i>
-  </button>
+  <!-- Widget ułatwień dostępu, obszar komunikatów i przycisk „wróć na górę”
+       tworzy components/a11y.js — jedno źródło dla wszystkich 22 stron. -->
 
   <div id="site-footer"></div>
 
   <!-- ═══════════════════════════════════════════════════════════
        SCRIPTS
   ════════════════════════════════════════════════════════════ -->
-  <script src="components/tts.js?v=1"></script>
+  <script src="components/tts.js?v=4"></script>
   <script>
     // ── Reveal ─────────────────────────────────────────────────────
     (function () {
@@ -699,164 +618,6 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    })();
-
-    // ── Scroll progress + scroll-top button ──────────────────────
-    (function () {
-      const bar = document.getElementById('scroll-progress');
-      const btn = document.getElementById('scroll-top-btn');
-      window.addEventListener('scroll', () => {
-        const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-        if (bar) bar.style.width = pct + '%';
-        if (btn) {
-          const show = window.scrollY > 400;
-          btn.classList.toggle('hidden', !show);
-          btn.classList.toggle('flex', show);
-        }
-      }, { passive: true });
-    })();
-
-    // ── A11y core ───────────────────────────────────────────────────
-    let a11yOpen = false;
-    let currentFontSize = 16;
-
-    function toggleA11yPanel() {
-      a11yOpen = !a11yOpen;
-      const panel = document.getElementById('a11y-panel');
-      const btn   = document.getElementById('a11y-toggle-btn');
-      panel.classList.toggle('hidden', !a11yOpen);
-      btn.setAttribute('aria-expanded', a11yOpen);
-      if (a11yOpen) {
-        lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
-        const first = panel.querySelector('button, [tabindex="0"]');
-        if (first) first.focus();
-      }
-    }
-    document.addEventListener('click', e => {
-      const w = document.getElementById('a11y-widget');
-      if (w && !w.contains(e.target) && a11yOpen) toggleA11yPanel();
-    });
-
-    function setA11yBadge(id, active) {
-      const btn = document.getElementById(id); if (!btn) return;
-      const badge = btn.querySelector('.a11y-badge');
-      if (badge) { badge.textContent = active ? 'WŁ' : 'WYŁ'; badge.classList.toggle('on', active); badge.classList.toggle('off', !active); }
-      btn.setAttribute('aria-pressed', active);
-    }
-    function updateA11yCount() {
-      const modes = ['high-contrast', 'a11y-dyslexic', 'a11y-spacing', 'a11y-stop-motion', 'a11y-grayscale'];
-      const n = modes.filter(m => document.body.classList.contains(m)).length + (currentFontSize !== 16 ? 1 : 0);
-      const el = document.getElementById('a11y-active-count');
-      if (el) { el.textContent = n; el.classList.toggle('hidden', n === 0); el.classList.toggle('flex', n > 0); }
-    }
-    function announce(msg) { const a = document.getElementById('a11y-announcer'); if (a) a.textContent = msg; }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const on = document.body.classList.contains('high-contrast');
-      setA11yBadge('a11y-contrast', on);
-      localStorage.setItem('zs26-contrast', on);
-      updateA11yCount();
-      announce(on ? 'Wysoki kontrast włączony' : 'Wysoki kontrast wyłączony');
-    }
-    function changeFontSize(step) {
-      currentFontSize = Math.min(28, Math.max(12, currentFontSize + step * 2));
-      document.documentElement.style.fontSize = currentFontSize + 'px';
-      const label = document.getElementById('font-size-label');
-      if (label) label.textContent = currentFontSize === 16 ? 'Domyślny (16px)' : currentFontSize + 'px';
-      localStorage.setItem('zs26-font-size', currentFontSize);
-      updateA11yCount();
-      announce('Rozmiar tekstu: ' + currentFontSize + 'px');
-    }
-    function toggleDyslexicFont() {
-      document.body.classList.toggle('a11y-dyslexic');
-      const on = document.body.classList.contains('a11y-dyslexic');
-      setA11yBadge('a11y-dyslexic', on); localStorage.setItem('zs26-dyslexic', on); updateA11yCount();
-      announce(on ? 'Czcionka dla dysleksji włączona' : 'Czcionka dla dysleksji wyłączona');
-    }
-    function toggleSpacing() {
-      document.body.classList.toggle('a11y-spacing');
-      const on = document.body.classList.contains('a11y-spacing');
-      setA11yBadge('a11y-spacing', on); localStorage.setItem('zs26-spacing', on); updateA11yCount();
-      announce(on ? 'Zwiększony odstęp włączony' : 'Zwiększony odstęp wyłączony');
-    }
-    function toggleStopAnimations() {
-      document.body.classList.toggle('a11y-stop-motion');
-      const on = document.body.classList.contains('a11y-stop-motion');
-      if (on) document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-      setA11yBadge('a11y-motion', on); localStorage.setItem('zs26-motion', on); updateA11yCount();
-      announce(on ? 'Animacje zatrzymane' : 'Animacje włączone');
-    }
-    function toggleDarkMode() {
-      const on = document.body.classList.toggle('dark-mode');
-      setA11yBadge('a11y-dark-mode', on);
-      localStorage.setItem('zs26-dark', on);
-      updateA11yCount();
-    }
-    function toggleGrayscale() {
-      document.body.classList.toggle('a11y-grayscale');
-      const on = document.body.classList.contains('a11y-grayscale');
-      setA11yBadge('a11y-grayscale', on); localStorage.setItem('zs26-grayscale', on); updateA11yCount();
-      announce(on ? 'Skala szarości włączona' : 'Skala szarości wyłączona');
-    }
-    function toggleTTS() {
-      if (!window.ttsEngine) { announce('Czytanie na głos nie jest dostępne w tej przeglądarce'); return; }
-      window.ttsEngine.toggle();
-    }
-    if (window.ttsEngine) {
-      window.ttsEngine.onChange(playing => {
-        setA11yBadge('a11y-tts', playing);
-        const label = document.getElementById('a11y-tts-label');
-        if (label) label.textContent = playing ? 'Czytanie w toku…' : 'Odtwarza treść strony';
-      });
-    } else {
-      const ttsLabel = document.getElementById('a11y-tts-label');
-      if (ttsLabel) ttsLabel.textContent = 'Niedostępne w tej przeglądarce';
-    }
-    function resetA11y() {
-      ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale','dark-mode'].forEach(c => document.body.classList.remove(c));
-      currentFontSize = 16; document.documentElement.style.fontSize = '16px';
-      ['a11y-contrast','a11y-dyslexic','a11y-spacing','a11y-motion','a11y-grayscale','a11y-dark-mode'].forEach(id => setA11yBadge(id, false));
-      const label = document.getElementById('font-size-label');
-      if (label) label.textContent = 'Domyślny (16px)';
-      ['zs26-contrast','zs26-dyslexic','zs26-spacing','zs26-motion','zs26-grayscale','zs26-font-size','zs26-dark'].forEach(k => localStorage.removeItem(k));
-      updateA11yCount();
-    }
-    (function restoreA11y() {
-      const map = {
-        'zs26-contrast':  () => { document.body.classList.add('high-contrast');    setA11yBadge('a11y-contrast',  true); },
-        'zs26-dyslexic':  () => { document.body.classList.add('a11y-dyslexic');    setA11yBadge('a11y-dyslexic',  true); },
-        'zs26-spacing':   () => { document.body.classList.add('a11y-spacing');     setA11yBadge('a11y-spacing',   true); },
-        'zs26-motion':    () => { document.body.classList.add('a11y-stop-motion'); setA11yBadge('a11y-motion',    true); },
-        'zs26-grayscale': () => { document.body.classList.add('a11y-grayscale');   setA11yBadge('a11y-grayscale', true); },
-        'zs26-dark':      () => { document.body.classList.add('dark-mode');        setA11yBadge('a11y-dark-mode', true); },
-      };
-      Object.entries(map).forEach(([k, fn]) => { if (localStorage.getItem(k) === 'true') fn(); });
-      const savedSize = localStorage.getItem('zs26-font-size');
-      if (savedSize) {
-        currentFontSize = parseInt(savedSize);
-        document.documentElement.style.fontSize = currentFontSize + 'px';
-        const label = document.getElementById('font-size-label');
-        if (label) label.textContent = currentFontSize === 16 ? 'Domyślny (16px)' : currentFontSize + 'px';
-      }
-      updateA11yCount();
-    })();
-
-    // ── Focus trap dla panelu a11y ───────────────────────────────
-    (function () {
-      const panel = document.getElementById('a11y-panel');
-      const btn   = document.getElementById('a11y-toggle-btn');
-      panel.addEventListener('keydown', function (e) {
-        if (!a11yOpen) return;
-        const focusable = Array.from(panel.querySelectorAll('button, [tabindex="0"]')).filter(el => !el.disabled);
-        if (!focusable.length) return;
-        const first = focusable[0], last = focusable[focusable.length - 1];
-        if (e.key === 'Escape') { e.preventDefault(); toggleA11yPanel(); btn.focus(); }
-        else if (e.key === 'Tab') {
-          if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-          else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
-        }
-      });
     })();
 
     // ── News renderer ────────────────────────────────────────────
@@ -869,7 +630,11 @@
       });
       list.innerHTML = sorted.slice(0, 4).map(n => {
         const dateStr = new Date(n.date).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
-        const pinHtml = n.pinned ? `<i data-lucide="pin" class="w-3.5 h-3.5 text-brand-500 ml-1 inline-block" title="Przypięte"></i>` : '';
+        // Ikona pinezki dostaje aria-hidden od lucide, więc stan „przypięte”
+        // musi trafić do tekstu dla czytnika ekranu osobno.
+        const pinHtml = n.pinned
+          ? `<i data-lucide="pin" class="w-3.5 h-3.5 text-brand-500 ml-1 inline-block"></i><span class="sr-only">Wpis przypięty</span>`
+          : '';
         return `
           <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-shadow">
             <div class="flex items-center gap-2 mb-2.5 flex-wrap">
@@ -949,6 +714,12 @@
           const dur = 1200;
           const start = performance.now();
           function tick(now) {
+            // „Zatrzymaj animacje" w widgecie ułatwień to reguła CSS, która nie
+            // sięga animacji sterowanych z JavaScriptu — sprawdzamy klasę wprost.
+            if (document.body.classList.contains('a11y-stop-motion')) {
+              el.textContent = target + suffix;
+              return;
+            }
             const p = Math.min((now - start) / dur, 1);
             const ease = 1 - Math.pow(1 - p, 3);
             el.textContent = Math.round(ease * target) + suffix;
@@ -961,7 +732,29 @@
       document.querySelectorAll('.stat-count[data-target]').forEach(el => counterObs.observe(el));
     }
 
-    // ── 4. Parallax murale (tylko desktop, tylko scroll) ────
+    // ── 4. Pauza karuzeli logotypów (WCAG 2.2.2) ────────────
+    (function () {
+      const track = document.getElementById('przyjaciele-track');
+      const btn   = document.getElementById('przyjaciele-pause');
+      if (!track || !btn) return;
+
+      // Przy „ogranicz ruch” taśma i tak stoi — przycisk byłby myląco bezczynny.
+      if (prefersReducedMotion) { btn.remove(); return; }
+
+      function setPaused(paused) {
+        track.classList.toggle('is-paused', paused);
+        btn.setAttribute('aria-pressed', String(paused));
+        btn.innerHTML =
+          `<i data-lucide="${paused ? 'play' : 'pause'}" class="w-4 h-4"></i>` +
+          `<span id="przyjaciele-pause-label">${paused ? 'Wznów przewijanie' : 'Zatrzymaj przewijanie'}</span>`;
+        if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+        const ann = document.getElementById('a11y-announcer');
+        if (ann) ann.textContent = paused ? 'Przewijanie logotypów zatrzymane' : 'Przewijanie logotypów wznowione';
+      }
+      btn.addEventListener('click', () => setPaused(!track.classList.contains('is-paused')));
+    })();
+
+    // ── 5. Parallax murale (tylko desktop, tylko scroll) ────
     const mural = document.querySelector('.mural-parallax');
     if (mural && !prefersReducedMotion) {
       let ticking = false;
@@ -990,8 +783,9 @@
         if (list) { list.removeAttribute('aria-busy'); list.innerHTML = '<p class="text-gray-500 text-sm py-10 text-center">Nie udało się załadować aktualności.</p>'; }
       });
   </script>
-  <script src="components/navbar.js?v=5"></script>
-  <script src="components/footer.js?v=8"></script>
-  <script src="components/search.js?v=1"></script>
+  <script src="components/navbar.js?v=9"></script>
+  <script src="components/footer.js?v=10"></script>
+  <script src="components/search.js?v=3"></script>
+  <script src="components/a11y.js?v=3"></script>
 </body>
 </html>

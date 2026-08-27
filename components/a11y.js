@@ -12,27 +12,52 @@ function setA11yBadge(id, active) {
   btn.setAttribute('aria-pressed', String(active));
 }
 function updateA11yCount() {
-  const modes = ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale'];
+  const modes = ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale','dark-mode'];
   const n = modes.filter(m => document.body.classList.contains(m)).length + (currentFontSize !== 16 ? 1 : 0);
   const el = document.getElementById('a11y-active-count');
   if (el) { el.textContent = n; el.classList.toggle('hidden', n === 0); el.classList.toggle('flex', n > 0); }
+  const sr = document.getElementById('a11y-active-count-sr');
+  if (sr) sr.textContent = n === 0 ? '' : ` – aktywne ułatwienia: ${n}`;
 }
 function announce(msg) { const a = document.getElementById('a11y-announcer'); if (a) a.textContent = msg; }
 
 // ── Panel toggle ─────────────────────────────────────────────────────────────
+// Panel deklaruje aria-modal="true" i ma pułapkę fokusu, więc na czas otwarcia
+// reszta strony faktycznie staje się niedostępna (WCAG 2.4.3, 4.1.2).
+// #search-overlay jest wyłączone z blokady: wyszukiwarka ma własną warstwę
+// modalną, a nakładające się blokady `inert` unieruchamiały ją na dobre
+// (WCAG 2.1.1). Gdy panel jest otwarty, warstwa i tak jest ukryta.
+function setA11yPageInert(on) {
+  Array.from(document.body.children).forEach(el => {
+    if (el.id === 'a11y-widget' || el.id === 'search-overlay' || el.tagName === 'SCRIPT') return;
+    if (on) { el.setAttribute('inert', ''); el.dataset.a11yInert = '1'; }
+    else if (el.dataset.a11yInert) { el.removeAttribute('inert'); delete el.dataset.a11yInert; }
+  });
+}
+
 function toggleA11yPanel() {
   a11yOpen = !a11yOpen;
+  window.zs26A11yPanelOpen = a11yOpen;
   const panel = document.getElementById('a11y-panel');
   const btn   = document.getElementById('a11y-toggle-btn');
   if (!panel || !btn) return;
+  // Fokus wraca na przycisk tylko wtedy, gdy zamknięcie odebrałoby go elementowi
+  // wewnątrz panelu — kliknięcie poza panelem nie powinno przesuwać fokusu.
+  const focusWasInside = panel.contains(document.activeElement);
   panel.classList.toggle('hidden', !a11yOpen);
   btn.setAttribute('aria-expanded', String(a11yOpen));
+  setA11yPageInert(a11yOpen);
   if (a11yOpen) {
     if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
     const first = panel.querySelector('button, [tabindex="0"]');
     if (first) first.focus();
+  } else if (focusWasInside) {
+    btn.focus();
   }
 }
+
+// Wyszukiwarka zamyka panel przed otwarciem własnego okna modalnego.
+window.zs26CloseA11yPanel = function () { if (a11yOpen) toggleA11yPanel(); };
 
 // ── A11y actions ─────────────────────────────────────────────────────────────
 function toggleHighContrast() {
@@ -69,7 +94,9 @@ function toggleStopAnimations() {
 }
 function toggleDarkMode() {
   const on = document.body.classList.toggle('dark-mode');
+  document.documentElement.classList.toggle('dark-mode', on);
   setA11yBadge('a11y-dark-mode', on); localStorage.setItem('zs26-dark', on); updateA11yCount();
+  announce(on ? 'Tryb ciemny włączony' : 'Tryb ciemny wyłączony');
 }
 function toggleGrayscale() {
   document.body.classList.toggle('a11y-grayscale');
@@ -83,12 +110,14 @@ function toggleTTS() {
 }
 function resetA11y() {
   ['high-contrast','a11y-dyslexic','a11y-spacing','a11y-stop-motion','a11y-grayscale','dark-mode'].forEach(c => document.body.classList.remove(c));
+  document.documentElement.classList.remove('dark-mode');
   currentFontSize = 16; document.documentElement.style.fontSize = '16px';
   ['a11y-contrast','a11y-dyslexic','a11y-spacing','a11y-motion','a11y-grayscale','a11y-dark-mode'].forEach(id => setA11yBadge(id, false));
   const label = document.getElementById('font-size-label');
   if (label) label.textContent = 'Domyślny (16px)';
   ['zs26-contrast','zs26-dyslexic','zs26-spacing','zs26-motion','zs26-grayscale','zs26-font-size','zs26-dark'].forEach(k => localStorage.removeItem(k));
   updateA11yCount();
+  announce('Przywrócono ustawienia domyślne');
 }
 
 // ── Init ─────────────────────────────────────────────────────────────────────
@@ -178,10 +207,11 @@ function resetA11y() {
         class="flex items-center gap-2 text-white px-4 py-3 rounded-full shadow-xl transition-all font-semibold text-sm"
         style="background:#2B7333;"
         onmouseover="this.style.background='#1E5C27'" onmouseout="this.style.background='#2B7333'"
-        aria-expanded="false" aria-controls="a11y-panel" aria-label="Otwórz panel ułatwień dostępu">
-        <i data-lucide="accessibility" class="w-5 h-5"></i>
-        <span>Ułatwienia</span>
-        <span id="a11y-active-count" class="hidden w-5 h-5 bg-white text-brand-700 text-xs font-bold rounded-full items-center justify-center">0</span>
+        aria-expanded="false" aria-controls="a11y-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5"><circle cx="16" cy="4" r="1"></circle><path d="m18 19 1-7-6 1"></path><path d="m5 8 3-3 5.5 3-2.36 3.5"></path><path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path><path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path></svg>
+        <span>Ułatwienia</span><span class="sr-only">&nbsp;dostępu</span>
+        <span id="a11y-active-count" class="hidden w-5 h-5 bg-white text-brand-700 text-xs font-bold rounded-full items-center justify-center" aria-hidden="true">0</span>
+        <span id="a11y-active-count-sr" class="sr-only"></span>
       </button>`;
     document.body.appendChild(w);
   }
@@ -193,8 +223,12 @@ function resetA11y() {
     topBtn.className = 'hidden fixed bottom-6 right-6 z-50 w-12 h-12 text-white rounded-full shadow-lg items-center justify-center transition-all';
     topBtn.style.background = '#2B7333';
     topBtn.setAttribute('aria-label', 'Wróć na górę strony');
-    topBtn.innerHTML = '<i data-lucide="arrow-up" class="w-5 h-5"></i>';
-    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    topBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>';
+    topBtn.addEventListener('click', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      document.getElementById('main-content')?.focus();
+    });
     document.body.appendChild(topBtn);
   }
 
@@ -232,6 +266,15 @@ function resetA11y() {
     if (widget && !widget.contains(e.target) && a11yOpen) toggleA11yPanel();
   });
 
+  // Escape działa też, gdy fokus stoi na samym przycisku widgetu
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && a11yOpen) {
+      e.preventDefault();
+      toggleA11yPanel();
+      document.getElementById('a11y-toggle-btn')?.focus();
+    }
+  });
+
   // Focus trap
   const panel     = document.getElementById('a11y-panel');
   const toggleBtn = document.getElementById('a11y-toggle-btn');
@@ -256,7 +299,7 @@ function resetA11y() {
     'zs26-spacing':   () => { document.body.classList.add('a11y-spacing');     setA11yBadge('a11y-spacing',   true); },
     'zs26-motion':    () => { document.body.classList.add('a11y-stop-motion'); setA11yBadge('a11y-motion',    true); },
     'zs26-grayscale': () => { document.body.classList.add('a11y-grayscale');   setA11yBadge('a11y-grayscale', true); },
-    'zs26-dark':      () => { document.body.classList.add('dark-mode');        setA11yBadge('a11y-dark-mode', true); },
+    'zs26-dark':      () => { document.body.classList.add('dark-mode');        document.documentElement.classList.add('dark-mode'); setA11yBadge('a11y-dark-mode', true); },
   };
   Object.entries(prefMap).forEach(([k, fn]) => { if (localStorage.getItem(k) === 'true') fn(); });
   const savedSize = localStorage.getItem('zs26-font-size');

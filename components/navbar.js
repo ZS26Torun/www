@@ -22,7 +22,7 @@
   function desktopLink(href, label) {
     const active = isActive(href);
     return `<a href="${href}"
-      class="font-semibold text-sm transition-colors ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}"
+      class="font-semibold text-sm py-2 transition-colors ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}"
       ${active ? 'aria-current="page"' : ''}>${label}</a>`;
   }
 
@@ -61,7 +61,7 @@
   ];
 
   function desktopDropdown(id, label, links, active, external) {
-    const btnClass = `font-semibold text-sm transition-colors flex items-center gap-1 ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}`;
+    const btnClass = `font-semibold text-sm py-2 transition-colors flex items-center gap-1 ${active ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'}`;
     const items = links.map(l => `
       <a href="${l.href}" ${external ? 'target="_blank" rel="noopener noreferrer"' : ''}
         class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group ${isActive(l.href) ? 'bg-brand-50' : ''}">
@@ -75,7 +75,8 @@
       </a>`).join('');
     return `
       <div class="relative" id="${id}-wrap">
-        <button id="${id}-btn" class="${btnClass}" aria-haspopup="true" aria-expanded="false">
+        <button id="${id}-btn" class="${btnClass}" aria-expanded="false" aria-haspopup="true"
+          aria-controls="${id}-menu"${active ? ' aria-current="true"' : ''}>
           ${label} <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="${id}-chevron"></i>
         </button>
         <div id="${id}-menu" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-3 w-60 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
@@ -88,13 +89,13 @@
     <header id="site-header" role="banner"
       class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
       style="background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);color:#1f2937;box-shadow:0 1px 6px rgba(0,0,0,.07);">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div id="site-bar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between min-h-16 py-1 gap-2">
 
         <!-- Logo + nazwa -->
-        <a href="${href_('index.html')}" class="flex items-center gap-3 flex-shrink-0 min-w-0"
+        <a href="${href_('index.html')}" class="flex items-center gap-3 min-w-0"
           aria-label="Strona główna – Zespół Szkół Nr 26 w Toruniu">
           <img src="images/ui/logo.png" alt="" class="h-9 w-auto flex-shrink-0" aria-hidden="true">
-          <div class="leading-tight">
+          <div id="brand-text" class="leading-tight min-w-0">
             <p class="font-bold text-sm text-gray-900"><span class="sm:hidden">ZS Nr&nbsp;26</span><span class="hidden sm:inline">Zespół Szkół Nr 26</span></p>
             <p class="text-xs text-gray-500">w Toruniu</p>
           </div>
@@ -114,9 +115,9 @@
         <div class="flex items-center gap-2 flex-shrink-0">
           <button data-search-trigger aria-label="Szukaj na stronie"
             class="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:text-brand-600 hover:bg-gray-100 transition-colors">
-            <i data-lucide="search" class="w-5 h-5"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
-          <a href="index.html#kontakt"
+          <a href="${href_('index.html')}#kontakt"
             class="hidden sm:inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2 rounded-full transition-all shadow-sm">
             <i data-lucide="phone" class="w-4 h-4"></i>Kontakt
           </a>
@@ -131,12 +132,11 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-y-auto"
-        style="max-height: calc(100vh - 4rem); max-height: calc(100dvh - 4rem); -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;"
-        aria-label="Menu mobilne">
+        style="max-height: calc(100vh - var(--zs-header-h, 4rem)); max-height: calc(100dvh - var(--zs-header-h, 4rem)); -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;">
         <nav class="max-w-7xl mx-auto px-4 py-4 space-y-0.5" aria-label="Mobilna nawigacja">
           <button data-search-trigger
             class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-            <i data-lucide="search" class="w-5 h-5 flex-shrink-0 text-gray-400"></i>Szukaj na stronie
+            <span class="w-5 h-5 flex-shrink-0 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span>Szukaj na stronie
           </button>
           ${mobileLink(href_('index.html'),       'home',          'Strona główna')}
           ${mobileLink(href_('o-szkole.html'),    'info',          'O szkole')}
@@ -163,6 +163,38 @@
 
   document.getElementById('navbar-placeholder').outerHTML = navHTML;
 
+  // Pasek jest position:fixed i rośnie razem z powiększanym tekstem. Mierzymy go
+  // i podajemy do CSS, żeby przesunięcie treści, docelowy punkt kotwic i wysokość
+  // menu mobilnego zawsze odpowiadały jego rzeczywistej wysokości — inaczej przy
+  // większej czcionce nagłówek zasłaniał początek strony.
+  (function trackHeaderHeight() {
+    // Mierzymy sam pasek, a nie cały <header> — ten drugi zawiera rozwijane
+    // menu mobilne, którego wysokość zależy od --zs-header-h. Obserwowanie
+    // headera tworzyłoby pętlę: menu rośnie → zmienna rośnie → menu maleje.
+    const bar = document.getElementById('site-bar');
+    if (!bar) return;
+    const brand = document.getElementById('brand-text');
+
+    // Nazwa szkoły obok logo zawija się przy mocno powiększonym tekście i na
+    // wąskim ekranie potrafiła rozepchnąć pasek na pół wysokości okna. Gdy
+    // brakuje miejsca, zostaje samo logo — pełna nazwa i tak jest w aria-label
+    // linku, w <title> oraz w nagłówku h1 strony, więc nic nie ginie.
+    function fitBrand() {
+      if (!brand) return;
+      const root = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      brand.hidden = window.innerWidth < root * 16;
+    }
+
+    const apply = () => {
+      fitBrand();
+      document.documentElement.style.setProperty('--zs-header-h', bar.offsetHeight + 'px');
+    };
+    apply();
+    if (window.ResizeObserver) new ResizeObserver(apply).observe(bar);
+    window.addEventListener('resize', apply, { passive: true });
+    window.addEventListener('load', apply);
+  })();
+
   // Blokada scrolla tła — position:fixed zamiast overflow:hidden, bo Android
   // Chrome/Edge potrafi przy samym overflow:hidden zablokować też scroll
   // wewnątrz otwartego menu (nie tylko tła).
@@ -186,54 +218,94 @@
     window.scrollTo(0, scrollY);
   }
 
+  // Menu mobilne zasłania całą stronę, więc na czas otwarcia reszta serwisu
+  // dostaje `inert` — bez tego fokus wędrował Tabem po treści schowanej pod menu
+  // (WCAG 2.4.3).
+  // #search-overlay jest wyłączone z blokady: wyszukiwarkę można otworzyć
+  // wprost z menu mobilnego, a jej własna warstwa musi wtedy pozostać
+  // operacyjna (inaczej pole nie przyjmuje fokusu — WCAG 2.1.1).
+  function setPageInert(on) {
+    Array.from(document.body.children).forEach(el => {
+      if (el.id === 'site-header' || el.id === 'search-overlay' || el.tagName === 'SCRIPT') return;
+      if (on) { el.setAttribute('inert', ''); el.dataset.menuInert = '1'; }
+      else if (el.dataset.menuInert) { el.removeAttribute('inert'); delete el.dataset.menuInert; }
+    });
+  }
+
   // Hamburger
   const ham = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
+
+  function setMenu(open) {
+    if (!ham || !mobileMenu) return;
+    mobileMenu.classList.toggle('hidden', !open);
+    ham.setAttribute('aria-expanded', String(open));
+    ham.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
+    if (open) lockBodyScroll(); else unlockBodyScroll();
+    setPageInert(open);
+    document.getElementById('a11y-widget')?.classList.toggle('hidden', open);
+    const lines = ham.querySelectorAll('.ham-line');
+    if (open) {
+      lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+      lines[1].style.transform = 'scaleX(0)';
+      lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      lines.forEach(l => l.style.transform = '');
+    }
+  }
+
+  // Wyszukiwarka zamyka menu przed otwarciem własnego okna modalnego —
+  // dwie nakładające się blokady `inert` unieruchamiały całą stronę.
+  window.zs26CloseMenu = () => { if (mobileMenu && !mobileMenu.classList.contains('hidden')) setMenu(false); };
+
   if (ham && mobileMenu) {
-    ham.addEventListener('click', () => {
-      const nowOpen = mobileMenu.classList.toggle('hidden') === false;
-      ham.setAttribute('aria-expanded', nowOpen);
-      if (nowOpen) lockBodyScroll(); else unlockBodyScroll();
-      document.getElementById('a11y-widget')?.classList.toggle('hidden', nowOpen);
-      const lines = ham.querySelectorAll('.ham-line');
-      if (nowOpen) {
-        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-        lines[1].style.transform = 'scaleX(0)';
-        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        lines.forEach(l => l.style.transform = '');
-      }
+    ham.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    // Tab z ostatniego elementu menu wraca na hamburgera – fokus nie wypada poza
+    // menu także w przeglądarkach bez obsługi `inert`.
+    mobileMenu.addEventListener('keydown', e => {
+      if (e.key !== 'Tab' || mobileMenu.classList.contains('hidden')) return;
+      const items = Array.from(mobileMenu.querySelectorAll('a[href], button'))
+        .filter(el => el.offsetParent !== null);
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); ham.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); ham.focus(); }
     });
   }
 
   // Obsługa dropdownów
+  function closeDropdown(id) {
+    document.getElementById(`${id}-menu`)?.classList.add('hidden');
+    document.getElementById(`${id}-btn`)?.setAttribute('aria-expanded', 'false');
+    const chev = document.getElementById(`${id}-chevron`);
+    if (chev) chev.style.transform = '';
+  }
+
   ['akt', 'rodzice', 'pracownik'].forEach(id => {
     const btn  = document.getElementById(`${id}-btn`);
     const menu = document.getElementById(`${id}-menu`);
     const chev = document.getElementById(`${id}-chevron`);
+    const wrap = document.getElementById(`${id}-wrap`);
     if (!btn || !menu) return;
+
+    // Tab poza listę zamyka ją tak samo jak kliknięcie poza nią — inaczej
+    // rozwinięte menu zostawało otwarte za plecami użytkownika klawiatury.
+    wrap?.addEventListener('focusout', e => {
+      if (!wrap.contains(e.relatedTarget)) closeDropdown(id);
+    });
+
     btn.addEventListener('click', e => {
       e.stopPropagation();
       const open = menu.classList.toggle('hidden') === false;
       btn.setAttribute('aria-expanded', open);
       if (chev) chev.style.transform = open ? 'rotate(180deg)' : '';
       // zamknij pozostałe
-      ['akt', 'rodzice', 'pracownik'].filter(x => x !== id).forEach(other => {
-        document.getElementById(`${other}-menu`)?.classList.add('hidden');
-        document.getElementById(`${other}-btn`)?.setAttribute('aria-expanded', 'false');
-        const oc = document.getElementById(`${other}-chevron`);
-        if (oc) oc.style.transform = '';
-      });
+      ['akt', 'rodzice', 'pracownik'].filter(x => x !== id).forEach(closeDropdown);
     });
   });
 
   document.addEventListener('click', () => {
-    ['akt', 'rodzice', 'pracownik'].forEach(id => {
-      document.getElementById(`${id}-menu`)?.classList.add('hidden');
-      document.getElementById(`${id}-btn`)?.setAttribute('aria-expanded', 'false');
-      const chev = document.getElementById(`${id}-chevron`);
-      if (chev) chev.style.transform = '';
-    });
+    ['akt', 'rodzice', 'pracownik'].forEach(closeDropdown);
   });
 
   document.addEventListener('keydown', e => {
@@ -250,11 +322,7 @@
       }
     });
     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-      mobileMenu.classList.add('hidden');
-      unlockBodyScroll();
-      document.getElementById('a11y-widget')?.classList.remove('hidden');
-      ham?.setAttribute('aria-expanded', 'false');
-      ham?.querySelectorAll('.ham-line').forEach(l => l.style.transform = '');
+      setMenu(false);
       ham?.focus();
     }
   });

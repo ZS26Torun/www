@@ -25,22 +25,37 @@
   <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/og-image.jpg">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css?v=2">
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="https://unpkg.com/lucide@1.34.0/dist/umd/lucide.min.js"
+          onerror="document.documentElement.classList.add('no-lucide')"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <script>(function(){try{var d=localStorage.getItem('zs26-dark')==='true';if(d)document.documentElement.classList.add('dark-mode');var f=localStorage.getItem('zs26-font-size');if(f)document.documentElement.style.fontSize=parseInt(f,10)+'px';}catch(e){}})()</script>
   <style>
+    /* WCAG 1.4.4 / 1.4.12: żadnego sztywnego max-height – panel dopasowuje się
+       do treści, więc powiększony tekst i zwiększone odstępy niczego nie ucinają.
+       WCAG 2.4.3 / 4.1.2: visibility:hidden usuwa zwiniętą treść z drzewa
+       dostępności i z kolejności fokusu, zgodnie z aria-expanded="false". */
     .faq-answer {
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows .35s ease, padding-bottom .3s ease, visibility 0s linear .35s;
+    }
+    .faq-answer > .faq-answer-inner {
       overflow: hidden;
-      transition: max-height .35s ease, padding-bottom .3s ease;
+      min-height: 0;
     }
     .faq-answer.open {
-      max-height: 600px;
+      grid-template-rows: 1fr;
       padding-bottom: 1.25rem;
+      visibility: visible;
+      transition: grid-template-rows .35s ease, padding-bottom .3s ease, visibility 0s;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-answer { transition: visibility 0s !important; }
     }
     .faq-btn[aria-expanded="true"] .faq-icon {
       transform: rotate(180deg);
@@ -159,6 +174,24 @@
 <body class="antialiased text-gray-800">
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
+  <noscript>
+    <div class="noscript-note">
+      <strong>Ta strona działa lepiej z włączonym JavaScriptem.</strong>
+      Bez niego nie wyświetla się menu ani stopka. Poniżej najważniejsze łącza i kontakt do sekretariatu:
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="o-szkole.html">O szkole</a></li>
+        <li><a href="oferta.html">Oferta edukacyjna</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="aktualnosci.html">Aktualności</a></li>
+        <li><a href="dla-rodzicow.html">Dla rodziców</a></li>
+        <li><a href="do-pobrania.html">Do pobrania</a></li>
+        <li><a href="dostepnosc.html">Deklaracja dostępności</a></li>
+        <li><a href="tel:+48566485784">Sekretariat: (56) 648-57-84</a></li>
+        <li><a href="mailto:sekretariat@szkola26.torun.pl">sekretariat@szkola26.torun.pl</a></li>
+      </ul>
+    </div>
+  </noscript>
 
   <main id="main-content" tabindex="-1">
 
@@ -190,40 +223,46 @@
           <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q1"
+                aria-expanded="false" aria-controls="faq-a1" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Kto może uczęszczać do Zespołu Szkół Nr 26?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a1" role="region" aria-labelledby="faq-q1">
                 <p class="text-gray-600 text-sm leading-relaxed mb-2">Podstawowym warunkiem przyjęcia jest <strong>niepełnosprawność intelektualna w stopniu umiarkowanym, znacznym lub głębokim</strong>. Przyjmujemy dzieci, młodzież i dorosłych z:</p>
                 <ul class="space-y-1 text-sm text-gray-600">
-                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>niepełnosprawnością intelektualną (w stopniu umiarkowanym, znacznym lub głębokim)</li>
-                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>niepełnosprawnościami sprzężonymi – gdy jedną z nich jest niepełnosprawność intelektualna w stopniu umiarkowanym, znacznym lub głębokim</li>
-                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0">•</span>autyzmem lub zespołem Aspergera – gdy towarzyszy niepełnosprawność intelektualna w stopniu umiarkowanym, znacznym lub głębokim</li>
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0" aria-hidden="true">•</span>niepełnosprawnością intelektualną (w stopniu umiarkowanym, znacznym lub głębokim)</li>
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0" aria-hidden="true">•</span>niepełnosprawnościami sprzężonymi – gdy jedną z nich jest niepełnosprawność intelektualna w stopniu umiarkowanym, znacznym lub głębokim</li>
+                  <li class="flex gap-2"><span class="text-brand-600 font-bold flex-shrink-0" aria-hidden="true">•</span>autyzmem lub zespołem Aspergera – gdy towarzyszy niepełnosprawność intelektualna w stopniu umiarkowanym, znacznym lub głębokim</li>
                 </ul>
                 <p class="text-gray-600 text-sm leading-relaxed mt-2">Podstawą przyjęcia jest aktualne orzeczenie o potrzebie kształcenia specjalnego wydane przez poradnię psychologiczno-pedagogiczną.</p>
               </div>
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q2"
+                aria-expanded="false" aria-controls="faq-a2" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czym jest szkoła specjalna i jak różni się od ogólnodostępnej?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a2" role="region" aria-labelledby="faq-q2">
                 <p class="text-gray-600 text-sm leading-relaxed">Szkoła specjalna jest przeznaczona dla uczniów ze specjalnymi potrzebami edukacyjnymi, którzy wymagają dostosowania treści, metod i organizacji kształcenia do ich indywidualnych możliwości. W ZS Nr 26 klasy są nieliczne (do 5 uczniów), a każdy uczeń pracuje według indywidualnego programu edukacyjno-terapeutycznego (IPET). Oprócz nauki uczniowie korzystają z licznych zajęć terapeutycznych i rehabilitacyjnych.</p>
               </div>
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q3"
+                aria-expanded="false" aria-controls="faq-a3" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Jakie są godziny pracy sekretariatu?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a3" role="region" aria-labelledby="faq-q3">
                 <p class="text-gray-600 text-sm leading-relaxed mb-3">Sekretariat jest czynny w dni robocze w godzinach <strong>7:30–15:30</strong>.</p>
                 <p class="text-gray-600 text-sm">Telefon: <a href="tel:+48566485784" class="text-brand-600 font-semibold hover:underline">(56) 648-57-84</a><br>
                 E-mail: <a href="mailto:sekretariat@szkola26.torun.pl" class="text-brand-600 font-semibold hover:underline">sekretariat@szkola26.torun.pl</a></p>
@@ -243,12 +282,14 @@
           <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q4"
+                aria-expanded="false" aria-controls="faq-a4" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Jakie dokumenty są potrzebne do przyjęcia dziecka?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a4" role="region" aria-labelledby="faq-q4">
                 <ul class="space-y-1.5 text-sm text-gray-600">
                   <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>Aktualne orzeczenie o potrzebie kształcenia specjalnego</li>
                   <li class="flex gap-2"><span class="text-leaf-600 font-bold flex-shrink-0">✓</span>Wypełniony wniosek o przyjęcie (do pobrania na stronie)</li>
@@ -262,12 +303,14 @@
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q5"
+                aria-expanded="false" aria-controls="faq-a5" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Jak przebiega rekrutacja krok po kroku?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a5" role="region" aria-labelledby="faq-q5">
                 <ol class="space-y-2 text-sm text-gray-600">
                   <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>Skontaktuj się z sekretariatem i umów spotkanie informacyjne</li>
                   <li class="flex gap-3"><span class="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>Przygotuj wymagane dokumenty (orzeczenie, wniosek)</li>
@@ -279,12 +322,14 @@
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q6"
+                aria-expanded="false" aria-controls="faq-a6" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czy można odwiedzić szkołę przed zapisaniem dziecka?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a6" role="region" aria-labelledby="faq-q6">
                 <p class="text-gray-600 text-sm leading-relaxed">Tak, serdecznie zapraszamy na wizytę zapoznawczą. Rodzice i opiekunowie mogą umówić się na spotkanie z dyrekcją, obejrzeć sale i poznać kadrę. W tym celu prosimy o wcześniejszy kontakt z sekretariatem.</p>
               </div>
             </li>
@@ -302,34 +347,40 @@
           <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q7"
+                aria-expanded="false" aria-controls="faq-a7" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czym jest Wczesne Wspomaganie Rozwoju (WWR)?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a7" role="region" aria-labelledby="faq-q7">
                 <p class="text-gray-600 text-sm leading-relaxed">To bezpłatna, specjalistyczna pomoc dla dzieci od urodzenia aż do rozpoczęcia nauki w szkole podstawowej. Wsparcie przeznaczone jest dla dzieci z niepełnosprawnościami lub zagrożonych niepełnosprawnością, które posiadają opinię o potrzebie WWR z poradni psychologiczno-pedagogicznej.</p>
               </div>
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q8"
+                aria-expanded="false" aria-controls="faq-a8" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Co to są zajęcia rewalidacyjno-wychowawcze?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a8" role="region" aria-labelledby="faq-q8">
                 <p class="text-gray-600 text-sm leading-relaxed">To forma wsparcia dedykowana dzieciom i młodzieży z niepełnosprawnością intelektualną w stopniu głębokim (w wieku od 3 do 25 lat). Naszym priorytetem jest poprawa jakości życia uczestników poprzez rozwijanie umiejętności komunikacji, nawiązywanie relacji oraz naukę samodzielności w codziennych czynnościach.</p>
               </div>
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q9"
+                aria-expanded="false" aria-controls="faq-a9" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czym jest program Rehabilitacja 25+?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a9" role="region" aria-labelledby="faq-q9">
                 <p class="text-gray-600 text-sm leading-relaxed">Rehabilitacja 25+ to zajęcia rehabilitacyjne dla dorosłych absolwentów szkół specjalnych (po 25. roku życia) z niepełnosprawnością intelektualną. Program obejmuje rehabilitację ruchową, terapię zajęciową, zajęcia z psychologiem i logopedą, podtrzymując nabyte umiejętności.</p>
               </div>
             </li>
@@ -347,23 +398,27 @@
           <ul class="divide-y divide-gray-50 list-none p-0 m-0 bg-white">
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q10"
+                aria-expanded="false" aria-controls="faq-a10" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czy szkoła zapewnia transport dla uczniów?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a10" role="region" aria-labelledby="faq-q10">
                 <p class="text-gray-600 text-sm leading-relaxed">Szkoła dysponuje własnymi busami do przewozu uczniów na terenie miasta Torunia. W sprawie szczegółów organizacji dowozu prosimy o kontakt z sekretariatem.</p>
               </div>
             </li>
 
             <li>
-              <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-                aria-expanded="false" onclick="toggleFaq(this)">
+              <h3>
+                <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors" id="faq-q11"
+                aria-expanded="false" aria-controls="faq-a11" onclick="toggleFaq(this)">
                 <span class="font-semibold text-gray-900 text-sm">Czy szkoła ma basen?</span>
                 <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 flex-shrink-0 faq-icon"></i>
               </button>
-              <div class="faq-answer px-6">
+              </h3>
+              <div class="faq-answer px-6" id="faq-a11" role="region" aria-labelledby="faq-q11">
                 <p class="text-gray-600 text-sm leading-relaxed">Tak, ZS Nr 26 dysponuje nowoczesnym basenem rehabilitacyjnym z podnoszonym dnem, który umożliwia dostosowanie głębokości wody do potrzeb każdego ucznia. Basen jest regularnie monitorowany pod względem jakości wody (wyniki badań dostępne w <a href="do-pobrania.html#basen" class="text-brand-600 hover:underline">dziale Do pobrania</a>). Z basenu korzystają uczniowie w ramach zajęć rehabilitacyjnych i wychowania fizycznego.</p>
               </div>
             </li>
@@ -394,32 +449,56 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js?v=5"></script>
-  <script src="components/footer.js?v=8"></script>
-  <script src="components/search.js?v=1"></script>
-  <script src="components/tts.js?v=1"></script>
-  <script src="components/a11y.js?v=1"></script>
+  <script src="components/navbar.js?v=9"></script>
+  <script src="components/footer.js?v=10"></script>
+  <script src="components/search.js?v=3"></script>
+  <script src="components/tts.js?v=4"></script>
+  <script src="components/a11y.js?v=3"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
 
     document.querySelectorAll('.faq-btn').forEach((btn, i) => {
-      const panelId = 'faq-panel-' + i;
-      const answer = btn.nextElementSibling;
-      answer.id = panelId;
-      answer.setAttribute('role', 'region');
-      btn.setAttribute('aria-controls', panelId);
+      // Powiązanie przycisku z panelem jest już w znaczniku (aria-controls,
+      // role="region", aria-labelledby). Poniższe uzupełnia je tylko wtedy,
+      // gdy w HTML by ich zabrakło. Przycisk jest opakowany w <h3>, więc panel
+      // jest rodzeństwem nagłówka, nie samego przycisku.
+      const answer = document.getElementById(btn.getAttribute('aria-controls'))
+        || (btn.closest('h3') || btn).nextElementSibling;
+      if (!answer) return;
+      if (!btn.id) btn.id = 'faq-btn-' + i;
+      if (!answer.id) answer.id = 'faq-panel-' + i;
+      if (!btn.getAttribute('aria-controls')) btn.setAttribute('aria-controls', answer.id);
+      if (!answer.getAttribute('role')) answer.setAttribute('role', 'region');
+      if (!answer.getAttribute('aria-labelledby')) answer.setAttribute('aria-labelledby', btn.id);
+
+      // Treść panelu musi mieć jednego rodzica, żeby animacja grid-template-rows
+      // działała niezależnie od liczby akapitów i list w odpowiedzi.
+      if (!answer.querySelector(':scope > .faq-answer-inner')) {
+        const inner = document.createElement('div');
+        inner.className = 'faq-answer-inner';
+        while (answer.firstChild) inner.appendChild(answer.firstChild);
+        answer.appendChild(inner);
+      }
     });
 
     function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
+      // Przycisk jest opakowany w <h3> (WCAG 1.3.1), więc panel odpowiedzi
+      // jest rodzeństwem nagłówka, nie samego przycisku.
+      const answer = document.getElementById(btn.getAttribute('aria-controls'))
+        || (btn.closest('h3') || btn).nextElementSibling;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
       document.querySelectorAll('.faq-btn[aria-expanded="true"]').forEach(b => {
         b.setAttribute('aria-expanded', 'false');
-        b.nextElementSibling.classList.remove('open');
+        const panel = document.getElementById(b.getAttribute('aria-controls'))
+          || (b.closest('h3') || b).nextElementSibling;
+        panel?.classList.remove('open');
       });
       if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
-        requestAnimationFrame(() => answer.classList.add('open'));
+        // Bez requestAnimationFrame: animacja grid-template-rows nie wymaga
+        // odczekania klatki, a w karcie w tle rAF bywa wstrzymywany i panel
+        // pozostawał wtedy zwinięty mimo aria-expanded="true".
+        answer.classList.add('open');
       }
     }
   </script>

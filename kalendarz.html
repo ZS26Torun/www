@@ -25,17 +25,31 @@
   <meta name="twitter:image" content="https://szkola26.torun.pl/images/ui/og-image.jpg">
   <link rel="icon" href="images/ui/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="tailwind.css?v=1">
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css?v=2">
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="https://unpkg.com/lucide@1.34.0/dist/umd/lucide.min.js"
+          onerror="document.documentElement.classList.add('no-lucide')"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>(function(){if(localStorage.getItem('zs26-dark')==='true'){document.body&&document.body.classList.add('dark-mode');}})()</script>
+  <script>(function(){try{var d=localStorage.getItem('zs26-dark')==='true';if(d)document.documentElement.classList.add('dark-mode');var f=localStorage.getItem('zs26-font-size');if(f)document.documentElement.style.fontSize=parseInt(f,10)+'px';}catch(e){}})()</script>
   <style>
     .view-btn.active { background: #C62828; color: #fff; }
     .view-btn { transition: background .15s, color .15s; }
     [data-tooltip] { position: relative; }
+    /* Strefa buforowa: pozwala przesunąć kursor z komórki na dymek bez luki,
+       czego wymaga WCAG 1.4.13 („można na nią najechać”). */
+    [data-tooltip]:hover::before,
+    [data-tooltip]:focus::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 8px;
+      z-index: 9;
+    }
     [data-tooltip]:hover::after,
     [data-tooltip]:focus::after {
       content: attr(data-tooltip);
@@ -45,14 +59,19 @@
       transform: translateX(-50%);
       background: #1f2937;
       color: #fff;
-      font-size: 11px;
-      white-space: nowrap;
-      padding: 4px 8px;
+      font-size: 12px;
+      line-height: 1.35;
+      text-align: center;
+      width: max-content;
+      max-width: min(15rem, 60vw);
+      white-space: normal;
+      padding: 5px 9px;
       border-radius: 6px;
-      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
       z-index: 10;
     }
-    [data-tooltip].tt-dismissed::after { content: none; }
+    [data-tooltip].tt-dismissed::after,
+    [data-tooltip].tt-dismissed::before { content: none; }
   </style>
   <script type="application/ld+json">
 {
@@ -126,6 +145,24 @@
 <body class="antialiased text-gray-800">
   <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
   <div id="navbar-placeholder"></div>
+  <noscript>
+    <div class="noscript-note">
+      <strong>Ta strona działa lepiej z włączonym JavaScriptem.</strong>
+      Bez niego nie wyświetla się menu ani stopka. Poniżej najważniejsze łącza i kontakt do sekretariatu:
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="o-szkole.html">O szkole</a></li>
+        <li><a href="oferta.html">Oferta edukacyjna</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="aktualnosci.html">Aktualności</a></li>
+        <li><a href="dla-rodzicow.html">Dla rodziców</a></li>
+        <li><a href="do-pobrania.html">Do pobrania</a></li>
+        <li><a href="dostepnosc.html">Deklaracja dostępności</a></li>
+        <li><a href="tel:+48566485784">Sekretariat: (56) 648-57-84</a></li>
+        <li><a href="mailto:sekretariat@szkola26.torun.pl">sekretariat@szkola26.torun.pl</a></li>
+      </ul>
+    </div>
+  </noscript>
 
   <main id="main-content" tabindex="-1">
 
@@ -166,7 +203,7 @@
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-100 text-brand-700"><span class="w-2 h-2 rounded-full bg-brand-600 inline-block"></span>Święto</span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 hidden" id="legend-custom"><span class="w-2 h-2 rounded-full bg-purple-500 inline-block"></span>Od dyrekcji</span>
         </div>
-        <div class="flex rounded-xl overflow-hidden border border-gray-200 flex-shrink-0">
+        <div class="flex flex-wrap rounded-xl overflow-hidden border border-gray-200">
           <button id="btn-list" onclick="setView('list')" class="view-btn active flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-600" aria-pressed="true">
             <i data-lucide="list" class="w-3.5 h-3.5"></i>Lista
           </button>
@@ -388,11 +425,11 @@
 
   <div id="site-footer"></div>
 
-  <script src="components/navbar.js?v=5"></script>
-  <script src="components/footer.js?v=8"></script>
-  <script src="components/search.js?v=1"></script>
-  <script src="components/tts.js?v=1"></script>
-  <script src="components/a11y.js?v=1"></script>
+  <script src="components/navbar.js?v=9"></script>
+  <script src="components/footer.js?v=10"></script>
+  <script src="components/search.js?v=3"></script>
+  <script src="components/tts.js?v=4"></script>
+  <script src="components/a11y.js?v=3"></script>
   <script>
     if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
   </script>
@@ -465,6 +502,12 @@
                         'lipca','sierpnia','września','października','listopada','grudnia'];
 
     // ── Pomocnicze ────────────────────────────────────────────────────
+    // Nazwy wydarzeń trafiają do atrybutów (data-tooltip, aria-label), więc
+    // cudzysłów w treści z pliku JSON rozerwałby znacznik.
+    function esc(str) {
+      return String(str).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+
     function fmtDate(str) {
       const [y, m, d] = str.split('-').map(Number);
       return `${d} ${MONTHS_GEN[m-1]} ${y} r.`;
@@ -562,10 +605,15 @@
 
           if (ev) {
             const t = TYPE[ev.type] || TYPE['custom'];
-            const tooltip = ev.label + (ev.note ? ' – ' + ev.note : '');
-            cells.push(`<div data-tooltip="${tooltip}" tabindex="0" aria-label="${d} ${MONTHS_GEN[m]} – ${tooltip}"
+            const tooltip = esc(ev.label + (ev.note ? ' – ' + ev.note : ''));
+            // role="img" jest tu konieczne: aria-label na elemencie bez roli jest
+            // przez czytniki ekranu ignorowane, więc opis wydarzenia przepadał.
+            // tabindex="-1" + roving tabindex: siatka jest jednym przystankiem
+            // Tab, a między dniami z wydarzeniem chodzi się strzałkami.
+            cells.push(`<div data-tooltip="${tooltip}" tabindex="-1" role="img"
+              aria-label="${d} ${MONTHS_GEN[m]} – ${tooltip}"
               style="background:${t.cell};color:${t.cellText}"
-              class="w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold cursor-default">${d}</div>`);
+              class="cal-day w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold cursor-default">${d}</div>`);
           } else {
             cells.push(`<div class="w-8 h-8 flex items-center justify-center rounded-lg text-xs ${isWeekend ? 'text-gray-500' : 'text-gray-700'}">${d}</div>`);
           }
@@ -582,7 +630,8 @@
           </div>`;
       }).join('');
 
-      return `<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">${monthHtml}</div>`;
+      return `<p class="sr-only">Siatka kalendarza. Klawiszami strzałek przechodzisz między dniami z wydarzeniami, klawiszami Home i End na pierwszy i ostatni dzień, klawiszem Escape ukrywasz dymek z opisem.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">${monthHtml}</div>`;
     }
 
     // ── Przełącznik widoku ────────────────────────────────────────────
@@ -596,13 +645,43 @@
       document.getElementById('btn-list').setAttribute('aria-pressed', v === 'list');
       document.getElementById('btn-grid').setAttribute('aria-pressed', v === 'grid');
       if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+      const ann = document.getElementById('a11y-announcer');
+      if (ann) ann.textContent = v === 'list' ? 'Widok listy wydarzeń' : 'Widok siatki kalendarza';
     };
 
-    // ── Tooltip: odrzucanie klawiszem Esc (WCAG 1.4.13) ────────────────
+    // ── Siatka: roving tabindex (WCAG 2.4.3) + Esc dla dymka (1.4.13) ──
+    function calDays() { return Array.from(document.querySelectorAll('#view-grid .cal-day')); }
+    window.calInitRoving = function () {
+      const days = calDays();
+      days.forEach((d, i) => d.setAttribute('tabindex', i === 0 ? '0' : '-1'));
+    };
+    function calMove(from, delta, absolute) {
+      const days = calDays();
+      const i = days.indexOf(from);
+      if (i === -1) return;
+      const next = days[absolute !== undefined
+        ? (absolute < 0 ? days.length - 1 : 0)
+        : Math.min(days.length - 1, Math.max(0, i + delta))];
+      if (!next || next === from) return;
+      from.setAttribute('tabindex', '-1');
+      next.setAttribute('tabindex', '0');
+      next.focus();
+    }
+
     document.getElementById('view-grid').addEventListener('keydown', e => {
-      if (e.key !== 'Escape') return;
-      const el = e.target.closest('[data-tooltip]');
-      if (el) el.classList.add('tt-dismissed');
+      const el = e.target.closest('.cal-day');
+      if (e.key === 'Escape') {
+        const t = e.target.closest('[data-tooltip]');
+        if (t) t.classList.add('tt-dismissed');
+        return;
+      }
+      if (!el) return;
+      switch (e.key) {
+        case 'ArrowRight': case 'ArrowDown': e.preventDefault(); calMove(el,  1); break;
+        case 'ArrowLeft':  case 'ArrowUp':   e.preventDefault(); calMove(el, -1); break;
+        case 'Home':       e.preventDefault(); calMove(el, 0,  1); break;
+        case 'End':        e.preventDefault(); calMove(el, 0, -1); break;
+      }
     });
     document.getElementById('view-grid').addEventListener('focusout', e => {
       const el = e.target.closest('[data-tooltip]');
@@ -721,6 +800,7 @@
       document.getElementById('view-loading').remove();
       document.getElementById('view-list').innerHTML = buildList(all);
       document.getElementById('view-grid').innerHTML = buildGrid(all);
+      window.calInitRoving();
       if (custom.length > 0) document.getElementById('legend-custom').classList.remove('hidden');
       if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
     }

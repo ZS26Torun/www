@@ -73,7 +73,9 @@ body { font-family: 'Lexend', ui-sans-serif, system-ui, sans-serif; }
 /* ── Focus ring ─────────────────────────────────────────── */
 :focus-visible { outline: 3px solid #C62828; outline-offset: 3px; border-radius: 4px; }
 footer :focus-visible { outline-color: #fff; }
-body.dark-mode :focus-visible { outline-color: #FCA5A5; }
+:is(html,body).dark-mode :focus-visible { outline-color: #FCA5A5; }
+/* Wysoki kontrast: czerwień na czerni dawała 3.36:1 — złoto daje 15.9:1 */
+body.high-contrast :focus-visible { outline-color: #FFD700 !important; }
 
 /* ── Scroll progress ──────────────────────────────────────── */
 #scroll-progress {
@@ -147,11 +149,12 @@ body.a11y-stop-motion .mural-parallax { transform: none !important; }
 
 /* ── A11y widget ─────────────────────────────────────────── */
 .a11y-badge {
-  font-size: .625rem; font-weight: 700;
+  font-size: .6875rem; font-weight: 700;
   padding: .15rem .45rem; border-radius: 999px;
   letter-spacing: .05em; flex-shrink: 0;
 }
-.a11y-badge.off { background: #F1F5F9; color: #64748B; }
+/* WCAG 1.4.3: #64748B na #F1F5F9 dawało 4.34:1; #475569 daje 6.0:1 */
+.a11y-badge.off { background: #F1F5F9; color: #475569; }
 .a11y-badge.on  { background: #C62828; color: #fff; }
 
 /* ── A11y modes ──────────────────────────────────────────── */
@@ -174,136 +177,138 @@ body.high-contrast #site-header { background: #000 !important; box-shadow: 0 2px
   --dm-subtle:   #64748B;
 }
 
-body.dark-mode { background: var(--dm-bg); color: var(--dm-text); }
+html.dark-mode,
+:is(html,body).dark-mode { background: var(--dm-bg); color: var(--dm-text); }
 
 /* Tła sekcji */
-body.dark-mode section,
-body.dark-mode .bg-white  { background-color: var(--dm-bg) !important; }
-body.dark-mode .bg-gray-50 { background-color: var(--dm-surface) !important; }
+:is(html,body).dark-mode section,
+:is(html,body).dark-mode .bg-white  { background-color: var(--dm-bg) !important; }
+:is(html,body).dark-mode .bg-gray-50 { background-color: var(--dm-surface) !important; }
 
 /* Navbar */
-body.dark-mode #site-header,
-body.dark-mode header { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
-body.dark-mode #site-header a,
-body.dark-mode #site-header p,
-body.dark-mode #site-header span { color: var(--dm-text) !important; }
+:is(html,body).dark-mode #site-header,
+:is(html,body).dark-mode header { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #site-header a,
+:is(html,body).dark-mode #site-header p,
+:is(html,body).dark-mode #site-header span { color: var(--dm-text) !important; }
 
 /* Tekst ogólny */
-body.dark-mode .text-gray-900,
-body.dark-mode .text-gray-800 { color: var(--dm-text) !important; }
-body.dark-mode .text-gray-700,
-body.dark-mode .text-gray-600,
-body.dark-mode .text-gray-500,
-body.dark-mode .text-gray-400 { color: var(--dm-muted) !important; }
+:is(html,body).dark-mode .text-gray-900,
+:is(html,body).dark-mode .text-gray-800 { color: var(--dm-text) !important; }
+:is(html,body).dark-mode .text-gray-700,
+:is(html,body).dark-mode .text-gray-600,
+:is(html,body).dark-mode .text-gray-500,
+:is(html,body).dark-mode .text-gray-400 { color: var(--dm-muted) !important; }
 
 /* Obramowania */
-body.dark-mode .border-gray-100,
-body.dark-mode .border-gray-200 { border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode .border-gray-100,
+:is(html,body).dark-mode .border-gray-200 { border-color: var(--dm-border) !important; }
 
 /* Kolorowe akcenty tekstu – rozjaśnione dla kontrastu na ciemnym tle */
-body.dark-mode .text-brand-600,
-body.dark-mode .text-brand-700,
-body.dark-mode .text-brand-800 { color: #FCA5A5 !important; }
-body.dark-mode .text-teal-600,
-body.dark-mode .text-teal-700 { color: #5EEAD4 !important; }
-body.dark-mode .text-leaf-600,
-body.dark-mode .text-leaf-700 { color: #86EFAC !important; }
-body.dark-mode .text-amber-600,
-body.dark-mode .text-amber-700,
-body.dark-mode .text-amber-800,
-body.dark-mode .text-yellow-600 { color: #FCD34D !important; }
-body.dark-mode .text-blue-600,
-body.dark-mode .text-blue-700,
-body.dark-mode .text-blue-800 { color: #93C5FD !important; }
-body.dark-mode .text-purple-600,
-body.dark-mode .text-purple-700,
-body.dark-mode .text-purple-800 { color: #D8B4FE !important; }
-body.dark-mode .text-orange-600,
-body.dark-mode .text-orange-700 { color: #FDBA74 !important; }
-body.dark-mode .view-btn.active { color: #fff !important; }
+:is(html,body).dark-mode .text-brand-600,
+:is(html,body).dark-mode .text-brand-700,
+:is(html,body).dark-mode .text-brand-800 { color: #FCA5A5 !important; }
+:is(html,body).dark-mode .text-teal-600,
+:is(html,body).dark-mode .text-teal-700 { color: #5EEAD4 !important; }
+:is(html,body).dark-mode .text-leaf-600,
+:is(html,body).dark-mode .text-leaf-700 { color: #86EFAC !important; }
+:is(html,body).dark-mode .text-amber-600,
+:is(html,body).dark-mode .text-amber-700,
+:is(html,body).dark-mode .text-amber-800,
+:is(html,body).dark-mode .text-yellow-600 { color: #FCD34D !important; }
+:is(html,body).dark-mode .text-blue-600,
+:is(html,body).dark-mode .text-blue-700,
+:is(html,body).dark-mode .text-blue-800 { color: #93C5FD !important; }
+:is(html,body).dark-mode .text-purple-600,
+:is(html,body).dark-mode .text-purple-700,
+:is(html,body).dark-mode .text-purple-800 { color: #D8B4FE !important; }
+:is(html,body).dark-mode .text-orange-600,
+:is(html,body).dark-mode .text-orange-700 { color: #FDBA74 !important; }
+:is(html,body).dark-mode .view-btn.active { color: #fff !important; }
 
 /* Jasne tła-akcenty (odznaki, ramki informacyjne) – przyciemnione do przezroczystych wersji */
-body.dark-mode .bg-gray-100  { background: var(--dm-surface2) !important; }
-body.dark-mode .bg-brand-50,
-body.dark-mode .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
-body.dark-mode .bg-red-50    { background: rgba(220,38,38,.15) !important; }
-body.dark-mode .bg-amber-50,
-body.dark-mode .bg-amber-100,
-body.dark-mode .bg-yellow-50,
-body.dark-mode .bg-yellow-100 { background: rgba(234,179,8,.15) !important; }
-body.dark-mode .bg-green-50,
-body.dark-mode .bg-green-100 { background: rgba(43,115,51,.15) !important; }
-body.dark-mode .bg-teal-50,
-body.dark-mode .bg-teal-100  { background: rgba(13,148,136,.15) !important; }
-body.dark-mode .bg-blue-50,
-body.dark-mode .bg-blue-100  { background: rgba(37,99,235,.15) !important; }
-body.dark-mode .bg-purple-50,
-body.dark-mode .bg-purple-100 { background: rgba(147,51,234,.15) !important; }
-body.dark-mode .bg-orange-50,
-body.dark-mode .bg-orange-100 { background: rgba(234,88,12,.15) !important; }
+:is(html,body).dark-mode .bg-gray-100  { background: var(--dm-surface2) !important; }
+:is(html,body).dark-mode .bg-brand-50,
+:is(html,body).dark-mode .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
+:is(html,body).dark-mode .bg-red-50    { background: rgba(220,38,38,.15) !important; }
+:is(html,body).dark-mode .bg-amber-50,
+:is(html,body).dark-mode .bg-amber-100,
+:is(html,body).dark-mode .bg-yellow-50,
+:is(html,body).dark-mode .bg-yellow-100 { background: rgba(234,179,8,.15) !important; }
+:is(html,body).dark-mode .bg-green-50,
+:is(html,body).dark-mode .bg-green-100 { background: rgba(43,115,51,.15) !important; }
+:is(html,body).dark-mode .bg-teal-50,
+:is(html,body).dark-mode .bg-teal-100  { background: rgba(13,148,136,.15) !important; }
+:is(html,body).dark-mode .bg-blue-50,
+:is(html,body).dark-mode .bg-blue-100  { background: rgba(37,99,235,.15) !important; }
+:is(html,body).dark-mode .bg-purple-50,
+:is(html,body).dark-mode .bg-purple-100 { background: rgba(147,51,234,.15) !important; }
+:is(html,body).dark-mode .bg-orange-50,
+:is(html,body).dark-mode .bg-orange-100 { background: rgba(234,88,12,.15) !important; }
 
 /* Hero */
-body.dark-mode #hero { background: var(--dm-bg) !important; }
-body.dark-mode #hero h1 { color: var(--dm-text) !important; }
-body.dark-mode #hero .bg-gray-100 { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
-body.dark-mode #hero .text-gray-600 { color: var(--dm-muted) !important; }
-body.dark-mode #hero .border-gray-200 { border-color: var(--dm-border) !important; }
-body.dark-mode #hero .bg-gray-100.hover\:bg-gray-200 { background: var(--dm-surface2) !important; }
+:is(html,body).dark-mode #hero { background: var(--dm-bg) !important; }
+:is(html,body).dark-mode #hero h1 { color: var(--dm-text) !important; }
+:is(html,body).dark-mode #hero .bg-gray-100 { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #hero .text-gray-600 { color: var(--dm-muted) !important; }
+:is(html,body).dark-mode #hero .border-gray-200 { border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #hero .bg-gray-100.hover\:bg-gray-200 { background: var(--dm-surface2) !important; }
 
 /* Mural gradient – niewidoczny w ciemnym trybie (zakrywa gradient biały) */
-body.dark-mode .hidden.lg\:block [style*="gradient(to right, white"] { display: none !important; }
-body.dark-mode .hidden.lg\:block [style*="gradient(to bottom, white"] { display: none !important; }
-body.dark-mode .hidden.lg\:block [style*="gradient(to top, white"]   { display: none !important; }
+:is(html,body).dark-mode .hidden.lg\:block [style*="gradient(to right, white"] { display: none !important; }
+:is(html,body).dark-mode .hidden.lg\:block [style*="gradient(to bottom, white"] { display: none !important; }
+:is(html,body).dark-mode .hidden.lg\:block [style*="gradient(to top, white"]   { display: none !important; }
 
 /* Karty – szybki dostęp */
-body.dark-mode .qa-tile { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
-body.dark-mode .qa-tile span.rounded-xl { background: var(--dm-surface2) !important; }
+:is(html,body).dark-mode .qa-tile { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode .qa-tile span.rounded-xl { background: var(--dm-surface2) !important; }
 
 /* Karty – oferta */
-body.dark-mode .offer-card { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; box-shadow: none !important; }
-body.dark-mode .offer-card .bg-yellow-100  { background: rgba(234,179,8,.15)  !important; }
-body.dark-mode .offer-card .bg-brand-100   { background: rgba(198,40,40,.15)  !important; }
-body.dark-mode .offer-card .bg-purple-100  { background: rgba(147,51,234,.15) !important; }
-body.dark-mode .offer-card .bg-green-100   { background: rgba(43,115,51,.15)  !important; }
-body.dark-mode .offer-card .bg-blue-100    { background: rgba(37,99,235,.15)  !important; }
+:is(html,body).dark-mode .offer-card { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; box-shadow: none !important; }
+:is(html,body).dark-mode .offer-card .bg-yellow-100  { background: rgba(234,179,8,.15)  !important; }
+:is(html,body).dark-mode .offer-card .bg-brand-100   { background: rgba(198,40,40,.15)  !important; }
+:is(html,body).dark-mode .offer-card .bg-purple-100  { background: rgba(147,51,234,.15) !important; }
+:is(html,body).dark-mode .offer-card .bg-green-100   { background: rgba(43,115,51,.15)  !important; }
+:is(html,body).dark-mode .offer-card .bg-blue-100    { background: rgba(37,99,235,.15)  !important; }
 
 /* Aktualności */
-body.dark-mode #aktualnosci article { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #aktualnosci article { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
 
 /* O szkole – karty statystyk */
-body.dark-mode .grid .bg-white.rounded-2xl { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode .grid .bg-white.rounded-2xl { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
 
 /* Przyjaciele – karty logotypów */
-body.dark-mode .przyjaciele-logo { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
-body.dark-mode .przyjaciele-logo img { filter: grayscale(1) opacity(.5) invert(.05) !important; }
-body.dark-mode section[aria-labelledby="przyjaciele-heading"] { background: var(--dm-surface) !important; }
+:is(html,body).dark-mode .przyjaciele-logo { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode .przyjaciele-logo img { filter: grayscale(1) opacity(.5) invert(.05) !important; }
+:is(html,body).dark-mode section[aria-labelledby="przyjaciele-heading"] { background: var(--dm-surface) !important; }
 
 /* Kontakt */
-body.dark-mode #kontakt .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
+:is(html,body).dark-mode #kontakt .bg-brand-100 { background: rgba(198,40,40,.15) !important; }
 
 /* A11y panel */
-body.dark-mode #a11y-panel { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
-body.dark-mode #a11y-panel p,
-body.dark-mode #a11y-panel .text-gray-800,
-body.dark-mode #a11y-panel .text-gray-600 { color: var(--dm-muted) !important; }
-body.dark-mode #a11y-panel .hover\:bg-gray-50:hover { background: var(--dm-surface2) !important; }
-body.dark-mode #a11y-panel .border-gray-100,
-body.dark-mode #a11y-panel .border-t { border-color: var(--dm-border) !important; }
-body.dark-mode #a11y-panel button .text-gray-800 { color: var(--dm-text) !important; }
+:is(html,body).dark-mode #a11y-panel { background: var(--dm-surface) !important; border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #a11y-panel p,
+:is(html,body).dark-mode #a11y-panel .text-gray-800,
+:is(html,body).dark-mode #a11y-panel .text-gray-600 { color: var(--dm-muted) !important; }
+:is(html,body).dark-mode #a11y-panel .hover\:bg-gray-50:hover { background: var(--dm-surface2) !important; }
+:is(html,body).dark-mode #a11y-panel .border-gray-100,
+:is(html,body).dark-mode #a11y-panel .border-t { border-color: var(--dm-border) !important; }
+:is(html,body).dark-mode #a11y-panel button .text-gray-800 { color: var(--dm-text) !important; }
 
 /* Scroll progress + scroll-top */
-body.dark-mode #scroll-top-btn { background: #2B7333 !important; }
+:is(html,body).dark-mode #scroll-top-btn { background: #2B7333 !important; }
 
 /* FB karta */
-body.dark-mode .fb-card-link > div:last-child { background: var(--dm-surface) !important; }
-body.dark-mode .fb-card-link p[style*="color:#1c1e21"] { color: var(--dm-text) !important; }
-body.dark-mode .fb-card-link p[style*="color:#65676b"] { color: var(--dm-muted) !important; }
+:is(html,body).dark-mode .fb-card-link > div:last-child { background: var(--dm-surface) !important; }
+:is(html,body).dark-mode .fb-card-link p[style*="color:#1c1e21"] { color: var(--dm-text) !important; }
+:is(html,body).dark-mode .fb-card-link p[style*="color:#65676b"] { color: var(--dm-muted) !important; }
 
 /* Mapa iframe – przyciemnienie */
-body.dark-mode .rounded-2xl iframe { filter: invert(.85) hue-rotate(180deg); }
+:is(html,body).dark-mode .rounded-2xl iframe { filter: invert(.85) hue-rotate(180deg); }
 
 body.a11y-grayscale > :not(#a11y-widget):not(#scroll-top-btn):not(#scroll-progress) { filter: grayscale(1); }
-body.a11y-spacing * { letter-spacing: .06em !important; line-height: 1.9 !important; word-spacing: .12em !important; }
+/* Wartości wg WCAG 1.4.12 Odstępy w tekście (0.12em / 0.16em / 1.5) */
+body.a11y-spacing * { letter-spacing: .12em !important; line-height: 1.9 !important; word-spacing: .16em !important; }
 body.a11y-dyslexic,
 body.a11y-dyslexic * { font-family: 'Lexend', sans-serif !important; font-weight: 400 !important; letter-spacing: .04em !important; }
 body.a11y-stop-motion *,
@@ -353,8 +358,12 @@ body.a11y-stop-motion #a11y-toggle-btn { animation: none; }
 /* ── Navbar transparent on hero ──────────────────────────── */
 #site-header.bg-transparent { background: transparent !important; }
 
-/* ── Scroll padding (kompensacja fixed navbar) ───────────── */
-html { scroll-padding-top: 4rem; }
+/* ── Kompensacja stałego paska nawigacji ─────────────────────────────────
+   --zs-header-h ustawia navbar.js z rzeczywistej wysokości paska. Dopóki go
+   nie ma, obowiązuje domyślne 4rem. Gdy pasek urośnie (powiększony tekst),
+   treść zjeżdża o różnicę, więc nagłówek strony nie chowa się pod paskiem. */
+html { scroll-padding-top: var(--zs-header-h, 4rem); }
+body { padding-top: max(0px, calc(var(--zs-header-h, 4rem) - 4rem)); }
 
 /* ── Przyjaciele Szkoły – marquee ────────────────────────── */
 @keyframes marqueeScroll {
@@ -376,6 +385,22 @@ html { scroll-padding-top: 4rem; }
   animation: marqueeScroll 28s linear infinite;
 }
 .przyjaciele-track:hover { animation-play-state: paused; }
+/* WCAG 2.2.2 – pauza dostępna z klawiatury i dotyku, nie tylko przez :hover */
+.przyjaciele-track.is-paused { animation-play-state: paused !important; }
+
+.przyjaciele-pause {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .8125rem; font-weight: 600; color: #4B5563;
+  /* WCAG 1.4.11: obramowanie niesie informację „to przycisk", więc musi mieć
+     kontrast ≥ 3:1 wobec tła sekcji (#6B7280 na #F9FAFB = 4.67:1). */
+  background: #fff; border: 1px solid #6B7280; border-radius: 999px;
+  padding: .5rem 1rem; cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.przyjaciele-pause:hover { background: #F3F4F6; border-color: #374151; color: #1F2937; }
+:is(html,body).dark-mode .przyjaciele-pause {
+  background: var(--dm-surface2) !important; border-color: var(--dm-border) !important; color: var(--dm-text) !important;
+}
 
 .przyjaciele-logo {
   flex-shrink: 0;
@@ -417,8 +442,34 @@ html { scroll-padding-top: 4rem; }
 body.a11y-stop-motion .przyjaciele-track { animation: none; }
 @media (prefers-reduced-motion: reduce) { .przyjaciele-track { animation: none; } }
 
+/* ── WCAG 1.4.10 Dopasowanie do ekranu ────────────────────────────────────
+   Dziecko kontenera flex/grid domyślnie nie kurczy się poniżej szerokości
+   swojej treści (min-width:auto), więc przy powiększonym tekście na wąskim
+   ekranie karty i wiersze wypychały stronę w poziom. Na widokach mobilnych
+   zdejmujemy to ograniczenie i pozwalamy łamać długie ciągi (adresy e-mail). */
+@media (max-width: 639px) {
+  .flex > *, .grid > *, .inline-flex > * { min-width: 0; max-width: 100%; }
+  /* Paski przewijane poziomo (np. kotwice sekcji) mają własny scroll –
+     ograniczenie szerokości dzieci wypchnęłoby z nich treść. */
+  .overflow-x-auto > *, .overflow-auto > * { max-width: none; }
+  /* „anywhere" (w odróżnieniu od „break-word") zmniejsza też szerokość
+     min-content, dzięki czemu długie słowa – i tekst wpisany wprost w kontener
+     flex, gdzie selektor CSS nie sięga – nie blokują kurczenia się kolumn.
+     Wizualnie działa tak samo: łamie wyraz dopiero, gdy nie ma innego wyjścia. */
+  * { overflow-wrap: anywhere; }
+  /* Piktogramy ARASAAC mają rozmiar w rem, więc rosły razem z powiększanym
+     tekstem i wypychały treść poza ekran. Na wąskich widokach ograniczamy je
+     do części szerokości okna – tekst nadal się powiększa. */
+  img[src*="pictograms"] { width: min(4rem, 20vw); height: auto; flex-shrink: 1; }
+}
+
 /* ── WCAG 1.4.3 fix: gray-500 (#6B7280 = 4.17:1) → gray-600 (#4B5563 = 6.37:1) ── */
 .text-gray-500 { color: #4B5563 !important; }
+
+/* ── WCAG 1.4.3 fix: gray-400 (#9CA3AF = 2.54:1) → #4B5563 (7.56:1) ──────────
+   Dotyczyło m.in. informacji licencyjnej ARASAAC na stronach ETR oraz
+   podpowiedzi klawiszowych w wyszukiwarce. */
+.text-gray-400 { color: #4B5563 !important; }
 
 /* ── WCAG 2.3.3 / 2.2.2: poszanowanie systemowego "ogranicz ruch" ──────────
    Wyłącza wszystkie animacje i auto-przewijanie dla użytkowników, którzy
@@ -436,4 +487,134 @@ body.a11y-stop-motion .przyjaciele-track { animation: none; }
   #a11y-toggle-btn, .przyjaciele-track { animation: none !important; }
   .mural-parallax { transform: none !important; }
   html { scroll-behavior: auto !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Poprawki z audytu WCAG 2.1 AA (2026-08-26)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── P-01 · WCAG 1.4.3: podświetlenie frazy w wynikach wyszukiwania ────────
+   W trybie ciemnym .text-gray-900 jest przemapowane na jasny --dm-text, a
+   .bg-yellow-200 zostawało jasnożółte — biały tekst na żółtym tle dawał
+   1,06:1. Wymuszamy ciemny tekst na jaśniejszym żółtym: 14,2:1. */
+mark { color: #1F2937; }
+:is(html,body).dark-mode mark,
+:is(html,body).dark-mode .bg-yellow-200 {
+  background: #FDE68A !important;
+  color: #111827 !important;
+}
+
+/* ── P-02 · WCAG 1.4.3: podświetlenie zdania czytanego na głos ────────────
+   .tts-highlight ustawiał tylko tło. W trybie ciemnym tekst akapitu jest już
+   jasny, więc czytane zdanie znikało (1,02:1). Zamiast wymuszać kolor tekstu
+   (co zniszczyłoby kolory łączy wewnątrz akapitu) przyciemniamy samo tło:
+   --dm-text 12,2:1, --dm-muted 5,2:1, akcent #FCA5A5 7,0:1. */
+:is(html,body).dark-mode .tts-highlight {
+  background: #3A2E06 !important;
+  outline-color: #FCD34D;
+}
+
+/* ── P-03 · WCAG 1.4.3: podpowiedź w polu wyszukiwania ────────────────────
+   Wariant Tailwinda `placeholder:text-gray-500` generuje osobną regułę
+   ::placeholder z #6B7280, której nie obejmowała poprawka .text-gray-500.
+   Dawało to 3,70:1 w trybie ciemnym i 4,34:1 w wysokim kontraście. */
+#search-input::placeholder { color: #4B5563 !important; opacity: 1; }
+:is(html,body).dark-mode #search-input::placeholder { color: #94A3B8 !important; }
+body.high-contrast #search-input::placeholder { color: #FFD700 !important; }
+
+/* ── P-07 · WCAG 1.4.10 / 2.4.11: widget ułatwień na wąskim ekranie ───────
+   Przy 320 px (odpowiednik powiększenia 400%) pasek 136×44 px zasłaniał
+   połowę przycisku „Przełącz na łatwy tekst". Poniżej 480 px zostaje sam
+   przycisk kołowy 44×44 px — nazwa dostępna pozostaje bez zmian, bo etykieta
+   przechodzi do warstwy tekstu dla czytników ekranu. */
+@media (max-width: 480px) {
+  #a11y-toggle-btn > span:not([class]) {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+  #a11y-toggle-btn { padding: .75rem; gap: .35rem; }
+}
+/* Element przewijany do widoku przez fokus nie ląduje pod pływającymi
+   przyciskami w dolnych rogach. */
+a, button, summary, [tabindex] { scroll-margin-bottom: 5rem; }
+
+/* ── D-01 · WCAG 1.4.1: bieżąca strona nie tylko kolorem ──────────────────
+   W nawigacji desktopowej aktywna pozycja różniła się wyłącznie odcieniem
+   (#C62828 zamiast #4B5563), co dla osoby z zaburzeniami widzenia barw jest
+   nieczytelne. Menu mobilne ma już własne tło, więc dotyczy tylko paska. */
+#site-header nav[aria-label="Główna nawigacja"] a[aria-current="page"],
+#site-header nav[aria-label="Główna nawigacja"] button[aria-current="true"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* ── D-12 · WCAG 1.4.11: tryb wysokiego kontrastu systemu (Windows) ───────
+   W forced-colors system nadpisuje kolory, ale tła ustawiane inline i ikony
+   rysowane jako currentColor potrafią zniknąć. Wymuszamy obwódki tam, gdzie
+   informację niósł wyłącznie kolor tła. */
+@media (forced-colors: active) {
+  #a11y-toggle-btn,
+  #scroll-top-btn,
+  .badge-ogłoszenie, .badge-wydarzenie, .badge-rekrutacja, .badge-inne,
+  .a11y-badge,
+  .view-btn.active,
+  .przyjaciele-logo {
+    forced-color-adjust: none;
+    border: 1px solid ButtonText;
+  }
+  #a11y-toggle-btn, #scroll-top-btn { background: ButtonFace; color: ButtonText; }
+  .view-btn.active { background: Highlight; color: HighlightText; }
+  svg, img[src$=".svg"] { forced-color-adjust: auto; }
+  :focus-visible { outline: 3px solid Highlight !important; }
+  #scroll-progress { background: Highlight !important; }
+}
+
+/* ── D-13 · Odporność: strona bez JavaScriptu ─────────────────────────────
+   Nawigacja i stopka są wstrzykiwane skryptem, więc bez JS zostawała sama
+   treść <main> bez żadnych łączy. Styl trzymamy tutaj, a nie w klasach
+   Tailwinda, żeby działał także przed przebudową tailwind.css. */
+.noscript-note {
+  background: #FFF5F5;
+  border-bottom: 2px solid #C62828;
+  color: #4A0000;
+  padding: 1rem clamp(1rem, 4vw, 2rem);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.noscript-note strong { display: block; margin-bottom: .35rem; font-size: 1.05rem; }
+.noscript-note ul {
+  list-style: none; margin: .6rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.25rem;
+}
+.noscript-note a { color: #8B0000; text-decoration: underline; text-underline-offset: 3px; }
+.noscript-note a:hover { color: #4A0000; }
+:is(html,body).dark-mode .noscript-note {
+  background: #2A1414; color: #FFE4E4; border-bottom-color: #EF9A9A;
+}
+:is(html,body).dark-mode .noscript-note a { color: #FCA5A5; }
+
+/* ── D-14 · Odporność: awaria CDN z ikonami ───────────────────────────────
+   Skrypt lucide zamienia <i data-lucide> na <svg>. Gdy się nie wczyta,
+   znaczniki zostają puste — dla przycisków z samą ikoną znika jedyna
+   widoczna wskazówka. Klasę no-lucide ustawia atrybut onerror skryptu. */
+.no-lucide i[data-lucide] {
+  display: inline-block;
+  min-width: 1em; min-height: 1em;
+  border: 1px solid currentColor; border-radius: 2px;
+  opacity: .55;
+}
+
+/* ── WCAG 1.4.1: łącze w bloku tekstu ─────────────────────────────────────
+   Łącza w akapitach miały tylko kolor marki (#C62828) wobec tekstu #4B5563 —
+   to zaledwie 1,34:1, a kryterium wymaga co najmniej 3:1 albo wyróżnienia
+   innego niż barwa. Podkreślenie było dotąd tylko na :hover, więc dla osoby
+   z zaburzeniami widzenia barw łącze zlewało się ze zdaniem.
+   Zakres celowo wąski: tylko łącza liniowe w tekście ciągłym. Łącza układane
+   flexem (karty, kafelki, nawigacja) i przyciski są wykluczone — nie stoją
+   w zdaniu, więc kryterium ich nie dotyczy. */
+:is(p, dd, blockquote, figcaption) a:not(.flex):not(.inline-flex):not(.block):not(.inline-block):not(.skip-link) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
