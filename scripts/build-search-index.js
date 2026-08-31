@@ -48,7 +48,7 @@ function readJson(file) {
   catch { return null; }
 }
 
-// Strony renderowane w dużej mierze z JS (news.js/kalendarz.js) mają mało
+// Strony renderowane w dużej mierze z JS (news.json/kalendarz.json) mają mało
 // tekstu w samym HTML — dokładamy treść ze źródłowych danych JSON.
 function extraContent(file) {
   if (file.startsWith('aktualnosci')) {

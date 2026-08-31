@@ -1,13 +1,22 @@
 {
   "posts": [
     {
+      "id": 6,
+      "date": "2026-09-01",
+      "category": "wydarzenie",
+      "title": "Uroczyste rozpoczęcie roku szkolnego 2026/2027",
+      "excerpt": "Uroczyste rozpoczęcie roku szkolnego 2026/2027 odbędzie się 1 września 2026 r. o godzinie 9:00. Serdecznie zapraszamy uczniów, rodziców i opiekunów. Po części oficjalnej uczniowie spotkają się z wychowawcami w salach lekcyjnych.",
+      "excerpt_etr": "Rok szkolny zaczynamy 1 września o godzinie 9:00. Zapraszamy uczniów i rodziców. Potem pójdziecie do sal na spotkanie z wychowawcą.",
+      "pinned": true
+    },
+    {
       "id": 1,
       "date": "2026-06-26",
       "category": "ogłoszenie",
       "title": "Zakończenie roku szkolnego 2025/2026",
       "excerpt": "Serdecznie zapraszamy uczniów, rodziców i przyjaciół szkoły na uroczystość zakończenia roku szkolnego. Szczegółowy program dostępny u wychowawców.",
       "excerpt_etr": "Zapraszamy na zakończenie roku szkolnego. Program dostaniesz od wychowawcy.",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": 2,
