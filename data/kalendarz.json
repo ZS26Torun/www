@@ -1,5 +1,5 @@
 {
-  "_info": "Plik kalendarza roku szkolnego 2026/2027. Sekcja 'events' zawiera oficjalne terminy MEN – nie edytuj. Dodatkowe terminy od dyrekcji wpisuj w 'customEvents'.",
+  "_info": "Plik kalendarza roku szkolnego 2026/2027. Sekcja 'events' zawiera oficjalne terminy MEN – nie edytuj. Dodatkowe terminy od dyrekcji wpisuj w 'customEvents'. Dni dodatkowo wolne od zajęć dydaktycznych oznaczaj polem \"type\": \"dzien-wolny\"; wpisy bez pola 'type' pokazują się jako wydarzenia od dyrekcji.",
 
   "events": [
     { "label": "Rozpoczęcie roku szkolnego",          "date": "2026-09-01", "type": "rok-szkolny" },
@@ -19,6 +19,10 @@
   ],
 
   "customEvents": [
+    { "label": "Dzień dodatkowo wolny od zajęć dydaktycznych", "date": "2026-11-02", "type": "dzien-wolny" },
+    { "label": "Dni dodatkowo wolne od zajęć dydaktycznych",   "dateStart": "2026-11-12", "dateEnd": "2026-11-13", "type": "dzien-wolny" },
+    { "label": "Dni dodatkowo wolne od zajęć dydaktycznych",   "dateStart": "2027-01-04", "dateEnd": "2027-01-05", "type": "dzien-wolny" },
+    { "label": "Dzień dodatkowo wolny od zajęć dydaktycznych", "date": "2027-05-28", "type": "dzien-wolny" },
     {
       "_example": true,
       "label": "Dzień otwarty szkoły",

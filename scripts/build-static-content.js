@@ -54,7 +54,8 @@ const TYPE = {
   'przerwa':     { icon: 'snowflake',   card: 'bg-blue-50 border-blue-100',       icon_bg: 'bg-blue-100',    icon_color: 'text-blue-500',  date_color: 'text-blue-700' },
   'ferie':       { icon: 'sun',         card: 'bg-amber-50 border-amber-100',     icon_bg: 'bg-amber-100',   icon_color: 'text-amber-500', date_color: 'text-amber-700' },
   'swieto':      { icon: 'flag',        card: 'bg-brand-50 border-brand-200',     icon_bg: 'bg-brand-100',   icon_color: 'text-brand-700', date_color: 'text-brand-700' },
-  'custom':      { icon: 'star',        card: 'bg-purple-50 border-purple-200',   icon_bg: 'bg-purple-100',  icon_color: 'text-purple-600', date_color: 'text-purple-700' },
+  'dzien-wolny': { icon: 'calendar-off', card: 'bg-teal-50 border-teal-200',     icon_bg: 'bg-teal-100',    icon_color: 'text-teal-600',  date_color: 'text-teal-700' },
+  'custom':      { icon: 'star',       card: 'bg-purple-50 border-purple-200',   icon_bg: 'bg-purple-100',  icon_color: 'text-purple-600', date_color: 'text-purple-700' },
 };
 
 const MONTHS_PL  = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
@@ -113,7 +114,7 @@ function buildList(events) {
 function renderKalendarzHtml() {
   const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'kalendarz.json'), 'utf8'));
   const custom = (data.customEvents || []).filter(e => !e._example);
-  const all = [...(data.events || []), ...custom.map(e => ({ ...e, type: 'custom' }))];
+  const all = [...(data.events || []), ...custom.map(e => ({ ...e, type: e.type || 'custom' }))];
   all.sort((a, b) => (a.date || a.dateStart) > (b.date || b.dateStart) ? 1 : -1);
   return buildList(all);
 }
