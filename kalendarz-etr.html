@@ -72,6 +72,7 @@
         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span>Przerwa świąteczna</span>
         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>Ferie</span>
         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-base font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-brand-600 inline-block"></span>Święto</span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-700 text-base font-semibold hidden" id="legend-dzien-wolny"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 inline-block"></span>Dzień wolny</span>
       </div>
     </section>
 
@@ -125,7 +126,8 @@
       'przerwa':     { icon: 'snowflake',   card: 'bg-blue-50 border-blue-100',       icon_bg: 'bg-blue-100',    icon_color: 'text-blue-500',  date_color: 'text-blue-700' },
       'ferie':       { icon: 'sun',         card: 'bg-amber-50 border-amber-100',     icon_bg: 'bg-amber-100',   icon_color: 'text-amber-500', date_color: 'text-amber-700' },
       'swieto':      { icon: 'flag',        card: 'bg-brand-50 border-brand-200',     icon_bg: 'bg-brand-100',   icon_color: 'text-brand-700', date_color: 'text-brand-700' },
-      'custom':      { icon: 'star',        card: 'bg-purple-50 border-purple-200',   icon_bg: 'bg-purple-100',  icon_color: 'text-purple-600',date_color: 'text-purple-700' },
+      'dzien-wolny': { icon: 'calendar-off', card: 'bg-teal-50 border-teal-200',     icon_bg: 'bg-teal-100',    icon_color: 'text-teal-600',  date_color: 'text-teal-700' },
+      'custom':      { icon: 'star',       card: 'bg-purple-50 border-purple-200',   icon_bg: 'bg-purple-100',  icon_color: 'text-purple-600',date_color: 'text-purple-700' },
     };
 
     const MONTHS_PL = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec',
@@ -269,11 +271,12 @@
 
     function render(events, customEvents) {
       const custom = (customEvents || []).filter(e => !e._example);
-      const all = [...events, ...custom.map(e => ({ ...e, type: 'custom' }))];
+      const all = [...events, ...custom.map(e => ({ ...e, type: e.type || 'custom' }))];
       all.sort((a, b) => (a.date || a.dateStart) > (b.date || b.dateStart) ? 1 : -1);
       buildCountdown(all);
       document.getElementById('view-loading').remove();
       document.getElementById('view-list').innerHTML = buildList(all);
+      if (all.some(e => e.type === 'dzien-wolny')) document.getElementById('legend-dzien-wolny').classList.remove('hidden');
       if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
     }
 
